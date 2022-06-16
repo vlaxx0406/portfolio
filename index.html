@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Portfolio</title>
+    <!-- ## favicon 이미지 경로 삽입, 각 css와 js 경로 수정 후 주석 삭제 ## -->
+    <link rel="icon" href="images/logo_RpY_icon.ico">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/index_tablet.css" type="text/css">
+    <link rel="stylesheet" href="css/index_mo.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/1bd9090200.js" crossorigin="anonymous"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/circle-progress.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css" />
+    <script type="text/javascript" src="js/jquery.fullpage.js"></script>
+    <script src="js/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="js/scrolloverflow.min.js"></script>
+
+
+    <!-- ##### 코딩 작업시 삭제해주세요! #### -->
+    <style>
+        .section {
+            text-align: center;
+            font-size: 2em;
+        }
+
+        header {
+            position: fixed;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            margin-bottom: 1rem;
+            background-color: lightgray;
+            border-radius: 1.25em;
+            width: 300px;
+            height: 16px;
+            display: inline-block;
+        }
+
+        .progress-value {
+            background-color: orange;
+            border-radius: 1.25em;
+            height: 16px;
+            display: block;
+            transition: 0.3s all linear;
+            animation: progress 3s ease-in-out;
+            -webkit-animation: progress 3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false" ondragstart="return false">
+    <div id="wrap">
+        <!-- 메뉴 상단 -->
+        <header>
+            <ul id="menu">
+                <li data-menuanchor="1st_page"><a href="#1st_page">
+                        <!--<img src="#" >-->Home
+                    </a><span></span></li>
+                <!--<li data-menuanchor="1st_page" class="active">Main<a href="#1st_page"></a></li>-->
+                <li data-menuanchor="2nd_page"><a href="#2nd_page">About</a><span></span></li>
+                <li data-menuanchor="3rd_page"><a href="#3rd_page">Web Portfolio</a><span></span></li>
+                <li data-menuanchor="4th_page"><a href="#4th_page">Graphic Portfolio</a><span></span></li>
+                <li data-menuanchor="5th_page"><a href="#5th_page">CONTACT<span></span></a></li>
+            </ul>
+            <ul id="m_menu">
+                <li data-menuanchor="1st_page"><a href="#1st_page">
+                        <!--<img src="#" >-->Home
+                    </a><span></span></li>
+                <!--<li data-menuanchor="1st_page" class="active">Main<a href="#1st_page"></a></li>-->
+                <li data-menuanchor="2nd_page"><a href="#2nd_page">About</a><span></span></li>
+                <li data-menuanchor="3rd_page"><a href="#3rd_page">Web</a><span></span></li>
+                <li data-menuanchor="4th_page"><a href="#4th_page">Graphic</a><span></span></li>
+                <li data-menuanchor="5th_page"><a href="#5th_page">CONTACT<span></span></a></li>
+            </ul>
+            <div class="scroll_any">
+                <div class="mouse">
+                    <div class="scroller"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- fullpage layout -->
+        <div id="fullpage">
+            <div class="section" id="page1">
+                <div class="container">
+                    <ul>
+                        <div class="main_logo wow fadeInDown" data-wow-duration="2s"><img src="images/logo_1.png" alt=""></div>
+                        <div class="comment wow fadeInDown" data-wow-delay="1s" data-wow-duration="2s">
+                            <p>I'm vlaxx, Web & UI/UX designer</p>
+                        </div>
+                        <div class="Introduce wow fadeInUp" data-wow-delay="1s" data-wow-duration="2s">
+                            <p>원하는 답을 찾기 위해 끊임없이 고민하는</p>
+                            <p class="Introduce_1 wow fadeInUp" data-wow-delay="2s" data-wow-duration="1s">웹&UI/UX 디자이너 오준영입니다.</p>
+                        </div>
+                    </ul>
+                    <div class="box">
+                        <div class="title">
+                            <span class="block"></span>
+                            <h1>June OH
+                                <!--<span></span>-->
+                            </h1>
+                        </div>
+                        <div class="role">
+                            <div class="block"></div>
+                            <p>portfolio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="page2">
+                <div class="profile">
+                    <ul class="about">
+                        <li class="about_top">
+                            <ul>
+                                <li class="about_tit">ABOUT ME</li>
+                                <li class="about_txt">WEB DESIGN &amp; Publisher</li>
+                            </ul>
+                        </li>
+                        <li class="about_bottom">
+                            <ul>
+                                <li class="sec_01">
+                                    <ul class="profile_info">
+                                        <li class="profile_img">
+                                            <img src="images/profile_img.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li class="profile_name">
+                                                    <h2>NAME.</h2>
+                                                    <p>OH JUNE YOUNG</p>
+                                                </li>
+                                                <li class="profile_desc">
+                                                    <h2>profile.</h2>
+                                                    <p><i class="far fa-calendar-check"></i> 1986. 02. 18</p>
+                                                    <p><i class="fas fa-mobile-alt"></i> 010.7462.3133</p>
+                                                    <p><i class="far fa-envelope"></i> lovlack@gmail.com</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="sec_02">
+                                    <ul>
+                                        <li class="profile_ed">
+                                            <h2>education.</h2>
+                                            <p><span>2006. 02</span>수원과학대학 산업디자인 졸업</p>
+                                            <p><span>2020. 11</span>웹디자인 프론트앤드 실무자과정 수료</p>
+                                        </li>
+                                        <li class="profile_lic">
+                                            <h2>license.</h2>
+                                            <p><span>2002. 12</span> 컴퓨터그래픽스운용기능사</p>
+                                            <p><span>2002. 11</span> 인터넷정보검색사 2급</p>
+                                            <p><span>2002. 09</span> 워드프로세서 1급</p>
+                                            <p><span>2018. 03</span> 운전면허 1종 보통</p>
+                                        </li>
+                                        <li class="profile_hb">
+                                            <h2>hobby.</h2>
+                                            <ul>
+                                                <li><i class="fas fa-baseball-ball"></i>
+                                                    <p>BASEBALL</p>
+                                                </li>
+                                                <li><i class="fas fa-camera-retro"></i>
+                                                    <p>PHOTO</p>
+                                                </li>
+                                                <li><i class="fas fa-gamepad"></i>
+                                                    <p>PLAYGAME</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sec_03">
+                                    <ul>
+                                        <li class="work_list">
+                                            <h2>WORK EXPERIENCES.</h2>
+                                            <ul>
+                                                <li>
+                                                    <h3>JOGUNSHOP</h3>
+                                                    <p>2011 .06 ~ 2013. 11</p>
+                                                </li>
+                                                <li>
+                                                    <h3>UF COMMERCE</h3>
+                                                    <p>2013 .12 ~ 2016. 04</p>
+                                                </li>
+                                                <li>
+                                                    <h3>MERONGSHOP</h3>
+                                                    <p>2016 .05 ~ 2019. 06</p>
+                                                </li>
+                                                <li>
+                                                    <h3>DECOVIEW</h3>
+                                                    <p>2019 .07 ~ 2020. 04</p>
+                                                </li>
+                                                <li>
+                                                    <h3>EXMARU</h3>
+                                                    <p>2021 .03 ~ 2022. ing</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="skill_list">
+                                            <h2>PERSONAL SKILLS.</h2>
+                                            <ul>
+                                                <li>
+                                                    <h1>PS/AI</h1>
+                                                    <div id="circle_01"></div>
+                                                </li>
+                                                <li>
+                                                    <h1>Figma/XD</h1>
+                                                    <div id="circle_02"></div>
+                                                </li>
+                                                <li>
+                                                    <h1>HTML/Javascript</h1>
+                                                    <div id="circle_03"></div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <script>
+                                            $('#circle_01').circleProgress({
+                                                value: 0.85,
+                                                size: 45,
+                                                //            fill: {gradient: ["red", "orange"]},
+                                                fill: '#e2cfc7',
+                                                thickness: 8,
+                                                lineCap: 'round',
+                                            });
+                                            $('#circle_02').circleProgress({
+                                                value: 0.8,
+                                                size: 45,
+                                                //            fill: {gradient: ["red", "orange"]},
+                                                fill: '#e2cfc7',
+                                                thickness: 8,
+                                                lineCap: 'round',
+                                            });
+                                            $('#circle_03').circleProgress({
+                                                value: 0.60,
+                                                size: 45,
+                                                //            fill: {gradient: ["red", "orange"]},
+                                                fill: '#e2cfc7',
+                                                thickness: 8,
+                                                lineCap: 'round',
+                                            });
+
+                                            // $('#circle_04').circleProgress({
+                                            //     value: 0.5,
+                                            //     size: 45,
+                                            //     //            fill: {gradient: ["red", "orange"]},
+                                            //     fill: '#e2cfc7',
+                                            //     thickness: 8,
+                                            //     lineCap: 'round',
+                                            // });
+                                        </script>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="m_profile">
+                    <ul class="m_about">
+                        <div class="profile_img">
+                            <img src="images/profile_img.jpg" alt="">
+                        </div>
+                        <li class="profile_desc_01">
+                            <ul>
+                                <li>
+                                    <h1>NAME</h1>
+                                    <p>오준영</p>
+                                </li>
+                                <li>
+                                    <h1>birthday</h1>
+                                    <p><i class="far fa-calendar-check"></i>
+                                        1986. 02. 18</p>
+                                </li>
+                                <li>
+                                    <h1>phone</h1>
+                                    <p><i class="fas fa-mobile-alt"></i>
+                                        010.7462.3133</p>
+                                </li>
+                                <li>
+                                    <h1>e-mail</h1>
+                                    <p><i class="far fa-envelope"></i>
+                                        lovlack@gmail.com</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="profile_desc_02">
+                            <ul>
+                                <h1>EDUCATION</h1>
+                                <li>
+                                    <h3>2006. 02</h3>
+                                    <p>수원과학대학 산업디자인 졸업</p>
+                                </li>
+                                <li>
+                                    <h3>2020. 11</h3>
+                                    <p>웹디자인 프론트앤드 실무자과정 수료</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="profile_desc_03">
+                            <ul>
+                                <h1>WORK EXPERIENCES</h1>
+                                <li>
+                                    <h3>2011 .06 ~ 2013. 11</h3>
+                                    <p>JOGUNSHOP</p>
+                                </li>
+                                <li>
+                                    <h3>2013 .12 ~ 2016. 04</h3>
+                                    <p>UF COMMERCE</p>
+                                </li>
+                                <li>
+                                    <h3>2016 .05 ~ 2019. 06</h3>
+                                    <p>MERONGSHOP</p>
+                                </li>
+                                <li>
+                                    <h3>2019 .07 ~ 2020. 04</h3>
+                                    <p>DECOVIEW</p>
+                                </li>
+                                <li>
+                                    <h3>2021 .03 ~ 2022. ing</h3>
+                                    <p>EXMARU</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li class="profile_desc_04">
+                            <h1>PERSONAL SKILLS.</h1>
+                            <ul>
+                                <li>
+                                    <h3>PS/AI</h3>
+                                    <div id="m_circle_01"></div>
+                                </li>
+                                <li>
+                                    <h3>Figma/XD</h3>
+                                    <div id="m_circle_02"></div>
+                                </li>
+                                <li>
+                                    <h3>HTML/Javascript</h3>
+                                    <div id="m_circle_03"></div>
+                                </li>
+                                <!-- <li>
+                                    <h3>JAVA/jQuery</h3>
+                                    <div id="m_circle_04"></div>
+                                </li> -->
+
+                            </ul>
+                        </li>
+                        <script>
+                            $('#m_circle_01').circleProgress({
+                                value: 0.85,
+                                size: 45,
+                                //            fill: {gradient: ["red", "orange"]},
+                                fill: '#e2cfc7',
+                                emptyFill: 'rgba(255, 255, 255, 0.9)',
+                                thickness: 8,
+                                lineCap: 'round',
+                            });
+                            $('#m_circle_02').circleProgress({
+                                value: 0.8,
+                                size: 45,
+                                //            fill: {gradient: ["red", "orange"]},
+                                fill: '#e2cfc7',
+                                emptyFill: 'rgba(255, 255, 255, 0.9)',
+                                thickness: 8,
+                                lineCap: 'round',
+                            });
+                            $('#m_circle_03').circleProgress({
+                                value: 0.6,
+                                size: 45,
+                                //            fill: {gradient: ["red", "orange"]},
+                                fill: '#e2cfc7',
+                                emptyFill: 'rgba(255, 255, 255, 0.9)',
+                                thickness: 8,
+                                lineCap: 'round',
+                            });
+
+                            // $('#m_circle_04').circleProgress({
+                            //     value: 0.5,
+                            //     size: 45,
+                            //     //            fill: {gradient: ["red", "orange"]},
+                            //     fill: '#e2cfc7',
+                            //     emptyFill: 'rgba(255, 255, 255, 0.9)',
+                            //     thickness: 8,
+                            //     lineCap: 'round',
+
+                            // });
+                        </script>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="section" id="page3">
+                <div class="slide" data-anchor="slide1">
+                    <ul class="slide_thum">
+                        <li class="slide_list">
+                            <div class="slide_img no01">
+                                <img src="images/thum_01.jpg" alt="diptyque" />
+                                <figcaption>
+                                    <h2 class="slide_tit">diptyque</h2>
+                                    <a href="../main/portfolio_01.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">01</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>반응형 페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>PC / Tablet / Mobile</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>메인페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>Photoshop<br>illustrator<br>Brackets</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide_list">
+                            <div class="slide_img no02"><img src="images/thum_02.jpg" alt="화평동 왕냉면" />
+                                <figcaption>
+                                    <h2 class="slide_tit">화평동 왕냉면</h2>
+                                    <a href="../main/portfolio_02.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">02</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>풀스크린 페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>PC</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>메인페이지<br>서브페이지<br>(브랜드소개, 메뉴소개)</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>Photoshop<br>illustrator<br>Brackets</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        <li class="slide_list">
+                            <div class="slide_img no03"><img src="images/thum_03.jpg" alt="CHEVROLET" />
+                                <figcaption>
+                                    <h2 class="slide_tit">CHEVROLET</h2>
+                                    <a href="/main/portfolio_03.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">03</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>반응형 페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>PC / Tablet / Mobile</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>메인페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>Photoshop<br>illustrator<br>Brackets</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slide" data-anchor="slide2">
+                    <ul class="slide_thum">
+                        <li class="slide_list">
+                            <div class="slide_img no04">
+                                <img src="images/thum_04.jpg" alt="SHILLA STAY" />
+                                <figcaption>
+                                    <h2 class="slide_tit">SHILLA STAY</h2>
+                                    <a href="../main/portfolio_04.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">04</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>풀스크린 페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>PC</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>메인페이지</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>Photoshop<br>illustrator<br>Brackets</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide_list" style="opacity:0.4;">
+                            <div class="slide_img no05"><img src="images/thum_05.jpg" alt="sample79" >
+                                <figcaption>
+                                    <h2 class="slide_tit">EMPTY</h2>
+                                    <a href="../main/portfolio_05.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">05</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>-</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        <li class="slide_list" style="opacity:0.4;">
+                            <div class="slide_img no06"><img src="images/thum_06.jpg" alt="sample79"/>
+                                <figcaption>
+                                    <h2 class="slide_tit">EMPTY</h2>
+                                    <a href="/main/portfolio_06.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="brand_num">06</div>
+                            <div class="slide_desc">
+                                <ul>
+                                    <li>
+                                        <h2>Type</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Device</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Create</h2>
+                                        <p>-</p>
+                                    </li>
+                                    <li>
+                                        <h2>Tool</h2>
+                                        <p>-</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section" id="page4">
+                <div class="slide" data-anchor="slide1">
+                    <ul class="slide_thum">
+                        <li class="slide_list">
+                            <div class="slide_img no11">
+                                <img src="images/thum_11.jpg" alt="BN" style="opacity: 0.9" />
+                                <figcaption>
+                                    <h2 class="slide_tit">배너이미지</h2>
+                                    <a href="../main/portfolio_11.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="gp_name">BANNER IMAGE</div>
+                        </li>
+                        <li class="slide_list">
+                            <div class="slide_img no12">
+                               <img src="images/thum_12.jpg" alt="EV" style="opacity: 0.9",/>
+                                <figcaption>
+                                    <h2 class="slide_tit">이벤트페이지</h2>
+                                    <a href="../main/portfolio_12.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="gp_name">EVENT PAGE</div>                            
+                        <li class="slide_list">
+                            <div class="slide_img no13">
+                               <img src="images/thum_13.jpg" alt="POP" / style="opacity: 0.9">
+                                <figcaption>
+                                    <h2 class="slide_tit">팝업이미지</h2>
+                                    <a href="../main/portfolio_13.html" class="more">VIEW MORE</a>
+                                </figcaption>
+                            </div>
+                            <div class="gp_name">POPUP IMAGE</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section" id="page5">
+                <div class="contact">
+                    <ul>
+                        <li class="contact_tit">CONTACT</li>
+                        <li class="contact_txt">
+                            <ul>
+                                <li>
+                                    <h2>PHONE</h2>
+                                    <p><i class="fas fa-mobile-alt"></i> 010.7462.3133</p>
+                                </li>
+                                <li>
+                                    <h2>E-MAIL</h2>
+                                    <p><i class="far fa-envelope"></i> lovlack@gmail.com</p>
+                                </li>
+                                <li>
+                                    <h2>SNS</h2>
+                                    <a href="https://www.instagram.com/dewxoh">
+                                        <p><i class="fab fa-instagram"></i> dewxoh</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <h2>OPEN KAKAO</h2>
+                                    <a href="http://qr.kakao.com/talk/svZF4Ii2H52HNdWqe08ek24fNXQ-"><img src="images/kakao.jpg" alt=""></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <footer>
+                            <div class="copyright">
+                                <ul>
+                                    <li>본 홈페이지는 상업의 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</li>
+                                    <li>Copyright ⓒ 2020 by vlaxx All right Reserved</li>
+                                </ul>
+                            </div>
+                        </footer>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#fullpage').fullpage({
+            // 페이지마다 배경 색상 적용 
+            sectionsColor: ['#fff', '#d5dcd5', '#cbd0ca', '#1b5246', '#fff'],
+            // 메뉴 생성시, 각 페이지 링크 
+            anchors: ['1st_page', '2nd_page', '3rd_page', '4th_page', '5th_page'],
+            menu: '#menu',
+        });
+    </script>
+</body></html>

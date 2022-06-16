@@ -1,0 +1,592 @@
+header {
+    width: 100%;
+    height: 80px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    width: 100%;
+    padding-bottom: 30px;
+    background: #191a1a;
+}
+
+.top_bar {
+    height: 5.5vw;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.m_top_bar {
+    display: none;
+}
+
+.logo {
+    float: left;
+    margin-top: 12px;
+}
+
+.logo img {
+    width: 100px;
+    line-height: 80px;
+}
+
+.m_gnb_btn {
+    display: none;
+}
+
+.gnb_btn {
+    float: right;
+    margin-top: 20px;
+    width: 50px;
+    height: 33px;
+    cursor: pointer;
+}
+
+.gnb_btn span {
+    display: block;
+    width: 45px;
+    height: 4px;
+    position: absolute;
+    background-color: white;
+}
+
+
+.gnb_btn .bar {
+    height: 3px;
+    position: absolute;
+    z-index: 999;
+}
+
+.gnb_btn .bar_1 {
+    width: 45px;
+    top: 20px;
+    background: #fff;
+}
+
+.gnb_btn .bar_2 {
+    width: 45px;
+    top: 35px;
+    background: #fff;
+}
+
+.gnb_btn .bar_3 {
+    width: 45px;
+    top: 50px;
+    background: #fff;
+}
+
+
+nav {
+    width: 50%;
+    height: 600vw;
+    position: fixed;
+    background: #eaae32;
+    opacity: 0;
+    right: -100%;
+}
+
+nav .gnb > ul {
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    line-height: 45px;
+    float: right;
+    margin-right: 5vw;
+    opacity: 0;
+
+}
+
+nav li {
+    text-align: end;
+    padding: 0.1vw;
+    margin: 1vh 0;
+}
+
+nav a {
+    font-size: 3vw;
+    color: white;
+
+}
+
+nav li:hover a {
+    color: #1b1b1b;
+    transition: all 0.5s ease;
+}
+
+.menu_banner {
+    clear: both;
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid white;
+    height: 15vw;
+    padding: 0px;
+}
+
+.menu_banner > ul {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+
+.menu_banner > ul > li {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+
+}
+
+.menu_banner li ul {}
+
+.menu_banner .bn_img {
+    padding: 3px;
+
+}
+
+.menu_banner .bn_img a {}
+
+.menu_banner img {
+    width: 100%;
+}
+
+.menu_banner .bn_txt {
+    text-align: center;
+}
+
+.menu_banner .bn_txt a {
+    font-size: 1.5vw;
+
+}
+
+.menu_footer {
+    clear: both;
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid white;
+}
+
+.menu_footer ul {
+    width: 95%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.menu_footer li {
+    float: left;
+
+}
+
+.menu_footer a {
+    font-size: 1vw;
+    text-align: center;
+}
+
+#m_slider {
+    display: none;
+
+}
+
+#slider {
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+}
+
+
+#slider img {
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+}
+
+#slider .txt {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 31vw;
+    z-index: 99999;
+    height: 11vw;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+#slider .slider_tit {
+    position: absolute;
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 4vw;
+}
+
+#slider .slider_txt {
+    position: absolute;
+    top: 5.5vw;
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 1vw;
+}
+
+#slider .slider_btn {
+    position: absolute;
+    top: 7.5vw;
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 0.8vw;
+    border: 1px solid white;
+    padding: 0.4vw;
+    margin: auto;
+    line-height: 20px;
+    width: 10vw;
+}
+
+#slider img {
+    width: 100%;
+}
+
+.bx-pager {
+    position: absolute;
+    bottom: 15px;
+    left: 6px;
+    right: 0;
+    width: 200px;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.bx-pager a {
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    margin-right: 10px;
+    background: #fff;
+    text-indent: -9999px;
+    transition: all 0.5s ease;
+}
+
+.bx-pager a.active {
+    background-color: #eaae32;
+    width: 30px;
+}
+
+
+
+/*******************************************************/
+#container {
+    margin-top: 5vw;
+    width: 100%;
+    display: block;
+}
+
+#container h2 {
+    text-align: center;
+    margin: 5vw 0;
+    font-size: 3vw;
+    font-family: "Times New Roman"
+}
+
+#container .tab {
+    width: 99%;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+/* 중요한 부분 블럭요소로 제작*/
+#container .tab_menu.on {
+    display: block;
+}
+
+#container .tab li {
+    float: left;
+    width: 20%;
+    background: #eee;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-bottom: 0px;
+}
+
+#container .tab li:hover {
+    background: #eaae32;
+}
+
+#container .tab li:hover a {
+    color: #1b1b1b;
+}
+
+
+#container .tab a {
+    display: block;
+    padding: 1.5vw 0;
+    text-align: center;
+}
+
+#container li.on {
+    background: white;
+    box-sizing: border-box;
+}
+
+#container .on a {}
+
+/* 중요한 부분 블럭요소로 제작*/
+.tab_menu {
+    display: none;
+    padding: 5px 12px;
+
+}
+
+#container div {
+    width: 99%;
+    border: 1px solid #eee;
+    border-top: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#container div ul {
+    width: 99%;
+    margin: auto;
+    border-top: 0;
+    height: 22vw;
+}
+
+#container div li {
+    width: 25%;
+    float: left;
+    padding: 0 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+#container div img {
+    padding-top: 20px;
+    width: 100%;
+    opacity: 0.8;
+    overflow: hidden;
+}
+
+#container div li:hover img {
+    opacity: 1;
+}
+
+
+#container div .car_name {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+#container div p {
+    padding-top: 0.5vw;
+    line-height: 3vw;
+    font-size: 0.8vw;
+}
+
+#container div .tab_bar {
+    margin-top: 12px;
+    width: 0;
+    height: 3px;
+    background: #eaae32;
+    display: block;
+}
+
+#container div li:hover .tab_bar {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+
+#container div img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: all 0.5s ease-in-out;
+    부드러운 모션을 위해 추가
+}
+
+
+#container div ul li:hover img {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.04);
+}
+
+.tab > li.on > a {
+    background: white;
+}
+
+
+/* NEWS 탭*/
+/*
+.news {
+    width: 100%;
+    height: 1150px;
+    background: #e5e5e5;
+    margin-top: 0px;
+}
+
+.news h2 {
+    padding-top: 10vw;
+}
+*/
+
+/* 하단 3단 배너*/
+
+.b_banner {}
+
+.b_banner ul {
+    max-width: 1500px;
+    margin: 100px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.b_banner li {
+    width: 32%;
+    text-align: center;
+    display: block;
+}
+
+.b_banner img {
+    width: 100%;
+    display: block;
+}
+
+.b_banner .img {
+    overflow: hidden;
+}
+
+.b_banner h3 {
+    font-size: 1.3vw;
+    font-weight: bold;
+    margin: 2vw 0 0;
+}
+
+.b_banner_desc {
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0;
+    line-height: 1.1vw;
+    height: 2vw;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 0.8vw;
+}
+
+
+
+.more_btn {
+    padding: 20px 0px;
+    background: #fff;
+    border: 1px solid #eee;
+    font-size: 1vw;
+    letter-spacing: 5px;
+}
+
+.b_banner li:hover .more_btn {
+    background: #eaae32;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.b_banner li img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: all 0.5s ease-in-out;
+    /* 부드러운 모션을 위해 추가*/
+}
+
+.b_banner li:hover img {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+footer_menu {
+    width: 100%;
+}
+
+.footer_menu ul {
+    width: 60%;
+    max-width: 700px;
+    display: block;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+}
+
+.footer_menu li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.footer_menu li:hover a {
+    color: #eaae32;
+    transition: all 0.3s ease;
+}
+
+.footer_menu a {
+    color: white;
+}
+
+.footer_logo {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer_sns {
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.footer_sns li {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+.copyright {
+    clear: both;
+    width: 80%;
+    margin: 25px auto;
+}
+
+.copyright p {
+    color: white;
+    line-height: 1.5;
+    font-size: 12px;
+    text-align: center;
+}

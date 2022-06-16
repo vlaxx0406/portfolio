@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+    font-family: 'Ibarra Real Nova', 'Noto Serif KR', serif;
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Ibarra Real Nova';
+    overflow: auto;
+}
+
+/*----------------------------------------------*/
+#top {
+    width: 100%;
+    height: 3vw;
+    margin: 0 auto;
+}
+
+#top h1 {
+    width: 100%;
+    height: 3vw;
+    line-height: 3vw;
+    text-align: center;
+    background: #1b1b1b;
+
+}
+
+#top h1 a {
+    width: 100%;
+    height: 3vw;
+    line-height: 3vw;
+    color: white;
+    position: relative;
+    font-size: 1vw;
+}
+
+
+/* top_banner end-------------------------------------*/
+header,
+#wrap,
+.product,
+#sec_banner,
+.product_3,
+#scrat_banner,
+footer {
+    width: 100%;
+
+}
+
+#m_wrap {
+    display: none;
+}
+
+#wrap .gnb {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: relative;
+
+}
+
+#wrap .gnb .login {
+    width: 100%;
+    height: 30px;
+    display: block;
+    float: right;
+    margin-right: 10%;
+
+}
+
+#wrap .gnb .login ul {
+    height: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#wrap .gnb .login ul li {
+    margin-left: 40px;
+}
+
+#wrap .gnb .login ul li a {
+    font-size: 13px;
+    font-weight: bold;
+    color: gray;
+    transition: all 0.5s ease;
+}
+
+#wrap .gnb .login ul li a:hover {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1b1b1b;
+}
+
+#wrap .gnb .login ul li .search {
+    margin-right: 20px;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: 1px solid #1b1b1b;
+    width: 150px;
+    font-size: 12px;
+}
+
+/* 로그인배너 끝*/
+
+#wrap .gnb .navi {
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    width: 13vw;
+    top: 60px;
+    margin: auto;
+    right: 75%;
+}
+
+#wrap .gnb .navi img {
+    width: 10vw;
+    margin: 0 auto;
+    display: block;
+
+}
+
+#wrap .gnb .navi .category {
+    width: 13vw;
+}
+
+#wrap .gnb .navi .category ul {
+    width: 13vw;
+}
+
+#wrap .gnb .navi .category ul > li {
+
+    line-height: 1.5vw;
+    text-align: center;
+}
+
+#wrap .gnb .navi .category ul .menu {
+    font-size: 1.2vw;
+    padding: 0.2vw 0;
+    letter-spacing: 0.1vw;
+    color: aqua;
+}
+
+#wrap .gnb .navi .category ul .menu a {
+    color: #6e6e6e;
+}
+
+#wrap .gnb .navi .category ul .menu a:hover {
+    color: #1b1b1b;
+}
+
+
+#wrap .gnb .navi .category ul li:hover span {
+    background-color: #1b1b1b;
+    transition: all 0.5s ease-out;
+    width: 10%;
+    height: 1px;
+    opacity: 1;
+}
+
+#wrap .gnb .navi .category ul li.list {
+    width: 100%;
+    height: auto;
+    display: none;
+    padding: 0.3vw 0;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    border-top: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+    letter-spacing: 0.1vw;
+
+}
+
+#wrap .gnb .navi .category ul li.list li:hover {
+    text-decoration: underline;
+
+}
+
+#wrap .gnb .navi .category ul > li.on {}
+
+#wrap .gnb .navi .category ul > li.on span {
+    background-color: #1b1b1b;
+    width: 10%;
+    height: 1px;
+    opacity: 1;
+
+}
+
+/*-------------------------------------------------*/
+
+#wrap .main_banner {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+#wrap .txt {
+    width: 300px;
+    position: absolute;
+    display: inline-block;
+    top: 250px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: end;
+    z-index: 1;
+}
+
+#wrap .txt h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+
+}
+
+#wrap .txt h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Ibarra Real Nova', 'Noto Serif KR', serif;
+}
+
+#wrap .txt p {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: 'Ibarra Real Nova', 'Noto Serif KR', serif;
+
+}
+
+.main_img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+
+#wrap .main_img ul {
+    width: 100%;
+}
+
+#wrap .main_img ul li {
+    width: 100%;
+
+}
+
+#wrap .main_img ul li a img {
+    width: 100%;
+    min-width: 700px;
+}
+
+.main_desc {
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+}
+
+.main_tit {
+    text-align: end;
+    font-size: 2.5vw;
+
+}
+
+.main_ko {
+    margin-top: 20px;
+    text-align: end;
+    font-size: 1.5vw;
+    letter-spacing: 0.2vw;
+}
+
+.main_txt {
+    margin-top: 20px;
+    width: 30%;
+    text-align: end;
+    float: right;
+    font-size: 0.8vw;
+    line-height: 1.3vw;
+    word-break: keep-all;
+}
+
+
+
+
+#wrap .mid_banner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 999;
+}
+
+#wrap .mid_banner ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#wrap .mid_banner ul li {
+    width: 25%;
+}
+
+#wrap .mid_banner ul li a img {
+    width: 100%;
+}
+
+/*-----------------------메인배너끝------------------------*/
+#mo_type {
+    display: none;
+}
+
+/*-----------------------중간배너4단------------------------*/
+.product {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.product h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 90px 0 40px 0;
+    font-weight: 100;
+}
+
+.product ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.product ul li {
+    width: 300px;
+    padding: 10px;
+}
+
+.product ul li a img {
+    width: 100%;
+    margin: auto 0;
+    border: 1px solid #eee;
+    min-width: 150px;
+}
+
+.product ul li a img:hover {
+    opacity: 0.8;
+
+}
+
+.product ul li a {
+    color: #999;
+}
+
+.product ul li a:hover {
+    color: #000;
+}
+
+.product ul li a .name {
+    display: block;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px 10px 10px;
+}
+
+.product ul li a .price {
+    margin-top: -10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+/*------------새컨드배너-----------*/
+#sec_banner {
+    width: 100%;
+    margin-top: 90px;
+    display: block;
+}
+
+#sec_banner .box {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0fcf0;
+    margin: 0 auto;
+}
+
+#sec_banner .box .sec_img {
+    width: 50%;
+}
+
+#sec_banner .box .sec_img img {
+    width: 100%;
+}
+
+#sec_banner ul li.sec_txt {
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+}
+
+#sec_banner .box li.sec_txt .sec_tit {
+    font-size: 2vw;
+}
+
+
+#sec_banner .box li.sec_txt .kor_name {
+    text-align: center;
+    font-size: 1.4vw;
+    padding-top: 1vw;
+    font-weight: normal;
+
+}
+
+#sec_banner .box li.sec_txt .desc {
+    width: 95%;
+    text-align: center;
+    font-size: 0.8vw;
+    padding-top: 1vw;
+    font-family: "맑은 고딕", 'sans-serif';
+    margin: 0 auto;
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+#sec_banner .box li.sec_txt span.more {
+    width: 150px;
+    text-align: center;
+    font-size: 0.8vw;
+    padding: 10px 10px;
+    font-family: "나눔명조", 'sans-serif';
+    margin: 20px auto 0;
+    border: 1px solid #333;
+    display: inline-block;
+}
+
+#sec_banner .box li.sec_txt span.more:hover {
+    color: white;
+    background: black;
+    transition: all 0.5s ease;
+
+}
+
+
+/*--------------3단 상품나열-------------*/
+
+.product_3 {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.product_3 .media {
+    position: relative;
+    padding-top: 56%;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+
+.product_3 .media iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.product_3 h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 90px 0 40px 0;
+    font-weight: 100;
+}
+
+.product_3 h1 span {
+    border: 1px solid;
+    width: 100px;
+    margin: 10px 30px;
+    display: inline-block;
+}
+
+.product_3 ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+.product_3 ul li {
+    width: 390px;
+    margin: 0 40px;
+}
+
+.product_3 ul li a img {
+    width: 100%;
+    margin: auto 0;
+    border: 1px solid #eee;
+    min-width: 150px;
+}
+
+.product_3 ul li a img:hover {
+    opacity: 0.8;
+
+}
+
+.product_3 ul li a {
+    color: #999;
+}
+
+.product_3 ul li a:hover {
+    color: #000;
+}
+
+.product_3 ul li a .name {
+    display: block;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px 10px 10px;
+    text-transform: uppercase;
+
+}
+
+.product_3 ul li a .price {
+    margin-top: -10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+
+
+
+/*------------스크랫 배너-----------*/
+
+
+#scrat_banner {
+    width: 100%;
+    max-width: 1300px;
+    margin-top: 90px;
+    margin: 0 auto;
+}
+
+#scrat_banner h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 90px 0 40px 0;
+    font-weight: 100;
+}
+
+
+#scrat_banner .scrat_tit {
+    text-align: center;
+    font-size: 2vw;
+    padding: 90px 0 40px 0;
+    font-weight: 100;
+    letter-spacing: 2px;
+    
+}
+
+#scrat_banner .desc_box {
+    width: 100%;
+    background-color: #f0fcf0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#scrat_banner ul .scrat_img {
+    width: 60%;
+}
+
+#scrat_banner ul .scrat_img img {
+    width: 100%;
+}
+
+
+#scrat_banner .desc_box .scrat_txt {
+    width: 40%;
+    display: block;
+    text-align: center;
+}
+
+#scrat_banner .desc_box .scrat_txt h1 {
+    text-align: center;
+    font-size: 1.4vw;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+
+#scrat_banner .desc_box li.scrat_txt .sub_title {
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+#scrat_banner .desc_box li.scrat_txt .desc {
+    width: 300px;
+    text-align: center;
+    font-size: 0.8vw;
+    padding-top: 10px;
+    font-family: "맑은 고딕", 'sans-serif';
+    margin: 0 auto;
+    line-height: 1.5;
+    word-break: break-all;
+
+}
+
+#scrat_banner .desc_box li.scrat_txt span.more {
+    width: 150px;
+    text-align: center;
+    font-size: 0.8vw;
+    padding: 10px 10px;
+    font-family: "나눔명조", 'sans-serif';
+    margin: 20px auto 0;
+    border: 1px solid #333;
+    display: inline-block;
+}
+
+#scrat_banner .desc_box li.scrat_txt span.more:hover {
+    color: white;
+    background: black;
+    transition: all 0.5s ease;
+
+}
+
+
+
+
+
+/*------------------------------------------------------*/
+footer {
+    background: url(../images/footer.jpg) center;
+    background-size: cover;
+    width: 100%;
+    background-color: #1d1c1c;
+    color: white;
+}
+
+
+
+#footer_menu {
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer_menu li a {
+    color: #888;
+    padding: 0 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+#footer_menu li:hover > a {
+    color: white;
+}
+
+#footer_logo {
+    width: 700px;
+    margin: 0 auto;
+    padding: 15px;
+    font-family: "나눔명조", 'sans-serif';
+
+    color: #888;
+    text-align: center;
+}
+
+
+
+#footer_bottom li img {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    padding-bottom: 30px;
+
+}
+
+footer h1 {
+    width: 700px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin: 0 auto;
+}
+
+
+#social {
+    width: 700px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#social .so_title {
+    width: 50%;
+}
+
+#social {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#social .so_title input.email {
+    width: 250px;
+    height: 20px;
+    border: 0px;
+    background: #fff;
+    text-indent: 10px;
+    font-size: 14px;
+    padding: 4px;
+    margin: 0;
+
+}
+
+#social .so_title input.button {
+    width: 45px;
+    border: 0px;
+    background: #fff;
+    padding: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: -9px;
+
+}
+
+#social .so_img {
+    width: 50%;
+    margin: -30px auto 0 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+
+}
+
+#social .so_img img {
+    width: 80px;
+    margin: 0 20px;
+    box-sizing: border-box
+}
+
+#social .so_img ol {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#info {
+    width: 700px;
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2;
+    font-family: 'sans-serif';
+    padding-bottom: 20px;
+}
+
+#info p {
+    margin-top: 10px;
+
+}

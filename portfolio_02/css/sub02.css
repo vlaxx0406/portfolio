@@ -1,0 +1,201 @@
+.gnb {
+    width: 100%;
+    position: fixed;
+    height: 80px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3)
+}
+
+.gnb:hover {
+    width: 100%;
+    position: fixed;
+    height: 300px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.9;
+    border-radius: 0 0 10px 10px;
+}
+.gnb ul{
+    width: 1300px;
+    margin: 0 auto;   
+}
+
+#container {
+    background: #1b1b1b;
+    padding-bottom: 100px;
+}
+
+#top {
+    width: 100%;
+    height: 350px;
+    min-width: 1300px;
+    margin: 0 auto;
+    background: url(../img/sub_03_top.jpg)center center no-repeat;
+    background-size: cover;
+    border: 1px solid;
+}
+
+#top h2 {
+    font-size: 40px;
+    margin: 130px 0 20px 0;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 10px;
+    text-shadow: 2px 2px 10px #535353;
+}
+
+#top p {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.menu_tap {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.menu_tap ul {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.menu_tap li {
+    padding: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 30px;
+
+
+}
+
+.menu_tap a {
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.menu_tap span {
+    display: block;
+    background: white;
+    width: 0%;
+    margin: 0 auto;
+    opacity: 0.5;
+    height: 3px;
+
+}
+
+.menu_tap li:hover span {
+    background: red;
+    transition: all 0.2s ease;
+    width: 100%;
+    height: 3px;
+    opacity: 1;
+}
+
+#f_line,#m_line,#d_line {
+    width: 1200px;
+    margin: 20px auto;
+    border-bottom: 1px dashed;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+#food, #meat, #dim {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.sub_tit {
+    flex-flow: row nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 20px;
+    min-width: 1200px;
+}
+
+.sub_tit h2 {
+    font-size: 50px;
+    color: #fff;
+    letter-spacing: 20px;
+}
+
+.sub_tit img {
+    width: 50px;
+}
+
+
+#food ul,#meat ul,#dim ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+#food li {margin: 4px 0;}
+
+
+#food ol,#meat ol,#dim ol {
+    overflow: hidden;
+}
+
+#food .mn_list,#meat .mn_list,#dim .mn_list{
+    position: absolute;
+
+}
+
+#food .mn_list img {overflow: hidden;}
+
+#food .mn_txt, #meat .mn_txt ,#dim .mn_txt {
+    position: relative;
+    top:0px;
+    width: 390px;
+    height: 390px;
+    background: black;
+    display: block;
+    line-height: 390px;
+    font-size: 40px;
+    opacity: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+#food .mn_txt:hover, #meat .mn_txt:hover,#dim .mn_txt:hover{
+    position: relative;
+    top:0px;
+    width: 390px;
+    height: 390px;
+    background: black;
+    display: block;
+    line-height: 390px;
+    font-size: 40px;
+    opacity: 0.8;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+h4 {color: white;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

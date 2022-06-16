@@ -1,0 +1,597 @@
+@media all and (max-height:470px) {
+    header {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        box-sizing: border-box;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    header #menu {
+        display: none;
+    }
+
+    header #m_menu {
+        width: 100%;
+        min-width: 100px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+        line-height: 0px;
+        height: 40px;
+        box-sizing: border-box;
+
+    }
+
+    header #m_menu li {
+        padding: 0px 10px;
+
+    }
+
+    header #m_menu li:hover span {
+        width: 100%;
+        background: #cc8b65;
+        transition: all 0.5s ease;
+
+    }
+
+    header #m_menu li:hover a {
+        color: #cc8b65;
+        transition: all 0.5s ease;
+
+    }
+
+    header #m_menu li span {
+        height: 2px;
+        margin: auto;
+        background: #fff;
+        display: block;
+    }
+
+    header #m_menu li a {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Gontserrat-Regular";
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 10px;
+
+    }
+
+    /********************** Page_01 **********************/
+    .main_img {}
+
+    .main_img img {
+        height: 130vh;
+    }
+
+    .main_logo {
+        position: absolute;
+        top: 32vw;
+        height: 45vw;
+    }
+
+    .main_logo img {
+        height: 80%;
+        border: 3px solid #fff;
+        border-radius: 200px;
+    }
+
+    body,
+    html {
+        overflow: hidden;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .container .box {
+        top: 20vw;
+        width: 200px;
+        max-width: 300px;
+        height: 61vw;
+        position: absolute;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+
+
+    }
+
+    .container .box .title {
+        width: 120px;
+        position: relative;
+        height: 8vw;
+        top: 0%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    .container .box .title .block {
+        height: inherit;
+        background: #fff;
+        position: absolute;
+        animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        box-sizing: border-box;
+    }
+
+    /* 첫번째 애니메이션*/
+    .container .box .title h1 {
+        font-family: "Gontserrat-Regular";
+        color: #fff;
+        font-size: 12px;
+        line-height: 7vw;
+        -webkit-animation: mainFadeIn 2s forwards;
+        -o-animation: mainFadeIn 2s forwards;
+        animation: mainFadeIn 2s forwards;
+        animation-delay: 1.6s;
+        opacity: 0;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 2px solid #fff;
+        box-sizing: border-box;
+        font-weight: bold;
+        height: inherit;
+
+    }
+
+    .container .box .title h1 span {
+        width: 0px;
+        height: 0px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background: #cc8b65;
+        -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        margin-left: 5px;
+        margin-top: -10px;
+        position: absolute;
+        bottom: 13px;
+        right: -12px;
+    }
+
+    .container .box .role {
+        width: 120px;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 8vw;
+        margin-top: 0px;
+        top: 0%;
+        margin: 0 auto;
+        box-sizing: border-box;
+
+    }
+
+    .container .box .role .block {
+        height: inherit;
+        background: #fff;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex;
+        height: 100%;
+
+    }
+
+    /* 두번째 애니메이션*/
+    .container .box .role p {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font-family: "Gontserrat-Regular";
+        color: #fff;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 2px solid #fff;
+        height: 50px;
+        line-height: 7vw;
+        height: inherit;
+        font-weight: bold;
+
+
+
+    }
+
+    /* 코멘튼 */
+    .container .comment {
+        height: 20px;        
+        line-height: 20px;
+        bottom: 20px;
+        display: none;
+    }
+
+    .container .comment p {
+        color: #fff;
+        font-family: "Gontserrat-Regular";
+        font-size: 12px;
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .container .Introduce {
+        position: absolute;
+        bottom: 110px;
+
+    }
+
+    .container .Introduce p,
+    .container .Introduce_1 p {
+        color: #fff;
+        font-family: "Gontserrat-Regular";
+        font-size: 4vw;
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .container .Introduce_1 {
+        position: absolute;
+        bottom: 90px;
+    }
+
+
+    /*마우스 애니메이션*/
+
+    .scroll_any {
+        position: fixed;
+        right: 0;
+        bottom: 10px;
+        left: 0;
+        margin: 0 auto;
+        width: 24px;
+        height: 45px;
+        box-sizing: border-box;
+
+    }
+
+    .mouse {
+        width: 2px;
+        padding: 7px 10px;
+        height: 25px;
+        border-radius: 25px;
+        border: 1px solid #fff;
+        box-sizing: content-box;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .scroller {
+        width: 2px;
+        height: 5px;
+        border-radius: 25%;
+        background-color: #fff;
+        animation-name: scroll;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+        animation-iteration-count: infinite;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes scroll {
+
+        0% {
+            opacity: 0;
+        }
+
+        10% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+    }
+
+
+    @keyframes mainBlock {
+        0% {
+            width: 0%;
+            left: 0;
+        }
+
+        50% {
+            width: 100%;
+            left: 0;
+        }
+
+        100% {
+            width: 0;
+            left: 100%;
+        }
+    }
+
+    @keyframes secBlock {
+        0% {
+            width: 0%;
+            left: 0;
+        }
+
+        50% {
+            width: 100%;
+            left: 0;
+        }
+
+        100% {
+            width: 0;
+            left: 100%;
+        }
+    }
+
+    @keyframes mainFadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            width: 0px;
+            height: 0px;
+            background: #e9d856;
+            border: 0px solid #ddd;
+            opacity: 0;
+        }
+
+        50% {
+            width: 10px;
+            height: 10px;
+            background: #e9d856;
+            opacity: 1;
+            bottom: 45px;
+        }
+
+        65% {
+            width: 7px;
+            height: 7px;
+            bottom: 0px;
+            width: 15px;
+        }
+
+        80% {
+            width: 10px;
+            height: 10px;
+            bottom: 20px;
+        }
+
+        100% {
+            width: 7px;
+            height: 7px;
+            background: #e9d856;
+            border: 0px solid #222;
+            bottom: 13px;
+        }
+    }
+
+    @keyframes secFadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+
+
+    /********************** Page_02 **********************/
+
+    /********************** Page_03 **********************/
+
+    .slide_thum {
+        width: 70%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-content: center;
+        margin: 100px auto;
+
+    }
+
+    .slide .slide_list {
+        width: 30%;
+        margin: 0 0px;
+    }
+
+    .slide_img {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        /*min-width: 230px;
+  max-width: 315px;
+  max-height: 230px;*/
+        width: 100%;
+        color: #ffffff;
+        text-align: left;
+        background-color: #000;
+        font-size: 16px;
+
+
+    }
+
+    .slide_img:hover {
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
+        transition: all 1s ease;
+
+    }
+
+    .slide_img * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+
+    }
+
+    .slide_img img {
+        max-width: 100%;
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+        backface-visibility: hidden;
+
+    }
+
+    .slide_img figcaption {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        left: 0px;
+        width: 100%;
+        -webkit-transform: scale(0.5) translate(0%, -50%);
+        transform: scale(0.5) translate(0%, -20%);
+        -webkit-transform-origin: 50% 0%;
+        -ms-transform-origin: 50% 0%;
+        transform-origin: 50% 0%;
+        z-index: 1;
+        opacity: 0;
+        font-size: 1.8vw;
+        height: 13vw;
+
+
+    }
+
+    .slide_img h2,
+    .slide_img p {
+        line-height: 2.5em;
+
+    }
+
+    .slide_img figcaption .more {
+        border: 1px solid #fff;
+        padding: 0.5vw;
+        text-align: center;
+        margin: auto;
+        display: block;
+        width: 10vw;
+        font-size: 1vw;
+        color: #fff;
+        font-family: "Gontserrat-Regular";
+
+    }
+
+    .slide_img .more:hover {
+        background-color: #ffffff;
+        color: #000;
+
+
+    }
+
+    .slide_img:hover img,
+    .slide_img.hover img {
+        -webkit-animation: slide_img 1s linear forwards;
+        animation: slide_img 1s ease-out forwards;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+
+    .slide_img:hover figcaption,
+    .slide_img.hover figcaption {
+        -webkit-transform: scale(1) translate(0, -0%);
+        transform: scale(1) translate(0, 0%);
+        opacity: 1;
+        -webkit-transition-delay: 0.35s;
+        transition-delay: 0.35s;
+
+
+    }
+
+    @-webkit-keyframes slide_img {
+        100% {
+            -webkit-transform: scale(1.2) translateX(0%);
+            transform: scale(1.2) translateX(0%);
+            opacity: 0.1;
+            -webkit-filter: grayscale(100%);
+            filter: gray;
+        }
+    }
+
+    @keyframes slide_img {
+        100% {
+            -webkit-transform: scale(1.2) translateX(0%);
+            transform: scale(1.2) translateX(0%);
+            opacity: 0.1;
+            -webkit-filter: grayscale(100%);
+            filter: gray;
+        }
+    }
+
+
+
+    .slide .slide_tit {
+        text-align: center;
+        padding: 1vw 0;
+        color: #fff;
+        font-family: "Gontserrat-Regular";
+        font-size: 2vw
+    }
+
+    .slide .slide_desc {
+        margin: 10px 0 10px;
+        padding: 8px 8px;
+        font-size: 0.8vw;
+        text-align: left;
+        line-height: 1.5;
+        letter-spacing: -0.1px;
+        font-weight: 100;
+        color: white;
+        border-top: 1px solid rgba(255, 225, 225, 0.8);
+
+    }
+
+    .slide .slide_desc span {
+        font-weight: bold;
+    }
+
+
+    .slide .slide_img img {
+        -webkit-filter: grayscale(0%);
+        filter: gray;
+        display: block;
+    }
+
+    .slide .slide_img img:hover {
+        -webkit-filter: grayscale(100%);
+        filter: gray;
+    }
+
+    .slide_thum img {
+        width: 100%;
+    }
+
+
+
+    /********************** Page_04 **********************/
+
+    #fp-nav {
+        position: fixed;
+        z-index: 100;
+        margin-top: -32px;
+        top: 90% !important;
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}

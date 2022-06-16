@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>화평동</title>
+    <link rel="icon" href="img/fav_wKz_icon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/jquery.bxslider.min.js"></script>
+
+    <script>
+        $(function() {
+
+            var slider = $(".bxslider").bxSlider({
+                auto: true,
+                controls: false,
+                pagerCustom: '#bx-pager'
+            });
+
+            $(document).on('click', '#bx-pager a', function() {
+                slider.stopAuto();
+                slider.startAuto();
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="gnb">
+            <ul>
+                
+                <li class="menu_left">
+                    <ol>
+                        <li><a href="sub01.html" class="main_menu">브랜드소개</a><span></span>
+                            <ol class="sub_menu">
+                                <li><a href="#">회사소개</a></li>
+                                <li><a href="#">브랜드스토리</a></li>
+                                <li><a href="#">찾아오시는길</a></li>
+                                <li><a href="#">매장안내</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="sub02.html" class="main_menu">메뉴소개</a><span></span>
+                            <ol class="sub_menu">
+                                <li><a href="sub02.html#f_line">식사류</a></li>
+                                <li><a href="sub02.html#m_line">황제갈비</a></li>
+                                <li><a href="sub02.html#d_line">왕만두</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+
+                <li class="menu_right">
+                    <ol>
+                        <li><a href="#" class="main_menu">창업안내</a><span></span>
+                            <ol class="sub_menu">
+                                <li><a href="#">비용 및 절차</a></li>
+                                <li><a href="#">창업문의</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#" class="main_menu">커뮤니티</a><span></span>
+                            <ol class="sub_menu">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">고객후기</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li class="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="navi_btn">
+        <ul>
+            <li><img src="img/tel.png" alt=""></li>
+            <li><a href="#"><img src="img/top.png" alt=""></a></li>
+        </ul>
+    </div>
+    <div id="main_vis">
+        <ul class="bxslider">
+            <li><a href="#"><img src="img/main_banner_1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/main_banner_2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/main_banner_3.jpg" alt=""></a></li>
+        </ul>
+        <div id="bx-pager">
+            <a href="#" data-slide-index="0" class="active">1</a>
+            <a href="#" data-slide-index="1">2</a>
+            <a href="#" data-slide-index="2">3</a>
+            <a href="#" data-slide-index="3">4</a>
+        </div>
+    </div>
+
+
+    <!--<div class="slide">
+        <ul>
+            <li><a href="#"><img src="img/main_banner_1.jpg" alt=""></a></li>
+        </ul>
+    </div>-->
+
+
+    <div class="container">
+        <section class="sec_1">
+            <h2>화평동 메뉴 소개</h2>
+            <p class="sub_tit">가족의 편안함과 한식의 전통성을 느낄 수 화평동의 다양한 메뉴를 만나보세요.</p>
+            <ul>
+                <li>
+                    <ul>
+                        <li class="menu_tit"><a href="sub02.html#f_line">
+                                <img src="img/menu_01.jpg" alt=""></a>
+                        </li>
+                        <li><a href="sub02.html#f_line"><p class="menu_list">식사류</p></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li class="menu_tit"><a href="sub02.html#m_line">
+                                <img src="img/menu_02.jpg" alt=""></a>
+                        </li>
+                        <li><a href="sub02.html#m_line"><p class="menu_list">황제갈비</p></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li class="menu_tit"><a href="sub02.html#d_line">
+                                <img src="img/menu_03.jpg" alt=""></a>
+                        </li>
+                        <li><a href="sub02.html#d_line"><p class="menu_list">왕만두</p></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+                            <!--  <ol>
+                        <div class="menu_tit">
+                            <li class="menu_img">
+                                <a href="sub02.html#d_line">
+                                <img src="img/menu_03.jpg" alt=""></a></li>
+                        </div>
+                        <li class="menu_list">
+                            <a href="sub02.html#d_line"><p>왕만두</p></a>
+                        </li>
+                    </ol>-->
+        <section class="sec_2">
+            <h2>대표번호 1588-6020</h2>
+            <ul>
+                <li class="store">
+                    <h2>매장찾기</h2>
+                    <ol>
+
+
+                        <li><a href="#"><img src="img/store.png" alt="">
+                                <p>전국매장보기 ></p>
+                            </a></li>
+
+
+                    </ol>
+                </li>
+                <li class="fran">
+                    <h2>창업안내</h2>
+                    <ol>
+
+
+                        <li><a href="#"><img src="img/fran.png" alt="">
+                                <p>안내바로가기 ></p>
+                            </a></li>
+
+
+                    </ol>
+                </li>
+            </ul>
+        </section>
+        <section class="sec_3">
+            <h2>커뮤니티</h2>
+            <p>화평동의 다양한 소식들을 만나보세요.</p>
+            <ul>
+                <li>
+                    <ol class="notice">
+                        <li class="comm_tit">
+                            <h2>공지사항</h2>
+                            <span><a href="">+ more</a></span>
+                        </li>
+                        <li class="comm_txt">
+                            <ol>
+                                <li><a href="#">+ 공지사항입니다.</a></li>
+                                <li><a href="#">+ </a></li>
+                                <li><a href="#">+ </a></li>
+                                <li><a href="#">+ </a></li>
+                                <li><a href="#">+ </a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <ol class="notice">
+                        <li class="comm_tit">
+                            <h2>이벤트</h2>
+                            <span><a href="">+ more</a></span>
+                        </li>
+                        <li class="comm_txt">
+                            <ol>
+                                <li><a href="#">+ 오픈기념 이벤트</a></li>
+                                <li><a href="#">+ 방문고객 사은품</a></li>
+                                <li><a href="#">+ 할인 이벤트</a></li>
+                                <li><a href="#">+ SNS 공유 이벤트</a></li>
+                                <li><a href="#">+ 쿠폰이벤트</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <ol class="notice">
+                        <li class="comm_tit">
+                            <h2>고객후기</h2>
+                            <span><a href="">+ more</a></span>
+                        </li>
+                        <li class="comm_txt">
+                            <ol>
+                                <li><a href="#">+ 가성비가 좋아요.</a></li>
+                                <li><a href="#">+ 맛있습니다.</a></li>
+                                <li><a href="#">+ 최고에요</a></li>
+                                <li><a href="#">+ 재방문 의사있습니다.</a></li>
+                                <li><a href="#">+ 번창하세요!</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="line_1"></p>
+    <p class="line_2"></p>
+    <p class="line_3"></p>
+    <footer>
+        <div id="footer">
+            <ul>
+                <li class="f_menu">
+                    <ol>
+                        <li><a href="#">이용약관<span>|</span></a></li>
+                        <li><a href="#">개인정보 취급방침<span>|</span></a></li>
+                        <li><a href="#">이메일무단수집거부<span>|</span></a></li>
+                        <li><a href="#">사이트맵</a></li>
+                    </ol>
+                </li>
+                <li class="f_logo">
+                    <div><a href="#"><img src="img/f_logo.png" alt=""></a></div>
+                    <p>서울시 동대문구 장한로 37, 2층(장안동 430-4 인경빌딩 2~3층)<br>
+                        사업자등록번호 : 220-87-13681 | TEL : 1588-6020 | FAX : 02-466-9200
+                        <br>Copyright 2014 HAPPY BRIDGE. All right reserved.</p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

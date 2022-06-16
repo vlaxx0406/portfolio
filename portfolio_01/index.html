@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0">
+    <title>Diptyque</title>
+    <link rel="icon" href="images/logo_diptyque_paris_blanc_md_1__ape_icon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/diptyque_main.css">
+    <link rel="stylesheet" href="css/diptyque_main_tablet.css">
+    <link rel="stylesheet" href="css/diptyque_main_mo.css">
+    <!--<link rel="stylesheet" href="css/diptyque_main_tablet.css">
+    <link rel="stylesheet" href="css/diptyque_main_mo.css">-->
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/1bd9090200.js" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $('.menu').click(function() {
+                $(this).next().slideToggle('fast');
+                $('.list').not($(this).next()).slideUp('fast');
+
+                $(this).addClass('on');
+                $('.menu').not($(this)).removeClass('on');
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="top">
+        <h1><a href="#">딥티크 온라인 스토어에서 다양하고 매혹적인 향을 느껴보세요.</a></h1>
+    </div>
+    <header>
+        <div id="wrap">
+            <!--PC 버전 상단-->
+            <div class=gnb>
+                <div class="login">
+                    <ul>
+                        <li><a href="#">LOGIN</a></li>
+                        <li><a href="#">CART</a></li>
+                        <li><input type="search" class="search" placeholder="검색어를 입력 하세요.">
+                            <a href="#">SEARCH</a></li>
+                    </ul>
+                </div>
+                <div class="navi">
+                    <div><a href="#"><img src="images/logo.png" alt=""></a></div>
+                    <div class="category">
+                        <ul>
+                            <li class="menu"><a href="#">Fragrances</a></li>
+                            <li class="list">
+                                <ol>
+                                    <li><a href="#">Eaux de toilette</a></li>
+                                    <li><a href="#">Eaux de parfum</a></li>
+                                    <li><a href="#">Solid perfumes</a></li>
+                                    <li><a href="#">Nomadic Spray</a></li>
+                                    <li><a href="#">Roll-ons</a></li>
+                                </ol>
+                            </li>
+                            <li class="menu"><a href="#">Skin care</a></li>
+                            <li class="list">
+                                <ol>
+                                    <li><a href="#">Body care</a></li>
+                                    <li><a href="#">Face care</a></li>
+                                    <li><a href="#">Hand care</a></li>
+                                </ol>
+                            </li>
+                            <li class="menu"><a href="#">Candle &amp; Home</a></li>
+                            <li class="list">
+                                <ol>
+                                    <li><a href="#">Scented Candles</a></li>
+                                    <li><a href="#">Diffusers</a></li>
+                                    <li><a href="#">Room Sprays</a></li>
+                                    <li><a href="#">Accessories</a></li>
+                                </ol>
+                            </li>
+                            <li class="menu"><a href="#">Gift</a></li>
+                            <li class="list">
+                                <ol>
+                                    <li><a href="#">Travel Sizes</a></li>
+                                    <li><a href="#">Sets</a></li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main_banner">
+                <div class="main_img">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="images/main_banner.jpg" alt="">
+                                <div class="main_desc">
+                                    <h1 class="main_tit">EAU DE MINTHÉ <br> EAU DE PARFUM</h1>
+                                    <p class="main_ko">오 드 퍼퓸 오 드 민떼</p>
+                                    <p class="main_txt">생생한 향기의 민트로 변신한 그리스 신화 민테 님프에서 영감을 받아 퍼퓨머리 업계의 상징적 노트 중 하나인 '푸제르'를 딥티크만의 감성으로 재현한 향수, 민트의 아로마틱한 신선함과 제라늄과 파출리가 더해져 상쾌함과 동시에 딥한 매력을 느낄 수 있는 오 드 민떼 오드 퍼퓸입니다.</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mid_banner">
+                <ul>
+                    <li><a href="#"><img src="images/mid_banner_01.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_02.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_03.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_04.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m_wrap">
+            <!--모바일 버전-->
+
+            <div class="logo_img"><a href="#"><img src="images/logo.png" alt=""></a></div>
+            <div class="m_login">
+                <ul>
+                    <li>
+                        <label for="mnav" class="m_ui">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                        <input type="checkbox" id="mnav" class="m_ui">
+                        <ol class="m_category">
+                            <li class="search_bar">
+                                <input type="search" id="m_search" class="sch_bar" placeholder="검색어를 입력해주세요.">
+                                <button><i class="fas fa-search"></i></button>
+                            </li>
+                            <li><a href="#">Fragrances</a><span></span></li>
+                            <li><a href="#">Skin care</a><span></span></li>
+                            <li><a href="#">Candle &amp; Home</a><span></span></li>
+                            <li><a href="#">Gift</a><span></span></li>
+
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div class="m_icon">
+                <ul>
+                    <li><a href="#"><img src="images/mypage.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/cart.png" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="m_main_banner">
+                <ul>
+                    <li><a href="#"><img src="images/main_banner_mo.jpg" alt="">
+                            <div class="m_main_desc">
+                                <h1 class="m_main_tit">EAU DE MINTHÉ <br> EAU DE PARFUM</h1>
+                                <p class="m_main_ko">오 드 퍼퓸 오 드 민떼</p>
+                                <p class="m_main_txt">생생한 향기의 민트로 변신한 그리스 신화 민테 님프에서 영감을 받아 퍼퓨머리 업계의 상징적 노트 중 하나인 '푸제르'를 딥티크만의 감성으로 재현한 향수, 민트의 아로마틱한 신선함과 제라늄과 파출리가 더해져 상쾌함과 동시에 딥한 매력을 느낄 수 있는 오 드 민떼 오드 퍼퓸입니다.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="m_mid_banner">
+                <ul>
+                    <li><a href="#"><img src="images/mid_banner_01_mo.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_02_mo.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_03_mo.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/mid_banner_04_mo.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="product">
+        <h2>BEST SELLERS</h2>
+        <ul>
+            <li><a href="#"><img src="images/best_pro_01.jpg" alt="">
+                    <span class="name">L’OMBRE DANS L’EAU EAU DE PARFUM</span><br>
+                    <span class="price">￦150,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_02.jpg" alt="">
+                    <span class="name">34 BOULEVARD SAINT GERMAIN EAU DE TOILETTE</span><br>
+                    <span class="price">￦120,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_03.jpg" alt="">
+                    <span class="name">EAU ROSE EAU DE TOILETTE</span><br>
+                    <span class="price">￦108,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_04.jpg" alt="">
+                    <span class="name">PHILOSYKOS SOLID PERFUME</span><br>
+                    <span class="price">￦42,000</span></a></li>
+        </ul>
+    </section>
+
+    <div id="sec_banner">
+        <ul class="box">
+            <li class="sec_img"><img src="images/sec_banner_01.jpg" alt=""></li>
+            <li class="sec_txt">
+                <ul>
+                    <li class="sec_tit">VETI VERIO</li>
+                    <li class="kor_name">오 드 뚜왈렛 베티베리오</li>
+                    <li class="desc">남성과 여성 모두를 위한 플로리다 산 자몽과 터키산 장미의 향기로운 조화. 시트러스한 탑 노트에서 시작되어 플로럴한 장미향, 따스한 머스크 향으로 이어지는 딥티크 베티베리오 오 드 뚜왈렛은 특별한 향을 가진 봄과 여름에 어울리는 남녀 공용 향수입니다. 베티베리오(VETYVERIO)의 주성분인 베티베르(VETIVER-풀의 한 종류)는 지구에서 가장 활동적인 화산 지역인 아이티에서 자라고 있으며 맹렬한 지역적 특색으로 다른 향과 차별화되는 독특한 향을 가지게 되었습니다. 보틀 그림은 주성분이 된 베티베르 로써 울창한 숲 안에서 자라는 베티베르를 나타냅니다.</li>
+                    <li><a href=""><span class="more">더 알아보기 →</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <section class="product">
+        <h2>PERFUME</h2>
+        <ul>
+            <li><a href="#"><img src="images/best_pro_01.jpg" alt="">
+                    <span class="name">L’OMBRE DANS L’EAU EAU DE PARFUM</span><br>
+                    <span class="price">￦150,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_02.jpg" alt="">
+                    <span class="name">34 BOULEVARD SAINT GERMAIN EAU DE TOILETTE</span><br>
+                    <span class="price">￦120,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_03.jpg" alt="">
+                    <span class="name">EAU ROSE EAU DE TOILETTE</span><br>
+                    <span class="price">￦108,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_04.jpg" alt="">
+                    <span class="name">PHILOSYKOS SOLID PERFUME</span><br>
+                    <span class="price">￦42,000</span></a></li>
+        </ul>
+    </section>
+
+
+
+    <section class="product_3">
+        <h2>LIMITED EDITION</h2>
+        <div class="media">
+            <iframe src="http://lovlack.dothome.co.kr/portfolio_02/media/media-file_2.mp4" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+        </div>
+        <ul>
+            <li><a href="#"><img src="images/candle_pro_01.jpg" alt="">
+                    <span class="name">Protective Pine Candle</span><br>
+                    <span class="price">￦100,000</span></a></li>
+            <li><a href="#"><img src="images/candle_pro_02.jpg" alt="">
+                    <span class="name">Blissful Amber Candle</span><br>
+                    <span class="price">￦100,000</span></a></li>
+            <li><a href="#"><img src="images/candle_pro_03.jpg" alt="">
+                    <span class="name">Lucky Flowers Candle</span><br>
+                    <span class="price">￦100,000</span></a></li>
+        </ul>
+    </section>
+
+
+    <div id="scrat_banner">
+        <h2>diptyque IN THE SCRAT</h2>
+        <ul class="desc_box">
+            <li class="scrat_img"><img src="images/scrat_01.jpg" alt=""></li>
+            <li class="scrat_txt">
+                <ul>
+                    <li class="scrat_tit">파리의 정취를 담은 향수</li>
+                    <li class="sub_title">“At this moment, like in Paris.”</li>
+                    <li class="desc">60여년의 시간이 흐르는동안 파리 라이프에 대해 한번도 이야기한 적이 없었던 딥티크가 침묵을 깨고 그간의 시간을 만회하는 의미에서 새로운 향수를 선보였습니다. 브랜드가 태어난 도시, 파리에 대한 존경과 경의를 담은 오 카피탈 오드 퍼퓸이 그주인공입니다.</li>
+                    <li><a href=""><span class="more">더 알아보기 →</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <section class="product">
+        <h2>SCENTED CANDLES</h2>
+        <ul>
+            <li><a href="#"><img src="images/best_pro_01.jpg" alt="">
+                    <span class="name">L’OMBRE DANS L’EAU EAU DE PARFUM</span><br>
+                    <span class="price">￦150,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_02.jpg" alt="">
+                    <span class="name">34 BOULEVARD SAINT GERMAIN EAU DE TOILETTE</span><br>
+                    <span class="price">￦120,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_03.jpg" alt="">
+                    <span class="name">EAU ROSE EAU DE TOILETTE</span><br>
+                    <span class="price">￦108,000</span></a></li>
+            <li><a href="#"><img src="images/best_pro_04.jpg" alt="">
+                    <span class="name">PHILOSYKOS SOLID PERFUME</span><br>
+                    <span class="price">￦42,000</span></a></li>
+        </ul>
+    </section>
+    <footer>
+        <ul id="footer_menu">
+            <li><a href="">회사소개</a></li>
+            <li><a href="">이용약관</a></li>
+            <li><a href="">개인정보 처리방침</a></li>
+            <li><a href="">매장안내</a></li>
+        </ul>
+        <ul id="footer_logo">
+            <li><a href="#"><img src="images/logo_foorer.png" alt=""></a></li>
+        </ul>
+        <h1>Follow Diptyque</h1>
+        <ul id="social">
+            <li class=so_title>
+                <input type="email" class="email" placeholder="enter your email address">
+                <input type="button" class="button" value="OK">
+            </li>
+            <li class="so_img">
+                <ol>
+                    <li><a href=""><img src="images/insta.png" alt=""></a></li>
+                    <li><a href=""><img src="images/twt.png" alt=""></a></li>
+                    <li><a href=""><img src="images/facebook.png" alt=""></a></li>
+                </ol>
+            </li>
+
+        </ul>
+        <ul id="info">
+           <li>
+            <p>㈜신세계인터내셔날 | 서울특별시 강남구 도산대로 449 (청담동) | 대표이사 : 장재영 | 사업자등록번호 : 201-81-53657 통신판매업 신고번호 : 강남-13797 | 개인정보보호책임자 : 유영석 | 호스팅사업자 : ㈜신세계아이앤씨 | 고객센터 : 1644-4490 <p>COPYRIGHT © 2016 SHINSEGAE INTERNATIONAL. ALL RIGHTS RESERVED</p>
+            </li>
+        </ul>
+
+    </footer>
+
+</body>
+
+</html>

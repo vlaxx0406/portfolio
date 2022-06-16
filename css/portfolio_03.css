@@ -1,0 +1,556 @@
+.sec_01 {
+    width: 100%;
+    min-width: 1700px;
+    background-color: #efeff0;
+}
+
+.page_tit {
+    width: 80%;
+    color: #5a5858;
+    border-bottom: 1px solid #5a5858;
+    padding-top: 30px;
+    margin: auto;
+}
+
+.page_tit ul li h2 {
+    font-family: "Gontserrat-Regular";
+    color: #5a5858;
+}
+
+.page_tit ul {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.page_tit li {
+    letter-spacing: 2px;
+}
+
+.page_mockup {
+    width: 80%;
+    min-width: 1700px;
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+}
+
+.page_mockup img {
+    width: 100%;
+    display: block;
+}
+
+.page_desc {
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    display: block;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.page_desc > ul {
+    padding: 20px 0;
+    min-width: 1000px;
+    width: 56%;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.page_desc .logo {
+    width: 25%;
+    border-right: 1px solid #9fa0a0;
+    height: 150px;
+    position: relative;
+    padding: 0 30px;
+}
+
+.page_desc .logo_img {
+    padding: 10px;
+    width: 80%;
+    margin: 10px;
+    margin: auto;
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.page_desc .overview {
+    height: 150px;
+    width: 50%;
+    border-right: 1px solid #9fa0a0;
+    padding: 0 30px;
+    margin: 0px 0px;
+}
+
+.page_desc .overview .desc_tit,
+.page_desc .about .desc_tit {
+    font-family: "Gontserrat-Regular";
+    font-size: 20px;
+    font-weight: bolder;
+    color: #e1a937;
+    margin: 20px 0 10px;
+}
+
+.page_desc .overview p {
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    word-break: keep-all;
+    color: #3f3b3a;
+}
+
+.page_desc .about {
+    height: 150px;
+    width: 25%;
+    padding-left: 30px;
+}
+
+.page_desc .about ul {
+    font-size: 0.7vw;
+}
+
+.page_desc .about ul li {
+    line-height: 2;
+}
+
+.page_desc h2 {
+    font-size: 14px;
+    width: 35%;
+    float: left;
+    letter-spacing: -1px;
+    font-weight: bolder;
+
+}
+
+.page_desc .about p {
+    font-size: 14px;
+    width: 65%;
+    float: left;
+    letter-spacing: -1px;
+}
+
+.page_desc .tool {
+    float: left;
+}
+
+.page_desc .icon {
+    width: 15%;
+    margin: 4px 1px;
+    box-sizing: border-box;
+}
+
+/***************************************/
+.sec_02 {
+    min-width: 1700px;
+    height: 940px;
+    background-color: #efeff0;
+    position: relative;
+    border-top: 1px solid #eee
+}
+
+.sec_02 .page_tit {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.sec_02 .left_side {
+    width: 35%;
+    height: 940px;
+    background-color: #fff;
+    position: absolute;
+}
+
+
+.sec_02 .left_side > ul {
+    margin-top: 30%;
+    width: 70%;
+    right: 0;
+    display: block;
+    margin-right: 0;
+    float: right;
+}
+
+.sec_02 .left_side ul .desc_tit {
+    font-family: "Gontserrat-Regular";
+    font-size: 20px;
+    font-weight: bolder;
+    color: #e1a937;
+    margin: 20px 0 10px;
+
+}
+
+.sec_02 .left_side ul p {
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    word-break: keep-all;
+    color: #3f3b3a;
+    margin-bottom: 40px;
+    padding-right: 50px;
+}
+
+
+.color ul li {
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.color_list {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.color_list li {
+    margin-right: 10px;
+}
+
+
+.color .color_1 {
+    background: #eaae32;
+    color: #1b1b1b;
+}
+
+.color .color_2 {
+    background: #eeeeee;
+    color: #1b1b1b;
+}
+
+.color .color_3 {
+    background: #191a1a;
+    color: #fff;
+}
+
+
+
+.sec_02 .right_side {
+    width: 65%;
+    position: absolute;
+    top: 150px;
+    right: 0;
+
+}
+
+.sec_02 .right_side ul img {
+    width: 85%;
+}
+
+.sec_02 .left_side ul .font p {
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 0;
+}
+
+.sec_02 .left_side ul .font p:nth-last-child(1) {
+    margin-bottom: 40px;
+}
+
+.font .font_01 {
+    font-family: "Gontserrat-Regular";
+    font-weight: bold;
+}
+
+.font .font_02 {
+    font-family: "Times New Roman";
+    font-weight: bold;    
+}
+
+.font .font_03 {
+    font-family: "맑은 고딕";
+}
+
+
+
+/******************************************/
+
+.sec_03 .desc_tit {
+    font-family: "Gontserrat-Regular";
+    font-weight: bolder;
+    color: #e1a937;
+    margin: 20px 0 10px;
+    border-bottom: 3px solid #e1a937;
+    padding: 1px 0;
+    width: 200px;
+    font-size: 35px;
+    letter-spacing: 0px;
+}
+
+.sec_03 {
+    min-width: 1700px;
+    height: 940px;
+    background-color: #fff;
+    position: relative;
+    border-top: 1px solid #eee
+}
+
+.sec_03 .page_tit {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.sec_03 .left_side {
+    width: 35%;
+    height: 940px;
+    background-color: #efeff0;
+    position: absolute;
+}
+
+
+.sec_03 .left_side > ul {
+    margin-top: 30%;
+    width: 70%;
+    right: 0;
+    display: block;
+    margin-right: 0;
+    float: right;
+}
+
+.sec_03 .left_side ul li {
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    word-break: keep-all;
+    color: #3f3b3a;
+    margin-bottom: 40px;
+    padding-right: 50px;
+}
+
+.sec_03 .left_side .desc_list {
+    margin-bottom: 10px;
+}
+
+.sec_03 .left_side .desc_list p {
+    margin-left: 30px;
+    width: 300px;   
+    font-weight: bold;
+}
+
+.sec_03 .left_side .desc_list .desc_txt {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-left: 30px;
+    width: 340px;    
+    font-weight: normal;
+    
+    
+}
+
+.sec_03 .left_side .desc_num {
+    background-color: #e1a937;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    float: left;
+    margin-right: 5px;
+}
+
+.sec_03 .left_side .pc_layout p {
+    font-weight: bolder;
+    font-size: 16px;
+    width: 340px;
+}
+
+.sec_03 .right_side {
+    height: 940px;
+    position: absolute;
+    width: 65%;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.sec_03 .right_side ul {
+    position: absolute;
+    left: 0;
+    width: 85%;
+    height: 940px;
+    box-sizing: border-box;
+}
+
+.sec_03 .right_side li img {
+    position: absolute;
+    width: 75%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+/******************************************/
+
+.sec_04 {
+    min-width: 1700px;
+    height: 940px;
+    background-color: #efeff0;
+    position: relative;
+    border-top: 1px solid #eee
+}
+
+.sec_04 .page_tit {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.sec_04 .left_side {
+    width: 35%;
+    height: 940px;
+    background-color: #fff;
+    position: absolute;
+
+}
+
+.sec_04 .desc_tit {
+    font-family: "Gontserrat-Regular";
+    font-weight: bolder;
+    color: #e1a937;
+    margin: 20px 0 10px;
+    border-bottom: 3px solid #e1a937;
+    padding: 1px 0;
+    width: 290px;
+    font-size: 35px;
+    letter-spacing: 0px;
+    
+}
+
+.sec_04 .left_side > ul {
+    margin-top: 30%;
+    width: 70%;
+    right: 0;
+    display: block;
+    margin-right: 0;
+    float: right;
+}
+
+.sec_04 .left_side ul li {
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    word-break: keep-all;
+    color: #3f3b3a;
+    margin-bottom: 40px;
+    padding-right: 50px;
+}
+
+.sec_04 .left_side .desc_list {
+    margin-bottom: 10px;
+}
+
+.sec_04 .left_side .desc_list p {
+    margin-left: 30px;
+    width: 300px;
+    font-weight: bold;
+}
+
+.sec_04 .left_side .desc_num {
+    background-color: #e1a937;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    float: left;
+}
+
+.sec_04 .left_side .mo_layout p {
+    font-weight: bolder;
+    font-size: 16px;
+
+    width: 340px;
+}
+
+
+.sec_04 .right_side {
+    height: 940px;
+    position: absolute;
+    width: 65%;
+    right: 0;
+    
+}
+
+.sec_04 .right_side ul {
+    position: absolute;
+    left: 0;
+    width: 85%;
+    height: 940px;
+    box-sizing: border-box;
+    
+}
+
+.sec_04 .right_side li img {
+    position: absolute;
+    width: 85%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+}
+
+/***************************/
+.fix_btn {
+    position: fixed;
+    bottom: 10px;
+    width: 80%;
+    min-width: 700px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+}
+
+.fix_btn ul {
+    float: right;
+}
+
+.fix_btn ul li {
+    background-color: #757575;
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    color: #fff;
+    font-family: "Gontserrat-Regular";
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    display: block;
+    float: left;
+    margin: 20px;
+}
+
+.fix_btn ul li:hover {
+    background-color: #e1a937;
+    color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+
+.fix_btn .view_btn a {
+    color: white;
+}

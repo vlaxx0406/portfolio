@@ -1,0 +1,598 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+body {
+    font-family: 'Ibarra Real Nova', 'Song Myung', serif;
+    background-color: #f7fdf7;
+    width: 100%;
+}
+
+@media all and (max-width:320px) {
+    body {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    #top {
+        width: 100%;
+        height: 8vw;
+        margin: 0 auto;
+    }
+
+    #top h1 {
+        width: 100%;
+        height: 8vw;
+        line-height: 8vw;
+        text-align: center;
+        background: #1b1b1b;
+
+    }
+
+    #top h1 a {
+        width: 100%;
+        height: 8vw;
+        line-height: 8vw;
+        color: white;
+        font-size: 2vw;
+    }
+
+
+    /* top_banner end-------------------------------------*/
+    header,
+    #wrap,
+    .product,
+    #sec_banner,
+    .product_3,
+    #scrat_banner,
+    footer {
+        width: 100%;
+
+    }
+
+    #wrap {
+        display: none;
+    }
+
+    #m_wrap {
+        display: block;
+    }
+
+    #m_wrap > h1 {
+        width: 100%;
+        position: relative;
+    }
+
+    #m_wrap h1 img {
+        margin: 0 auto;
+        display: block;
+        width: 40%
+    }
+
+    /*-----------------------로그인--------------------------*/
+    .m_login {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .m_login ul {
+        width: 100%;
+        height: 100px;
+    }
+
+    .m_login ul li .m_ui {
+        position: absolute;
+        left: 3vw;
+        top: -14vw;
+        display: block;
+        width: 10vw;
+        height: 3vw;
+        padding: 0px 0px 0px 3px;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .m_login ul li .m_ui span {
+        display: block;
+        border-top: 3px solid black;
+        margin-bottom: 6px;
+    }
+
+    .m_login ul li input[type="checkbox"] {
+        display: none;
+    }
+
+    .m_login .m_ui + input:checked + ol {
+        margin-top: 0px;
+        height: 230px;
+        top: 0px;
+    }
+
+
+    .m_login ul li .m_category {
+        height: 0px;
+        transition: all 1s ease;
+        overflow: hidden;
+        width: 100%;
+        display: block;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .m_login ul li .m_category li {
+        width: 95%;
+        text-align: left;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 0;
+        display: block;
+        text-align: center;
+        margin: auto;
+
+    }
+
+    .m_login ul li .m_category li:nth-last-child(1) {
+        border-bottom: none;
+    }
+
+    .m_login ul li .m_category li a {
+        font-size: 20px;
+        font-weight: 700;
+        color: black;
+    }
+
+    .m_icon {
+        width: 30%;
+        display: block;
+        position: absolute;
+    }
+
+    .m_icon ul {
+        margin: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        bottom: 0;
+        height: 18vw;
+
+    }
+
+    .m_icon ul li {
+        width: 30%;
+        margin-left: 10px;
+
+    }
+
+    .m_icon ul li img {
+        width: 100%;
+
+    }
+
+
+    .m_category .sch_bar {
+        border: 0px solid red;
+        height: 20px;
+        text-align: center;
+        font-size: 13px;
+        width: 85%;
+        background: rgba(0, 0, 0, 0);
+        text-indent: 25px;
+        margin-top: 0px;
+        padding-left: 10px;
+
+    }
+
+    .m_category button {
+        border: none;
+        background: rgba(0, 0, 0, 0);
+        display: inline-block;
+        padding-right: 10px;
+
+    }
+
+
+
+    /*------------------------------------------------*/
+    .m_main_banner {
+        width: 100%;
+    }
+
+    .m_main_banner ul {
+        width: 100%;
+    }
+
+    .m_main_desc {
+        position: absolute;
+        z-index: 999;
+        top: 119vw;
+        text-align: center;
+        width: 90%;
+        word-break: keep-all;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+
+    .m_main_banner ul li img {
+        width: 100%;
+    }
+
+    .m_main_desc .m_main_tit {
+        font-size: 5vw;
+    }
+
+    .m_main_desc .m_main_ko {
+        margin-top: 2vw;
+        font-size: 3vw;
+    }
+
+    .m_main_desc .m_main_txt {
+        margin-top: 2vw;
+        font-size: 2vw;
+        line-height: 3vw;
+    }
+
+
+    .m_mid_banner {
+        width: 100%;
+        position: relative;
+    }
+
+    .m_mid_banner ul {
+        width: 100%;
+        position: relative;
+    }
+
+    .m_mid_banner ul {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .m_mid_banner ul li {
+        width: 25%;
+    }
+
+    .m_mid_banner ul li img {
+        width: 100%;
+    }
+
+
+
+    /*-----------------------중간배너4단------------------------*/
+    .product {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .product h1 {
+        text-align: center;
+        font-size: 4vw;
+        font-weight: 100;
+        padding-bottom: 20px;
+    }
+
+    .product h1 span {
+        border: 1px solid;
+        width: 30px;
+        margin: 4px 20px;
+        display: inline-block;
+    }
+
+
+    .product ul {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .product ul li {
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .product ul li a img {
+        width: 100%;
+        margin: auto 0;
+        border: 1px solid #eee;
+    }
+
+    .product ul li a img:hover {
+        opacity: 0.8;
+
+    }
+
+    .product ul li a {
+        color: #999;
+    }
+
+    .product ul li a:hover {
+        color: #000;
+    }
+
+    .product ul li a .name {
+        display: block;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 10px 10px 10px;
+    }
+
+    .product ul li a .price {
+        margin-top: -10px;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+    }
+
+    /*------------새컨드배너-----------*/
+    #sec_banner {
+        width: 100%;
+        display: block;
+    }
+
+    #sec_banner .box {
+        width: 100%;
+        display: block;
+
+    }
+
+    #sec_banner .box .sec_img {
+        width: 100%;
+        margin: auto;
+    }
+
+    #sec_banner .box .sec_img img {
+        width: 100%;
+    }
+
+    #sec_banner .box .sec_txt {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #sec_banner .box .sec_txt ul h1 {
+        text-align: center;
+        font-size: 6vw;
+    }
+
+    #sec_banner .box .sec_txt ul .kor_name {
+        font-size: 4.8vw;
+        letter-spacing: 2px;
+    }
+
+    #sec_banner .box .sec_txt ul .desc {
+        padding: 20px 0 20px 0;
+        font-size: 2vw;
+        word-break: keep-all;
+    }
+
+    #sec_banner .box .sec_txt ul li a .more {
+        margin-top: 0px;
+        padding: 10px 0;
+        font-size: 2vw;
+    }
+
+
+    /*--------------3단 상품나열-------------*/
+
+
+
+    .product_3 {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .product_3 h1 {
+        text-align: center;
+        font-size: 5vw;
+        font-weight: 100;
+    }
+
+    .product_3 h1 span {
+        border: 1px solid;
+        width: 20px;
+        margin: 1vw;
+        display: inline-block;
+    }
+
+    .product_3 ul {
+        width: 90%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+
+
+    }
+
+    .product_3 ul li {
+        width: 30%;
+
+    }
+
+    .product_3 ul li a img {
+        width: 100%;
+        margin: auto 0;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+    }
+
+    .product_3 ul li a img:hover {
+        opacity: 0.8;
+    }
+
+    .product_3 ul li a {
+        color: #999;
+    }
+
+    .product_3 ul li a:hover {
+        color: #000;
+    }
+
+    .product_3 ul li a .name {
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 10px 10px 10px;
+        text-transform: uppercase;
+
+    }
+
+    .product_3 ul li a .price {
+        margin-top: -10px;
+        font-size: 13px;
+        font-weight: bold;
+        display: block;
+    }
+
+
+
+    /*------------스크랫 배너-----------*/
+
+
+    #scrat_banner {
+        width: 100%;
+        display: block;
+
+    }
+
+    #scrat_banner h1.title {
+        text-align: center;
+        font-size: 4vw;
+        padding: 90px 0 40px 0;
+        font-weight: 100;
+        letter-spacing: 2px;
+    }
+
+    #scrat_banner h1 span {
+        border: 1px solid;
+        width: 30px;
+        margin: 5px 10px;
+        display: inline-block;
+    }
+
+
+    #scrat_banner .desc_box {
+        width: 100%;
+        display: block;
+
+    }
+
+
+
+    #scrat_banner .desc_box .scrat_img {
+        width: 90%;
+        margin: auto;
+    }
+
+    #scrat_banner ul .scrat_img img {
+        padding: 20px 0 0 0;
+        width: 100%;
+    }
+
+    #scrat_banner .desc_box .scrat_txt {
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    #scrat_banner .desc_box .scrat_txt ul {
+        padding: 0 0 20px 0;
+    }
+
+
+    #scrat_banner .desc_box .scrat_txt ul h1 {
+        font-size: 5vw;
+    }
+
+    #scrat_banner .desc_box .scrat_txt ul .sub_title {
+        padding: 10px;
+        font-size: 3.5vw;
+    }
+
+    #scrat_banner .desc_box .scrat_txt ul .desc {
+        width: 90%;
+        padding: 0 10px;
+        font-size: 2vw;
+        word-break: keep-all;
+    }
+
+    #scrat_banner .desc_box .scrat_txt ul li a .more {
+        margin-top: 3vw;
+        padding: 10px 0;
+        font-size: 2vw;
+    }
+
+    footer {
+        background: url(../images/footer.jpg) center;
+        background-size: cover;
+        width: 100%;
+        background-color: #1d1c1c;
+        color: white;
+    }
+
+
+
+    #footer_menu {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 5px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        font-family: "나눔명조", 'sans-serif';
+    }
+
+    #footer_menu li a {
+        color: #888;
+        padding: 0 2vw;
+        transition: all 0.5s ease-in-out;
+        font-size: 2vw;
+    }
+
+    #footer_menu li:hover > a {
+        color: white;
+    }
+
+    #footer_logo {
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px;
+        font-family: "나눔명조", 'sans-serif';
+        color: #888;
+        text-align: center;
+    }
+
+    footer h1 {
+        width: 100%;
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+        font-size: 8vw;
+    }
+}

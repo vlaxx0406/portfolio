@@ -1,0 +1,70 @@
+body {
+background: #ddd;
+width: 100vw;
+height: 100vh;
+margin: 0;
+overflow: hidden;
+}
+body:before {
+content: "";
+position: absolute;
+width: 100vw;
+height: 100vh;
+background-image: url("https://clipartimage.net/thumbs/1495916688stars-png-with-transparent-background.png");
+background-size: 25%;
+}
+.main {
+perspective: 1100px;
+width: 100vw;
+height: 100vh;
+}
+.wrap {
+width: 100vw;
+height: 100vh;
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;
+transition: ease-out 0.2s;
+transform-origin: center;
+transform: rotateX(-2.3deg) rotateY(-5.5deg);
+}
+
+.imageHolder {
+position: absolute;
+overflow: hidden;
+}
+img {
+position: absolute;
+bottom: 15%;
+width: 270%;
+}
+.rotY {
+transform: rotateY(180deg);
+margin-left: -7%;
+}
+.bg0 {
+transform: translateZ(-1200px) scale(1.77) translateX(-30px) translateY(23px);
+}
+.bg1 {
+filter: contrast(0);
+transform: translateZ(-1000px) scale(1.62) translateX(-26px) translateY(21px);
+}
+
+.midTree img,
+.midTree2 img {
+width: 130%;
+margin-bottom: -15%;
+margin-left: -90%;
+}
+.midTree2 img {
+margin-left: 40%;
+}
+.frontTree img {
+width: 520%;
+margin-bottom: -90%;
+margin-left: -145%;
+}
+.wolf img {
+width: 60%;
+margin-bottom: -27%;
+margin-left: 25%;
+}
