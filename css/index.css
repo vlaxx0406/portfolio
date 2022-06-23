@@ -751,24 +751,23 @@ html {
 }
 
 .slide_img.no01 {
-    background-color: #c7e2b8;
+    background-color: #e2cfc7;
 }
 .slide_img.no02 {
-    background-color: #f8c6ac;
+    background-color: #e2cfc7;
 }
 .slide_img.no03 {
-    background-color: #efeff0;
+    background-color: #e2cfc7;
 }
 .slide_img.no04 {
-    background-color: #d6c5af;
+    background-color: #e2cfc7;
 }
 .slide_img.no05 {
-    background-color: #333;
+    background-color: #fff;
 }
 .slide_img.no06 {
-    background-color: #333;
+    background-color: #fff;
 }
-
 .slide_img.no11 {
     background-color: #e2cfc7;
 }
@@ -828,14 +827,15 @@ html {
 }
 
 .slide_img figcaption .more {
-    border: 2px solid #1b1b1b;
+    border: 1px solid #1b1b1b;
     padding: 0.5vw;
     text-align: center;
-    margin: auto;
+    margin: 2px auto;
     display: block;
     width: 10vw;
     font-size: 1vw;
     color: #1b1b1b;
+    border-radius: 20px;
 
     font-family: "Gontserrat-Regular";
 

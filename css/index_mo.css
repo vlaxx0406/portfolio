@@ -731,7 +731,7 @@
     .slide_img figcaption .more {
         padding: 1vw;
         text-align: center;
-        margin: auto;
+        margin: 2px auto;
         display: block;
         width: 50px;
         color: #1b1b1b;
