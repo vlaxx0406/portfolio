@@ -670,7 +670,7 @@ html {
 
 .about_bottom .sec_03 h3 {
     width: 45%;    
-    font-size: 15px;
+    font-size: 13px;
     line-height: 2;
     padding: 2px 0;
     background: #e2cfc7;
@@ -683,7 +683,7 @@ html {
     font-size: 15px;
     line-height: 2;
     padding: 2px 0;
-    background: #fafafa;
+    background: #fff;
     border-radius: 0px 50px 50px 0px;
 }
 .about_bottom .sec_03 .skill_list {
@@ -696,7 +696,7 @@ html {
     justify-content: space-around;
 }
 .about_bottom .sec_03 .skill_list li {
-    width: 31%;
+    width: 20%;
     padding: 15px 0px;
     
 }
