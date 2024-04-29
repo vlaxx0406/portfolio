@@ -36,12 +36,12 @@
 
     header li:hover span {
         width: 100%;
-        background: #e2cfc7;
+        background: #a0c49d;
         transition: all 0.5s ease;
     }
 
     header li:hover a {
-        color: #e2cfc7;
+        color: #a0c49d;
         transition: all 0.5s ease;
 
     }
@@ -737,7 +737,7 @@
         font-size: 13px;
         line-height: 2;
         padding: 0.2vw 0;
-        background: #e2cfc7;
+        background: #a0c49d;
         font-weight: bold;
         border-radius: 50px 0px 0px 50px;
 
@@ -777,7 +777,7 @@
         font-family: "Gontserrat-Regular";
         font-weight: no;
         line-height: 25px;
-        background: #e2cfc7;
+        background: #a0c49d;
         margin: 0 0px 10px 0px;
         border-radius: 25px;
     }
@@ -1031,7 +1031,7 @@
     }
 
     .fp-controlArrow.fp-prev:hover {
-        border-color: transparent #e2cfc7 transparent transparent;
+        border-color: transparent #a0c49d transparent transparent;
         transition: all 1s ease;
     }
 
@@ -1043,7 +1043,7 @@
     }
 
     .fp-controlArrow.fp-next:hover {
-        border-color: transparent transparent transparent #e2cfc7;
+        border-color: transparent transparent transparent #a0c49d;
         transition: all 1s ease;
     }
 
@@ -1104,7 +1104,7 @@
     }
 
     .contact h2 {
-        color: #e2cfc7;
+        color: #a0c49d;
         font-size: 20px;
         text-transform: uppercase;
         font-weight: bold;
