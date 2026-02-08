@@ -52,7 +52,13 @@
     text-align: center;
     width: 80%;   
 }
-
+.sec_02 li a{
+    padding: 10px;    
+    border: 1px solid #106536;
+    border-radius: 10px;
+    width: 80%;
+    color: #106536;   
+}
 .sec_02 img {
     width: 80%;
     margin: 20px auto;    
