@@ -1,964 +1,1120 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Portfolio</title>
-    <!-- ## favicon 이미지 경로 삽입, 각 css와 js 경로 수정 후 주석 삭제 ## -->
-    <link rel="icon" href="images/logo_RpY_icon.ico">
-    <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/index.css" type="text/css">
-    <link rel="stylesheet" href="css/index_tablet.css" type="text/css">
-    <link rel="stylesheet" href="css/index_mo.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/jquery.fullpage.css">
-    <script src="js/jquery-1.12.4.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OH JUNE YOUNG — E-Commerce Designer</title>
+<link rel="icon" type="image/png" href="https://vlaxx0406.github.io/portfolio/img/logo_wh.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #181818;
+    --line: #2a2a2a;
+    --text: #e8e4dc;
+    --muted: #a0a0a0;
+    --accent: #c8f05a;
+    --accent2: #f0c85a;
+    --white: #ffffff;
+  }
 
-    <script src="js/index.js"></script>
-    <script src="https://kit.fontawesome.com/1bd9090200.js" crossorigin="anonymous"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/circle-progress.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css" />
-    <script type="text/javascript" src="js/jquery.fullpage.js"></script>
-    <script src="js/jquery.easings.min.js"></script>
-    <script type="text/javascript" src="js/scrolloverflow.min.js"></script>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
+  html { scroll-behavior: smooth; }
 
-    <!-- ##### 코딩 작업시 삭제해주세요! #### -->
-    <style>
-        .section {
-            text-align: center;
-            font-size: 2em;
-        }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
 
-        header {
-            position: fixed;
-            z-index: 1;
-        }
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-color: var(--line);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    /* filter: invert(1) 제거 — 원본 색상 그대로 */
+    transition: opacity 0.3s;
+  }
+  .nav-logo:hover .nav-logo-img {
+    opacity: 0.75;
+  }
+  .nav-logo-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-logo:hover .nav-logo-text { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent); }
 
-        .progress-bar {
-            margin-bottom: 1rem;
-            background-color: lightgray;
-            border-radius: 1.25em;
-            width: 300px;
-            height: 16px;
-            display: inline-block;
-        }
+  /* hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+  }
+  .hamburger span {
+    width: 24px; height: 1px;
+    background: var(--text);
+    transition: all 0.3s;
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 150;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 4px;
+    color: var(--text);
+    text-decoration: none;
+  }
 
-        .progress-value {
-            background-color: orange;
-            border-radius: 1.25em;
-            height: 16px;
-            display: block;
-            transition: 0.3s all linear;
-            animation: progress 3s ease-in-out;
-            -webkit-animation: progress 3s ease-in-out;
-        }
-    </style>
+  /* ─── HERO ─── */
+  #hero {
+    height: 1000px;
+    min-height: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 48px 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 6.5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-title em {
+    color: var(--accent);
+    font-style: normal;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .btn {
+    padding: 14px 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    border: 1px solid var(--accent);
+  }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    filter: grayscale(30%);
+  }
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 40%);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    display: flex;
+    gap: 32px;
+    z-index: 2;
+  }
+  .stat {
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+  .scroll-line {
+    width: 40px; height: 1px;
+    background: var(--accent);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    animation: scanRight 1.5s ease-in-out infinite;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section {
+    padding: 120px 48px;
+    border-top: 1px solid var(--line);
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 5vw, 72px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 64px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-intro {
+    font-size: 17px;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .about-intro strong { color: var(--text); font-weight: 500; }
+  .about-highlight {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1.3;
+    margin-bottom: 40px;
+    border-left: 2px solid var(--accent);
+    padding-left: 24px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    margin-bottom: 40px;
+  }
+  .info-item {
+    background: var(--bg);
+    padding: 20px 24px;
+  }
+  .info-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .info-val {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* Skills */
+  .skills-section { margin-top: 0; }
+  .skills-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .skill-group { margin-bottom: 32px; }
+  .skill-group-label {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    font-size: 11px;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .skill-tag:hover { border-color: var(--text); color: var(--text); }
+  .skill-tag.highlight { border-color: var(--accent); color: var(--accent); }
+
+  /* ─── CAREER ─── */
+  #career { background: var(--bg2); }
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--line);
+  }
+  .career-item {
+    background: var(--bg2);
+    padding: 32px;
+    transition: background 0.3s;
+  }
+  .career-item:hover { background: var(--bg3); }
+  .career-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .career-company {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .career-role {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .career-current {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 10px;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 9px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+  }
+
+  /* ─── WORK ─── */
+  #work {}
+  .work-filter {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0a0a0a;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  .work-card {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .work-card.wide {
+    grid-column: span 2;
+    aspect-ratio: 8/3;
+  }
+  .work-thumb {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.4s;
+    filter: grayscale(20%);
+  }
+  .work-card:hover .work-thumb {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+  .work-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .work-card:hover .work-overlay { opacity: 1; }
+  .work-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .work-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .work-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .work-links {
+    display: flex;
+    gap: 12px;
+  }
+  .work-link {
+    padding: 6px 16px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .work-link:hover { background: var(--accent); color: #0a0a0a; }
+  .work-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg3);
+    color: var(--line);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  /* ─── GRAPHIC ─── */
+  #graphic { background: var(--bg2); }
+  .graphic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .graphic-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg3);
+  }
+  .graphic-item img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    transition: transform 0.5s;
+    display: block;
+  }
+  .graphic-item:hover img { transform: scale(1.06); }
+  .graphic-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text);
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .graphic-item:hover .graphic-label { opacity: 1; }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--bg);
+    text-align: center;
+    padding: 160px 48px;
+  }
+  .contact-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 8vw, 120px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 40px;
+  }
+  .contact-big span { color: var(--accent); }
+  .contact-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 64px;
+    line-height: 1.8;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .contact-item {
+    text-align: left;
+  }
+  .contact-item-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .contact-item a,
+  .contact-item span {
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+  }
+  .contact-item a:hover { color: var(--accent); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scanRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 80px 24px; }
+
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 120px 24px 60px; }
+    .hero-right { height: 300px; }
+    .hero-stats { bottom: 24px; right: 24px; gap: 24px; }
+    .stat-num { font-size: 32px; }
+    .scroll-indicator { display: none; }
+
+    #about { grid-template-columns: 1fr; gap: 48px; }
+
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card.wide { grid-column: span 1; aspect-ratio: 4/3; }
+    .work-overlay { opacity: 1; background: rgba(10,10,10,0.5); }
+
+    .graphic-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .career-grid { grid-template-columns: 1fr; }
+
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
 </head>
+<body>
 
-<body oncontextmenu="return false" ondragstart="return false">
-    <div id="wrap">
-        <!-- 메뉴 상단 -->
-        <header>
-            <ul id="menu">
-                <li data-menuanchor="1st_page"><a href="#1st_page">
-                        <!--<img src="#" >-->Home
-                    </a><span></span></li>
-                <!--<li data-menuanchor="1st_page" class="active">Main<a href="#1st_page"></a></li>-->
-                <li data-menuanchor="2nd_page"><a href="#2nd_page">About</a><span></span></li>
-                <li data-menuanchor="3rd_page"><a href="#3rd_page">Web</a><span></span></li>
-                <li data-menuanchor="4th_page"><a href="#4th_page">UI</a><span></span></li>
-                <li data-menuanchor="5th_page"><a href="#5th_page">Graphic</a><span></span></li>
-                <li data-menuanchor="last_page"><a href="#last_page">CONTACT<span></span></a></li>
-            </ul>
-            <ul id="m_menu">
-                <li data-menuanchor="1st_page"><a href="#1st_page">
-                        <!--<img src="#" >-->Home
-                    </a><span></span></li>
-                <!--<li data-menuanchor="1st_page" class="active">Main<a href="#1st_page"></a></li>-->
-                <li data-menuanchor="2nd_page"><a href="#2nd_page">About</a><span></span></li>
-                <li data-menuanchor="3rd_page"><a href="#3rd_page">Web</a><span></span></li>
-                <li data-menuanchor="4th_page"><a href="#4th_page">UI</a><span></span></li>
-                <li data-menuanchor="5th_page"><a href="#5th_page">Graphic</a><span></span></li>
-                <li data-menuanchor="last_page"><a href="#last_page">CONTACT<span></span></a></li>
-            </ul>
-            <div class="scroll_any">
-                <div class="mouse">
-                    <div class="scroller"></div>
-                </div>
-            </div>
-        </header>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="https://vlaxx0406.github.io/portfolio/img/logo_wh.png" alt="OH JUNE YOUNG Logo" class="nav-logo-img">
+    <span class="nav-logo-text">Vlaxx</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#graphic">Graphic</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-        <!-- fullpage layout -->
-        <div id="fullpage">
-            <div class="section" id="page1">
-                <div class="container">
-                    <ul>
-                        <div class="main_logo wow fadeInDown" data-wow-duration="2s"><img src="images/logo_1.png" alt=""></div>
-                        <div class="comment wow fadeInDown" data-wow-delay="1s" data-wow-duration="2s">
-                            <p>I'm vlaxx, Web & UI/UX designer</p>
-                        </div>
-                        <div class="Introduce wow fadeInUp" data-wow-delay="1s" data-wow-duration="2s">
-                            <p>원하는 답을 찾기 위해 끊임없이 고민하는</p>
-                            <p class="Introduce_1 wow fadeInUp" data-wow-delay="2s" data-wow-duration="1s">웹&UI/UX 디자이너 오준영입니다.</p>
-                        </div>
-                    </ul>
-                    <div class="box">
-                        <div class="title">
-                            <span class="block"></span>
-                            <h1>June OH
-                                <!--<span></span>-->
-                            </h1>
-                        </div>
-                        <div class="role">
-                            <div class="block"></div>
-                            <p>portfolio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section" id="page2">
-                <div class="profile">
-                    <ul class="about">
-                        <li class="about_top">
-                            <ul>
-                                <li class="about_tit">ABOUT ME</li>
-                                <li class="about_txt">WEB DESIGN &amp; Publisher</li>
-                            </ul>
-                        </li>
-                        <li class="about_bottom">
-                            <ul>
-                                <li class="sec_01">
-                                    <ul class="profile_info">
-                                        <li class="profile_img">
-                                            <img src="images/profile_img.jpg" alt="">
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li class="profile_name">
-                                                    <h2>NAME.</h2>
-                                                    <p>OH JUNE YOUNG</p>
-                                                </li>
-                                                <li class="profile_desc">
-                                                    <h2>profile.</h2>
-                                                    <p><i class="far fa-calendar-check"></i> 1986. 02. 18</p>
-                                                    <p><i class="fas fa-mobile-alt"></i> 010.7462.3133</p>
-                                                    <p><i class="far fa-envelope"></i> lovlack@gmail.com</p>
-                                                    <p><b>MBTI</b> - ISFJ</p>
-                                                    
-                                                </li>
-                                            </ul>
-                                        </li>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#career" onclick="closeMobile()">Career</a>
+  <a href="#work" onclick="closeMobile()">Work</a>
+  <a href="#graphic" onclick="closeMobile()">Graphic</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
 
-                                    </ul>
-                                </li>
-                                <li class="sec_02">
-                                    <ul>
-                                        <li class="profile_ed">
-                                            <h2>education.</h2>
-                                            <p><span>2006. 02</span>수원과학대학 산업디자인 졸업</p>
-                                            <p><span>2020. 11</span>웹디자인 프론트앤드 실무자과정 수료</p>
-                                        </li>
-                                        <li class="profile_lic">
-                                            <h2>license.</h2>
-                                            <p><span>2002. 12</span> 컴퓨터그래픽스운용기능사</p>
-                                            <p><span>2002. 11</span> 인터넷정보검색사 2급</p>
-                                            <p><span>2002. 09</span> 워드프로세서 1급</p>
-                                            <p><span>2018. 03</span> 운전면허 1종 보통</p>
-                                        </li>
-                                        <li class="profile_hb">
-                                            <h2>hobby.</h2>
-                                            <ul>
-                                                <li><i class="fas fa-baseball-ball"></i>
-                                                    <p>BASEBALL</p>
-                                                </li>
-                                                <li><i class="fas fa-camera-retro"></i>
-                                                    <p>PHOTO</p>
-                                                </li>
-                                                <li><i class="fas fa-gamepad"></i>
-                                                    <p>PLAYGAME</p>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="sec_03">
-                                    <ul>
-                                        <li class="work_list">
-                                            <h2>WORK EXPERIENCES.</h2>
-                                            <ul>
-                                                <li>
-                                                    <h3>JOGUNSHOP</h3>
-                                                    <p>2011 .06 ~ 2013. 11</p>
-                                                </li>
-                                                <li>
-                                                    <h3>UF COMMERCE</h3>
-                                                    <p>2013 .12 ~ 2016. 04</p>
-                                                </li>
-                                                <li>
-                                                    <h3>MERONGSHOP</h3>
-                                                    <p>2016 .05 ~ 2019. 06</p>
-                                                </li>
-                                                <li>
-                                                    <h3>DECOVIEW</h3>
-                                                    <p>2019 .07 ~ 2020. 04</p>
-                                                </li>
-                                                <li>
-                                                    <h3>EXMARU</h3>
-                                                    <p>2021 .03 ~ 2022. 07</p>
-                                                </li>
-                                                <li>
-                                                    <h3>LUNOSOFT</h3>
-                                                    <p>2022 .08 ~ 2023. 12</p>
-                                                </li>
-                                                <li>
-                                                    <h3>DAPLAN</h3>
-                                                    <p>2024 .06 ~ 2025. 1</p>
-                                                </li>
-                                                <li>
-                                                    <h3>Debbie Meyer</h3>
-                                                    <p>2025 .12 ~</p>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="skill_list">
-                                            <h2>PERSONAL SKILLS.</h2>
-                                            <ul>
-                                                <li>
-                                                    <h1>PS/AI</h1>
-                                                    <div id="circle_01"></div>
-                                                </li>
-                                                <li>
-                                                    <h1>Figma/XD</h1>
-                                                    <div id="circle_02"></div>
-                                                </li>
-                                                <li>
-                                                    <h1>HTML</h1>
-                                                    <div id="circle_03"></div>
-                                                </li>
-                                                <li>
-                                                    <h1>Premiere Pro</h1>
-                                                    <div id="circle_04"></div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <script>
-                                            $('#circle_01').circleProgress({
-                                                value: 0.85,
-                                                size: 45,
-                                                //            fill: {gradient: ["red", "orange"]},
-                                                fill: '#a0c49d',
-                                                thickness: 8,
-                                                lineCap: 'round',
-                                            });
-                                            $('#circle_02').circleProgress({
-                                                value: 0.7,
-                                                size: 45,
-                                                //            fill: {gradient: ["red", "orange"]},
-                                                fill: '#a0c49d',
-                                                thickness: 8,
-                                                lineCap: 'round',
-                                            });
-                                            $('#circle_03').circleProgress({
-                                                value: 0.5,
-                                                size: 45,
-                                                //            fill: {gradient: ["red", "orange"]},
-                                                fill: '#a0c49d',
-                                                thickness: 8,
-                                                lineCap: 'round',
-                                            });
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">E-Commerce & UI/UX Designer</p>
+    <img src="https://vlaxx0406.github.io/portfolio/img/logo_wh.png" alt="OH JUNE YOUNG Logo" style="
+      width: 88px;
+      margin-bottom: 20px;
+      display: block;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    ">
+    <h1 class="hero-title">I'M<br><em>VLAXX</em></h1>
+    <p class="hero-desc">
+      이커머스 디자인, 퍼블리싱부터 브랜드 마케팅까지.<br>
+      AI와 함께 더 깊이 설계하고 디자인으로 전환을 만드는<br>
+      <strong style="color:var(--text)">13년차 이커머스 디자이너</strong>입니다.
+    </p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://vlaxx0406.github.io/portfolio/img/profile.jpg" alt="OH JUNE YOUNG" class="hero-img">
+    <div class="hero-img-overlay"></div>
+  </div>
 
-                                            $('#circle_04').circleProgress({
-                                                 value: 0.5,
-                                                 size: 45,
-                                                //            fill: {gradient: ["red", "orange"]},
-                                                fill: '#a0c49d',
-                                                thickness: 8,
-                                                lineCap: 'round',
-                                            });
-                                        </script>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">14+</div>
+      <div class="stat-label">Years Exp.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Companies</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Channels</div>
+    </div>
+  </div>
 
-                                    </ul>
-                                </li>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
 
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left">
+    <p class="section-label reveal">— 01 About</p>
+    <h2 class="section-title reveal">WHO I AM</h2>
 
+    <p class="about-intro reveal">
+      수원과학대 산업디자인 전공 후, <br><strong>2011년부터 이커머스 업계</strong>에서 커리어를 쌓아왔습니다.<br><br>
+      JOGUNSHOP, Decoview, LUNOSOFT 등 패션·리빙 커머스, 게임, 마케팅 회사를 거쳐, <br>현재는 <strong>데비마이어</strong>에서 디자인 전반을 총괄하고 있습니다.<br><br>
+      단순히 보기 좋은 디자인이 아닌, <br><strong>AI를 활용하여 전환율과 유입을 함께 높이는 설계를 추구합니다.
+    </p>
 
-                <div class="m_profile">
-                    <ul class="m_about">
-                        <div class="profile_img">
-                            <img src="images/profile_img.jpg" alt="">
-                        </div>
-                        <li class="profile_desc_01">
-                            <ul>
-                                <li>
-                                    <h1>NAME</h1>
-                                    <p>오준영</p>
-                                </li>
-                                <li>
-                                    <h1>birthday</h1>
-                                    <p><i class="far fa-calendar-check"></i>
-                                        1986. 02. 18</p>
-                                </li>
-                                <li>
-                                    <h1>phone</h1>
-                                    <p><i class="fas fa-mobile-alt"></i>
-                                        010.7462.3133</p>
-                                </li>
-                                <li>
-                                    <h1>e-mail</h1>
-                                    <p><i class="far fa-envelope"></i>
-                                        lovlack@gmail.com</p>
-                                </li>
-                                <li>
-                                    <h1>MBTI</h1>
-                                    <p><i class="far fa-envelope"></i>
-                                        ISFJ</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <hr>
-                        <li class="profile_desc_02">
-                            <ul>
-                                <h1>EDUCATION</h1>
-                                <li>
-                                    <h3>2006. 02</h3>
-                                    <p>수원과학대학 산업디자인 졸업</p>
-                                </li>
-                                <li>
-                                    <h3>2020. 11</h3>
-                                    <p>웹디자인 프론트앤드 실무자과정 수료</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <hr>
-                        <li class="profile_desc_03">
-                            <ul>
-                                <h1>WORK EXPERIENCES</h1>
-                                <li>
-                                    <h3>2011 .06 ~ 2013. 11</h3>
-                                    <p>JOGUNSHOP</p>
-                                </li>
-                                <li>
-                                    <h3>2013 .12 ~ 2016. 04</h3>
-                                    <p>UF COMMERCE</p>
-                                </li>
-                                <li>
-                                    <h3>2016 .05 ~ 2019. 06</h3>
-                                    <p>MERONGSHOP</p>
-                                </li>
-                                <li>
-                                    <h3>2019 .07 ~ 2020. 04</h3>
-                                    <p>DECOVIEW</p>
-                                </li>
-                                <li>
-                                    <h3>2021 .03 ~ 2022. 07</h3>
-                                    <p>EXMARU</p>
-                                </li>
-                                <li>
-                                    <h3>2022 .08 ~ 2023. 12</h3>
-                                    <p>DA PLAN</p>
-                                </li>
-                                <li>
-                                    <h3>2024 .06 ~ 2025. 1</h3>
-                                    <p>LUNOSOFT</p>
-                                </li>  
-                                <li>
-                                    <h3>2025 .12 ~</h3>
-                                    <p>Debbie Meyer</p>
-                                </li>                                  
-                            </ul>
-                        </li>
-                        <hr>
-                        <li class="profile_desc_04">
-                            <h1>PERSONAL SKILLS.</h1>
-                            <ul>
-                                <li>
-                                    <h1>PS/AI</h1>
-                                    <div id="m_circle_01"></div>
-                                </li>
-                                <li>
-                                    <h1>Figma/XD</h1>
-                                    <div id="m_circle_02"></div>
-                                </li>
-                                <li>
-                                    <h1>HTML</h1>
-                                    <div id="m_circle_03"></div>
-                                </li>
-                                <li>
-                                    <h1>Prmiere</h1>
-                                    <div id="m_circle_04"></div>
-                                </li>
-                            </ul>
-                        </li>
-                        <script>
-                            $('#m_circle_01').circleProgress({
-                                value: 0.85,
-                                size: 45,
-                                //            fill: {gradient: ["red", "orange"]},
-                                fill: '#a0c49d',
-                                emptyFill: 'rgba(255, 255, 255, 0.9)',
-                                thickness: 8,
-                                lineCap: 'round',
-                            });
-                            $('#m_circle_02').circleProgress({
-                                value: 0.7,
-                                size: 45,
-                                //            fill: {gradient: ["red", "orange"]},
-                                fill: '#a0c49d',
-                                emptyFill: 'rgba(255, 255, 255, 0.9)',
-                                thickness: 8,
-                                lineCap: 'round',
-                            });
-                            $('#m_circle_03').circleProgress({
-                                value: 0.5,
-                                size: 45,
-                                //            fill: {gradient: ["red", "orange"]},
-                                fill: '#a0c49d',
-                                emptyFill: 'rgba(255, 255, 255, 0.9)',
-                                thickness: 8,
-                                lineCap: 'round',
-                            });
-
-                            $('#m_circle_04').circleProgress({
-                                value: 0.5,
-                                size: 45,
-                                //            fill: {gradient: ["red", "orange"]},
-                                fill: '#a0c49d',
-                                thickness: 8,
-                                emptyFill: 'rgba(255, 255, 255, 0.9)',
-                                lineCap: 'round',
-                            });
-                        </script>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section" id="page3">
-                <div class="slide" data-anchor="slide1">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no01">
-                                <img src="images/thum_01.jpg" alt="diptyque" />
-                                <figcaption>
-                                    <h2 class="slide_tit">diptyque</h2>
-                                    <a href="portfolio_01.html" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">01</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>반응형 페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Tablet / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>메인페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Photoshop<br>illustrator<br>Brackets</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no02">
-                                <img src="images/thum_02.jpg" alt="화평동 왕냉면" />
-                                <figcaption>
-                                    <h2 class="slide_tit">화평동 왕냉면</h2>
-                                    <a href="portfolio_02.html" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">02</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>풀스크린 페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>메인페이지<br>서브페이지<br>(브랜드소개, 메뉴소개)</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Photoshop<br>illustrator<br>Brackets</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no03">
-                                <img src="images/thum_03.jpg" alt="CHEVROLET" />
-                                <figcaption>
-                                    <h2 class="slide_tit">CHEVROLET</h2>
-                                    <a href="portfolio_03.html" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">03</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>반응형 페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Tablet / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>메인페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Photoshop<br>illustrator<br>Brackets</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="slide" data-anchor="slide2">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no04">
-                                <img src="images/thum_04.jpg" alt="SHILLA STAY" />
-                                <figcaption>
-                                    <h2 class="slide_tit">SHILLA STAY</h2>
-                                    <a href="portfolio_04.html" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">04</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>풀스크린 페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>메인페이지</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Photoshop<br>illustrator<br>Brackets</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list"  style="opacity: 0.2;">
-                            <div class="slide_img no05"><img src="images/thum_empty.jpg" alt="sample79" >
-                                <figcaption>
-                                    <h2 class="slide_tit">EMPTY</h2>
-                                    <!-- <a href="portfolio_05.html" class="more">VIEW</a> -->
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">05</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>-</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list" style="opacity: 0.2;">
-                            <div class="slide_img no06"><img src="images/thum_empty.jpg" alt="sample79"/>
-                                <figcaption>
-                                    <h2 class="slide_tit">EMPTY</h2>
-                                    <!-- <a href="portfolio_06.html" class="more">VIEW</a> -->
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">06</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Type</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Create</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>-</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section" id="page4">
-                <div class="slide" data-anchor="slide1">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no01">
-                                <img src="images/ui_thum_05.jpg" alt="E-commerce" />
-                                <figcaption>
-                                    <h2 class="slide_tit">NFT P2E APP</h2>
-                                    <a href="https://www.figma.com/design/5IFwWWTn0e8xMVsY2Dmu8j/PerPlay_ui-(%EB%B0%B0%ED%8F%AC%EC%9A%A9)?node-id=3%3A4549&t=auFd1XTTtRqddeXY-1" target="_blank" class="more">Mobile</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">NFT P2E APP UI</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Figma</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>Mobile APP UI 디자인제작</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no02">
-                                <img src="images/ui_thum_01.jpg" alt="E-commerce" />
-                                <figcaption>
-                                    <h2 class="slide_tit">E-commerce</h2>
-                                    <a href="https://xd.adobe.com/view/ff892e94-ca84-46fb-9cf9-874ea51a9481-aada/" target="_blank" class="more">PC</a>
-                                    <a href="https://xd.adobe.com/view/27f376be-66d4-4d01-8ec4-f5efd1008ea2-72a0/" target="_blank" class="more">Mobile</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">E-commerce UI</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Adobe XD</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>Web/Mobile UI 디자인제작</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>    
-                        <li class="slide_list">
-                            <div class="slide_img no03">
-                                <img src="images/ui_thum_02.jpg" alt="Web novel" />
-                                <figcaption>
-                                    <h2 class="slide_tit">Web novel UI</h2>
-                                    <a href="https://xd.adobe.com/view/34dc3059-3b7c-4c27-b54b-d22c06b99f0f-618f/" target="_blank" class="more">PC</a>
-                                    <a href="https://xd.adobe.com/view/11f83902-c2c3-4883-ab6f-6a66838cdc5e-44ab/" target="_blank" class="more">Mobile</a>
-                                    <!-- <a href="https://xd.adobe.com/view/4e562218-4f7c-4633-bda1-87314a073939-1b05/" class="more">Admin</a> -->
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">Web novel</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Adobe XD</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>Web/Mobile UI 디자인제작<br>BI로고제작</p>                                        
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="slide" data-anchor="slide2">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no04">
-                                <img src="images/ui_thum_03.jpg" alt="closed mall" />
-                                <figcaption>
-                                    <h2 class="slide_tit">회사 직원몰</h2>
-                                    <a href="https://www.figma.com/file/V61CPo3rDtSWU0Mcn1acV8/%EC%A3%BC%EC%9D%80%EC%A0%95%EB%B3%B420220616?node-id=11%3A9" target="_blank" class="more">PC</a>
-                                    <a href="https://www.figma.com/file/V61CPo3rDtSWU0Mcn1acV8/%EC%A3%BC%EC%9D%80%EC%A0%95%EB%B3%B420220616?node-id=0%3A1" target="_blank" class="more">Mobile</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">Closed mall</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Figma</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>Web/Mobile UI 디자인제작<br>아이콘제작</br></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no05">
-                                <img src="images/ui_thum_04.jpg" alt="삼행시커뮤니티" />
-                                <figcaption>
-                                    <h2 class="slide_tit">삼행시커뮤니티</h2>
-                                    <a href="https://xd.adobe.com/view/b813ffc8-150a-4043-9dda-8e9dee98a393-ed40/" target="_blank" class="more">PC</a>
-                                    <a href="https://xd.adobe.com/view/a7e0a911-03c9-420a-8ecf-942c21429c57-f2b3/" target="_blank" class="more">Mobile</a>
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">Community</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>PC / Mobile</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>Adobe XD</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>Web/Mobile UI 디자인제작<br>BI로고제작<br>아이콘제작</br></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no06" style="opacity: 0.2;" >
-                                <img src="images/thum_empty.jpg" alt="empty" />
-                                <figcaption>
-                                    <h2 class="slide_tit">Empty</h2>
-                                    <!-- <a href="https://xd.adobe.com/view/ff892e94-ca84-46fb-9cf9-874ea51a9481-aada/" class="more">PC view</a>
-                                    <a href="https://xd.adobe.com/view/27f376be-66d4-4d01-8ec4-f5efd1008ea2-72a0/" class="more">Mobile view</a> -->
-                                    
-                                </figcaption>
-                            </div>
-                            <div class="brand_num">-</div>
-                            <div class="slide_desc">
-                                <ul>
-                                    <li>
-                                        <h2>Device</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Tool</h2>
-                                        <p>-</p>
-                                    </li>
-                                    <li>
-                                        <h2>Detail</h2>
-                                        <p>-</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section" id="page5">
-                <div class="slide" data-anchor="slide1">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no11">
-                                <img src="images/thum_31.jpg" alt="BN" style="opacity: 0.9" />
-                                <figcaption>
-                                    <h2 class="slide_tit">데비마이어</h2>
-                                    <a href="portfolio_31.html" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">Debbie Meyer</div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no12">
-                               <img src="images/thum_21.jpg" alt="EV" style="opacity: 0.9",/>
-                                <figcaption>
-                                    <h2 class="slide_tit">NFT ART</h2>
-                                    <a href="portfolio_21.html" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">NFT ART</div>
-                        </li>                                
-                        <li class="slide_list">
-                            <div class="slide_img no13">
-                               <img src="images/thum_22.jpg" alt="POP" style="opacity: 0.9">
-                                <figcaption>
-                                    <h2 class="slide_tit">NFT 프로모션</h2>
-                                    <a href="portfolio_22.html" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">NFT 프로모션</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="slide" data-anchor="slide1">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no13">
-                               <img src="images/thum_23.jpg" alt="POP" style="opacity: 0.9">
-                                <figcaption>
-                                    <h2 class="slide_tit">IR Page</h2>
-                                    <a href="perplay_IR.pdf" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">IR 자료</div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no11">
-                                <img src="images/thum_11.jpg" alt="BN" style="opacity: 0.9" />
-                                <figcaption>
-                                    <h2 class="slide_tit">쇼핑몰 배너이미지</h2>
-                                    <a href="portfolio_11.html" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">BANNER IMAGE</div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no12">
-                               <img src="images/thum_12.jpg" alt="EV" style="opacity: 0.9",/>
-                                <figcaption>
-                                    <h2 class="slide_tit">이벤트페이지</h2>
-                                    <a href="portfolio_12.html" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">EVENT PAGE</div>
-                        </li>  
-
-                    </ul>
-                </div>
-                <div class="slide" data-anchor="slide1">
-                    <ul class="slide_thum">
-                        <li class="slide_list">
-                            <div class="slide_img no13">
-                               <img src="images/thum_14.jpg" alt="POP" style="opacity: 0.9">
-                                <figcaption>
-                                    <h2 class="slide_tit">회사소개페이지</h2>
-                                    <a href="exmaru_company.pdf" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">About Company</div>
-                        </li>                             
-                        <li class="slide_list">
-                            <div class="slide_img no13">
-                               <img src="images/thum_empty.jpg" alt="POP" style="opacity: 0.9">
-                                <figcaption>
-                                    <h2 class="slide_tit">-</h2>
-                                    <a href="#" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">-</div>
-                        </li>
-                        <li class="slide_list">
-                            <div class="slide_img no13">
-                               <img src="images/thum_empty.jpg" alt="POP" style="opacity: 0.9">
-                                <figcaption>
-                                    <h2 class="slide_tit">-</h2>
-                                    <a href="#" target="_blank" class="more">VIEW</a>
-                                </figcaption>
-                            </div>
-                            <div class="gp_name">-</div>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-            <div class="section" id="page6">
-                <div class="contact">
-                    <ul>
-                        <li class="contact_tit">CONTACT</li>
-                        <li class="contact_txt">
-                            <ul>
-                                <li>
-                                    <h2>PHONE</h2>
-                                    <p><i class="fas fa-mobile-alt"></i> 010.7462.3133</p>
-                                </li>
-                                <li>
-                                    <h2>E-MAIL</h2>
-                                    <p><i class="far fa-envelope"></i> lovlack@gmail.com</p>
-                                </li>
-                                <li>
-                                    <h2>SNS</h2>
-                                    <a href="https://www.instagram.com/montigreux" target="_blank" >
-                                        <p><i class="fab fa-instagram"></i> montigreux</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <h2>Youtube</h2>
-                                    <a href="https://www.youtube.com/@HorangHorn37" target="_blank">
-                                        <p><i class="fab fa-youtube"></i> HorangHorn37</p>                                        
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <footer>
-                            <div class="copyright">
-                                <ul>
-                                    <li>본 홈페이지는 상업의 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</li>
-                                    <li>Copyright ⓒ 2020 by vlaxx All right Reserved</li>
-                                </ul>
-                            </div>
-                        </footer>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="about-highlight reveal">
+      "디자인은 보여주기 위한 것이 아니라,<br>문제를 해결하기 위한 것이다."
     </div>
 
-    <script>
-        $('#fullpage').fullpage({
-            // 페이지마다 배경 색상 적용 
-            sectionsColor: ['#fff', '#d5dcd5', '#cbd0ca', '#1b5246', '#fff'],
-            // 메뉴 생성시, 각 페이지 링크 
-            anchors: ['1st_page', '2nd_page', '3rd_page', '4th_page', '5th_page', 'last_page'],
-            menu: '#menu',
-        });
-    </script>
-</body></html>
+    <div class="info-grid reveal">
+      <div class="info-item">
+        <div class="info-label">Location</div>
+        <div class="info-val">대한민국, 경기 부천</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">E-Mail</div>
+        <div class="info-val">lovlack@gmail.com</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Education</div>
+        <div class="info-val">수원과학대 산업디자인</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Status</div>
+        <div class="info-val">재직 중 · 협업 오픈</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <p class="section-label reveal">— Skills</p>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-label">// Design & Publishing</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Photoshop</span>
+        <span class="skill-tag highlight">Illustrator</span>
+        <span class="skill-tag highlight">Figma</span>
+        <span class="skill-tag">Adobe XD</span>
+        <span class="skill-tag">Premiere Pro</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-label">// Web & Development</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">HTML / CSS</span>
+        <span class="skill-tag highlight">Cafe24</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">반응형 퍼블리싱</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-label">// Analytics & Marketing</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">GA4</span>
+        <span class="skill-tag highlight">Microsoft Clarity</span>
+        <span class="skill-tag highlight">SEO</span>
+        <span class="skill-tag">Naver Search Advisor</span>
+        <span class="skill-tag">Google Search Console</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-label">// Ai tool</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Claude/ChatGPT/Gemini</span>
+        <span class="skill-tag highlight">Nano Banana</span>
+        <span class="skill-tag">MidJourney</span>
+        <span class="skill-tag">Whisk/Flow</span>
+        <span class="skill-tag">Grok</span>
+        <span class="skill-tag">Playground AI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <p class="section-label reveal">— 02 Career</p>
+  <h2 class="section-title reveal">WORK HISTORY</h2>
+
+  <div class="career-grid">
+    <div class="career-item reveal">
+      <div class="career-period">2025.12 — 현재</div>
+      <div class="career-company">DEBBIE MEYER</div>
+      <div class="career-role">Cafe24 자사몰 리뉴얼 / SEO 최적화 / AI 이미지 제작 및 광고 소재 총괄</div>
+      <span class="career-current">Current</span>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2024.06 — 2025.01</div>
+      <div class="career-company">DAPLAN</div>
+      <div class="career-role">피부과 마케팅 대행사에서 아임웹 유지보수 / 디자인 가이드 표준화 / 가맹점 일정 통합 관리</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2022.08 — 2023.12</div>
+      <div class="career-company">LUNOSOFT</div>
+      <div class="career-role">NFT P2E 앱 UI/UX 및 Figma 프로토타입 / MidJourney 활용 아트워크 제작 담당</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2021.03 — 2022.07</div>
+      <div class="career-company">EXMARU</div>
+      <div class="career-role">웹에이전시에서 기획 / 개발 협업 기반 Figma,XD 와이어프레임 및 웹,모바일 UI 설계</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2019.07 — 2020.04</div>
+      <div class="career-company">DECOVIEW</div>
+      <div class="career-role">패브릭 쇼핑몰 Cafe24 HTML,CSS 운영 / 상세페이지 제작,촬영 기획 및 팀 교육 담당</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2016.05 — 2019.06</div>
+      <div class="career-company">MERONGSHOP</div>
+      <div class="career-role">여성 의류 쇼핑몰 UI / 프로모션 디자인 / 이미지 보정 / 팀 관리 총괄</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2013.12 — 2016.04</div>
+      <div class="career-company">UF COMMERCE</div>
+      <div class="career-role">밀크하우스캔들 국내 브랜드 런칭 디자인 전반 / 제품 촬영 / Cafe24 UI 코딩 담당</div>
+    </div>
+    <div class="career-item reveal">
+      <div class="career-period">2011.06 — 2013.11</div>
+      <div class="career-company">JOGUNSHOP</div>
+      <div class="career-role">Cafe24·메이크샵 기반 전반 디자인 / HTML 코딩 / 이미지 보정 / 오픈마켓 운영 및 팀 관리 담당</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <p class="section-label reveal">— 03 Work</p>
+  <h2 class="section-title reveal">SELECTED<br>PROJECTS</h2>
+
+  <div class="work-filter reveal">
+    <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
+    <button class="filter-btn" onclick="filterWork('web', this)">Web Design</button>
+    <button class="filter-btn" onclick="filterWork('ui', this)">UI / UX</button>
+    <button class="filter-btn" onclick="filterWork('ecommerce', this)">E-Commerce</button>
+  </div>
+
+  <div class="work-grid" id="workGrid">
+    <div class="work-card wide reveal" data-cat="ecommerce">
+      <img src="https://vlaxx0406.github.io/portfolio/img/07.jpg" alt="데비마이어" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">E-Commerce · Cafe24</div>
+        <div class="work-name">DEBBIE MEYER KOREA</div>
+        <div class="work-desc">Cafe24 기반 쇼핑몰 리뉴얼 / 상세페이지 272개 / GA4·SEO 최적화 / 5개 채널 동시 운영 / LCP 대폭 개선.</div>
+        <div class="work-links">
+          <a href="https://vlaxx0406.github.io/portfolio/portfolio_31.html" target="_blank" class="work-link">View</a>
+          <a href="https://debbiemeyer.cafe24.com" target="_blank" class="work-link">Live Site</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-cat="web">
+      <img src="https://vlaxx0406.github.io/portfolio/img/01.jpg" alt="Diptyque" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">Web Design · 반응형</div>
+        <div class="work-name">DIPTYQUE</div>
+        <div class="work-desc">PC / Tablet / Mobile 반응형 메인페이지 제작.<br>Photoshop · Illustrator 기반 디자인 후 퍼블리싱.</div>
+        <div class="work-links">
+          <a href="https://vlaxx0406.github.io/portfolio/portfolio_01.html" target="_blank" class="work-link">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card reveal" data-cat="web">
+      <img src="https://vlaxx0406.github.io/portfolio/img/03.jpg" alt="CHEVROLET" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">Web Design · 반응형</div>
+        <div class="work-name">CHEVROLET</div>
+        <div class="work-desc">PC / Tablet / Mobile 반응형 자동차 브랜드 메인페이지.</div>
+        <div class="work-links">
+          <a href="https://vlaxx0406.github.io/portfolio/portfolio_03.html" target="_blank" class="work-link">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card reveal" data-cat="web">
+      <img src="https://vlaxx0406.github.io/portfolio/img/04.jpg" alt="SHILLA STAY" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">Web Design · 풀스크린</div>
+        <div class="work-name">SHILLA STAY</div>
+        <div class="work-desc">호텔 브랜드 PC 풀스크린 메인페이지 디자인 및 퍼블리싱.</div>
+        <div class="work-links">
+          <a href="https://vlaxx0406.github.io/portfolio/portfolio_04.html" target="_blank" class="work-link">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card reveal" data-cat="ui">
+      <img src="https://vlaxx0406.github.io/portfolio/img/06.jpg" alt="E-commerce" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">UI/UX · E-Commerce</div>
+        <div class="work-name">CellbioDx UI</div>
+        <div class="work-desc">PC·Mobile 이커머스 UI 풀 디자인. Adobe XD 프로토타입.</div>
+        <div class="work-links">
+          <a href="https://xd.adobe.com/view/ff892e94-ca84-46fb-9cf9-874ea51a9481-aada/" target="_blank" class="work-link">PC</a>
+          <a href="https://xd.adobe.com/view/27f376be-66d4-4d01-8ec4-f5efd1008ea2-72a0/" target="_blank" class="work-link">Mobile</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card reveal" data-cat="web">
+      <img src="https://vlaxx0406.github.io/portfolio/img/02.jpg" alt="화평동 왕냉면" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">Web Design · 풀스크린</div>
+        <div class="work-name">화평동 왕냉면</div>
+        <div class="work-desc">PC 풀스크린 페이지 / 브랜드·메뉴 서브페이지 포함.</div>
+        <div class="work-links">
+          <a href="https://vlaxx0406.github.io/portfolio/portfolio_02.html" target="_blank" class="work-link">View</a>
+        </div>
+      </div>
+    </div>
+        <div class="work-card wide reveal" data-cat="ui">
+      <img src="https://vlaxx0406.github.io/portfolio/img/05.jpg" alt="NFT P2E" class="work-thumb">
+      <div class="work-overlay">
+        <div class="work-cat">UI/UX · Mobile App</div>
+        <div class="work-name">PERPLAY NFT P2E APP</div>
+        <div class="work-desc">Figma 기반 모바일 앱 전체 UI 설계. NFT 게임 플랫폼.</div>
+        <div class="work-links">
+          <a href="https://embed.figma.com/design/5IFwWWTn0e8xMVsY2Dmu8j/PerPlay_ui--%EB%B0%B0%ED%8F%AC%EC%9A%A9-?node-id=3-4549&embed-host=share" target="_blank" class="work-link">Figma</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRAPHIC -->
+<section id="graphic">
+  <p class="section-label reveal">— 04 Graphic</p>
+  <h2 class="section-title reveal">GRAPHIC<br>DESIGN</h2>
+
+  <div class="graphic-grid">
+    <div class="graphic-item reveal">
+      <a href="https://vlaxx0406.github.io/portfolio/portfolio_31.html">
+        <img src="https://vlaxx0406.github.io/portfolio/images/thum_31.jpg" alt="데비마이어 배너"></a>
+      <div class="graphic-label">데비마이어 · 배너 디자인</div>
+    </div>
+    <div class="graphic-item reveal">
+        <a href="https://vlaxx0406.github.io/portfolio/portfolio_21.html">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_21.jpg" alt="NFT ART"></a>
+      <div class="graphic-label">NFT ART · 루노소프트</div>
+    </div>
+    <div class="graphic-item reveal">
+        <a href="https://vlaxx0406.github.io/portfolio/portfolio_22.html">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_22.jpg" alt="NFT 프로모션"></a>
+      <div class="graphic-label">NFT 프로모션 · 루노소프트</div>
+    </div>
+        <div class="graphic-item reveal">
+        <a href="perplay_IR.pdf">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_23.jpg" alt="IR"></a>
+      <div class="graphic-label">IR 자료 · PerPlay</div>
+    </div>
+    <div class="graphic-item reveal">
+        <a href="https://vlaxx0406.github.io/portfolio/portfolio_11.html">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_11.jpg" alt="배너"></a>
+      <div class="graphic-label">배너 이미지 · 이커머스</div>
+    </div>
+    <div class="graphic-item reveal">
+        <a href="https://vlaxx0406.github.io/portfolio/portfolio_12.html">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_12.jpg" alt="이벤트"></a>
+      <div class="graphic-label">이벤트 페이지 디자인</div>
+    </div>
+        <div class="graphic-item reveal">
+        <a href="https://vlaxx0406.github.io/portfolio/portfolio_23.html">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_13.jpg" alt="이벤트"></a>
+      <div class="graphic-label">이벤트 페이지 디자인</div>
+    </div>
+    <div class="graphic-item reveal">
+        <a href="exmaru_company.pdf">
+      <img src="https://vlaxx0406.github.io/portfolio/images/thum_14.jpg" alt="회사소개"></a>
+      <div class="graphic-label">회사소개 페이지 · 엑스마루</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label" style="text-align:center; display:block; margin-bottom:24px;">— 05 Contact</p>
+  <img src="https://vlaxx0406.github.io/portfolio/img/logo_wh.png" alt="Logo" style="
+    width: 80px;
+    opacity: 0.15;
+    margin-bottom: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+  <div class="contact-big reveal">LET'S<br><span>WORK</span><br>TOGETHER</div>
+  <p class="contact-sub reveal">
+    원하는 답을 찾기 위해 끊임없이 고민하는 웹 & UI/UX 디자이너 오준영입니다.
+  </p>
+  <div class="contact-links reveal">
+    <div class="contact-item">
+      <div class="contact-item-label">E-Mail</div>
+      <a href="mailto:lovlack@gmail.com">lovlack@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Instagram</div>
+      <a href="https://www.instagram.com/montigreux" target="_blank">@montigreux</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">YouTube</div>
+      <a href="https://www.youtube.com/@HorangHorn37" target="_blank">@HorangHorn37</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="https://vlaxx0406.github.io/portfolio/img/logo_wh.png" alt="Logo" style="width:24px; opacity:0.4;">
+    <p>© 2025 OH JUNE YOUNG — All rights reserved.</p>
+  </div>
+  <p>E-Commerce Designer & Marketer · Seoul, Korea</p>
+</footer>
+
+<script>
+  // NAV scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Work filter
+  function filterWork(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.work-card').forEach(card => {
+      const match = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = match ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
