@@ -1,66 +1,364 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Banner</title>
-    <link rel="icon" href="images/logo_RpY_icon.ico">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/portfolio_31.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상세페이지 | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Ibarra+Real+Nova:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-    center img {
-        display: block;
-        width: 860px;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-    }
-</style>
+:root{
+  --ink:#1b1b1b; --gray:#555555; --line:#c8c8c8; --bg:#f4f4f2; --ph:#e4e4e0;
+  --pad:clamp(20px,6.67vw,80px);
+  --gap:clamp(16px,2.5vw,32px);
+  --en:'Ibarra Real Nova',serif;
+  --kr:'Noto Serif KR','Ibarra Real Nova',serif;
+  --mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--kr);word-break:keep-all}
+body.viewer-open{overflow:hidden}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:var(--pad) var(--pad) 0}
+
+/* header (same as ai_01.html) */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.topbar a{text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:clamp(48px,7.5vw,90px)}
+.eyebrow{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+h1{margin:24px 0 0;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.2;letter-spacing:-1px}
+.sub{margin-top:20px;font-family:var(--en);font-size:clamp(20px,2.33vw,28px);color:var(--gray)}
+.info{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.info div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.info div:last-child{border-bottom:1px solid var(--line)}
+.info dt{color:var(--gray)}
+.info dd{margin:0}
+.intro{margin:clamp(32px,4.7vw,56px) 0 -.5em;max-width:640px;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+
+/* detail page cards */
+.list{margin-top:clamp(48px,6.67vw,80px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+.pd{display:flex;flex-direction:column}
+.pd-preview{position:relative;display:block;width:100%;aspect-ratio:5/6;padding:0;border:1px solid var(--line);background:var(--ph);overflow:hidden;cursor:pointer;font:inherit}
+.pd-preview{color:var(--gray)}
+.pd-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s ease}
+.pd-preview:hover img,.pd-preview:focus-visible img{transform:scale(1.03)}
+.pd-preview:focus-visible,.pd-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.pd-n{position:absolute;left:14px;top:12px;z-index:2;font-family:var(--en);font-size:14px;letter-spacing:2px;color:var(--gray);background:rgba(244,244,242,.9);padding:2px 8px}
+.pd-meta{padding-top:20px;display:flex;flex-direction:column;flex:1}
+.pd-kicker{font-family:var(--en);font-size:13px;letter-spacing:3px;color:var(--gray)}
+.pd h2{margin:8px 0 10px;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.3}
+.pd p{margin:0 0 20px;font-size:15px;line-height:1.8;color:var(--gray)}
+.pd-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--en);font-size:14px;letter-spacing:3px;cursor:pointer;transition:background .3s,color .3s}
+.pd-btn:hover{background:transparent;color:var(--ink)}
+.pd.is-soon .pd-preview{cursor:default;border-style:dashed;display:grid;place-items:center;color:var(--gray);font-family:var(--en);letter-spacing:4px;font-size:14px}
+.pd.is-soon .pd-preview::after{display:none}
+.pd.is-soon .pd-btn{background:transparent;color:var(--gray);border-color:var(--line);cursor:default}
+
+/* full detail viewer */
+.viewer{border:0;padding:0;margin:0;width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;background:#fff}
+.viewer::backdrop{background:rgba(27,27,27,.88)}
+.viewer-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--pad);background:rgba(244,244,242,.96);border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.viewer-close{border:1px solid var(--ink);background:transparent;color:var(--ink);font:inherit;letter-spacing:3px;padding:8px 16px;cursor:pointer}
+.viewer-close:hover{background:var(--ink);color:var(--bg)}
+.viewer-scroll{height:calc(100% - 56px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.viewer-body img{display:block;width:860px;max-width:100%;height:auto;margin:0 auto}
+
+/* footer (index.html .site-footer style) */
+.foot{margin-top:clamp(56px,8vw,96px);background:#0e0f0d;color:#a3a59c;border-top:1px solid #2a2b27;
+  padding:22px var(--pad);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#c8f05a}
+
+/* tablet */
+@media (max-width:900px){
+  .head{flex-direction:column;align-items:flex-start;gap:32px}
+  .info{width:100%;max-width:420px}
+  .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* mobile */
+@media (max-width:640px){
+  .topbar,.viewer-bar{font-size:13px;letter-spacing:2px}
+  .list{grid-template-columns:1fr}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.pd-preview img{transition:none}}
 </style>
 </head>
 <body>
-    <center>
-        <img style="max-width: 100%; height: auto;" src="img/product/img/00-green-box-title.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/00-green-box-brand-debbiemeyer.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/00-green-box-ppl.gif" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/01-green-box-product_hero.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/02-green-box-key-point.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/03-green-box-product_main_989.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-composition-989.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-473mlx5p.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-709mlx5p.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-946mlx4p.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-1_4lx2p.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-1_8lx2p.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/04-green-box-product-composition-total-989.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/05-green-box-time-laps-01.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/05-green-box-time-laps-02.gif" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/05-green-box-time-laps-03.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/06-green-box-fear.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/07-green-box-empathy.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/08-green-box-product-function-01.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/08-green-box-product-function-02.gif" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/08-green-box-product-function-03.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/09-green-box-cta-01.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/10-green-box-product-comparison.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/11-green-box-detail.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/12-green-box-solution-timelapse-compare-01.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/12-green-box-solution-timelapse-compare-02.gif" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/12-green-box-solution-timelapse-compare-03.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/13-green-box-product-trust.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/14-green-box-certification.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/15-green-box-certification_list.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/16-green-box-review.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/17-green-box-cta-02.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/18-green-box-for-you.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/19-green-box-product-how-to-use.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/20-green-box-caution.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/21-green-box-product-how-to-use-size.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/22-green-box-cta-03.jpg" alt="">        
-        <img style="max-width: 100%; height: auto;" src="img/product/img/23-green-box-finish.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/24-green-box-lineup.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/25-green-box-product-faq.jpg" alt="">
-        <img style="max-width: 100%; height: auto;" src="img/product/img/26-green-box-product-infomation.jpg" alt="">
-   </center>
-  
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <span>PORTFOLIO</span>
+      <a href="index.html">&lt; BACK PAGE</a>
+    </div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">PRODUCT DETAIL PAGE</div>
+        <h1>상세페이지</h1>
+        <div class="sub">Debbie Meyer · Cafe24</div>
+        <p class="intro">데비마이어 자사몰 상세페이지입니다. <br>상세보기를 누르면 상세페이지 전체를 볼 수 있습니다.</p>
+      </div>
+      <dl class="info">
+        <div><dt>Client</dt><dd>Debbie Meyer Korea</dd></div>
+        <div><dt>Platform</dt><dd>Cafe24 자사몰</dd></div>
+        <div><dt>Works</dt><dd data-works=".list .pd" data-unit="Pages">4 Pages</dd></div>
+        <div><dt>Contribution</dt><dd>기여도 100%</dd></div>
+        <div><dt>AI image</dt><dd>제품 이미지 AI 생성 100%</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main class="list">
+    <!-- 01 : Green Boxes -->
+    <article class="pd">
+      <button class="pd-preview" type="button" data-open="pd-page01" aria-label="그린박스 상세페이지 전체 보기">
+        <img src="img/product/page01.jpg" alt="" decoding="async">
+        <span class="pd-n">01</span>
+      </button>
+      <div class="pd-meta">
+        <div class="pd-kicker">FOOD STORAGE</div>
+        <h2>그린박스</h2>
+        <p>45일 신선 보관 밀폐용기 상세페이지. 문제 제기, 공감, 기능, 비교, 신뢰 순서로 구매 흐름을 설계했습니다.</p>
+        <button class="pd-btn" type="button" data-open="pd-page01">상세보기 <span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </article>
+
+    <!-- 02 : 데비마이어 뉴 데비박스 -->
+    <article class="pd">
+      <button class="pd-preview" type="button" data-open="pd-page02" aria-label="데비마이어 뉴 데비박스 상세페이지 전체 보기">
+        <img src="img/product/page02.jpg" alt="" decoding="async">
+        <span class="pd-n">02</span>
+      </button>
+      <div class="pd-meta">
+        <div class="pd-kicker">FOOD STORAGE</div>
+        <h2>데비박스</h2>
+        <p>리뉴얼된 밀폐용기 라인업 상세페이지. 구성 옵션, 기능, 체크포인트, 사용 팁 순서로 정리했습니다.</p>
+        <button class="pd-btn" type="button" data-open="pd-page02">상세보기 <span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </article>
+
+    <!-- 03 : 스칸디나비아 냄비 -->
+    <article class="pd">
+      <button class="pd-preview" type="button" data-open="pd-page03" aria-label="스칸디나비아 냄비 상세페이지 전체 보기">
+        <img src="img/product/page03.jpg" alt="" decoding="async">
+        <span class="pd-n">03</span>
+      </button>
+      <div class="pd-meta">
+        <div class="pd-kicker">COOKWARE</div>
+        <h2>스칸디나비아 냄비</h2>
+        <p>편수·양수·전골 냄비 라인업 상세페이지. 사이즈별 옵션을 한눈에 비교할 수 있도록 구성했습니다.</p>
+        <button class="pd-btn" type="button" data-open="pd-page03">상세보기 <span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </article>
+
+    <!-- 04 : 데비마이어 손잡이 앞접시 -->
+    <article class="pd">
+      <button class="pd-preview" type="button" data-open="pd-page04" aria-label="데비마이어 손잡이 앞접시 상세페이지 전체 보기">
+        <img src="img/product/page04.jpg" alt="" decoding="async">
+        <span class="pd-n">04</span>
+      </button>
+      <div class="pd-meta">
+        <div class="pd-kicker">TABLEWARE</div>
+        <h2>손잡이 앞접시</h2>
+        <p>가볍고 안전한 손잡이 앞접시 상세페이지. 문제 제기, 디테일, 체크포인트, CTA 흐름으로 설계했습니다.</p>
+        <button class="pd-btn" type="button" data-open="pd-page04">상세보기 <span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </article>
+  </main>
+
+</div>
+
+<footer class="foot">
+  <span>&copy; 2026 Oh June Young. All rights reserved.</span>
+  <span>E-Commerce Designer &middot; Korea</span>
+  <a href="#">Back to top &uarr;</a>
+</footer>
+
+<!-- Full detail viewer -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+  <div class="viewer-bar">
+    <span id="viewerTitle">DETAIL PAGE</span>
+    <button class="viewer-close" type="button" id="viewerClose">CLOSE &times;</button>
+  </div>
+  <div class="viewer-scroll" id="viewerScroll">
+    <div class="viewer-body" id="viewerBody"></div>
+  </div>
+</dialog>
+
+<!-- 상세페이지 원본 이미지 (상세보기를 눌렀을 때만 불러옵니다) -->
+<template id="pd-page01" data-title="01 · 데비마이어 그린박스">
+    <img src="img/product/page01/00-green-box-title.jpg" alt="그린박스 상세페이지 01" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/00-green-box-brand-debbiemeyer.jpg" alt="그린박스 상세페이지 02" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/00-green-box-ppl.gif" alt="그린박스 상세페이지 03" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/01-green-box-product_hero.jpg" alt="그린박스 상세페이지 04" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/02-green-box-key-point.jpg" alt="그린박스 상세페이지 05" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/03-green-box-product_main_989.jpg" alt="그린박스 상세페이지 06" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-composition-989.jpg" alt="그린박스 상세페이지 07" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-473mlx5p.jpg" alt="그린박스 상세페이지 08" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-709mlx5p.jpg" alt="그린박스 상세페이지 09" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-946mlx4p.jpg" alt="그린박스 상세페이지 10" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-1_4lx2p.jpg" alt="그린박스 상세페이지 11" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-1_8lx2p.jpg" alt="그린박스 상세페이지 12" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/04-green-box-product-composition-total-989.jpg" alt="그린박스 상세페이지 13" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/05-green-box-time-laps-01.jpg" alt="그린박스 상세페이지 14" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/05-green-box-time-laps-02.gif" alt="그린박스 상세페이지 15" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/05-green-box-time-laps-03.jpg" alt="그린박스 상세페이지 16" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/06-green-box-fear.jpg" alt="그린박스 상세페이지 17" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/07-green-box-empathy.jpg" alt="그린박스 상세페이지 18" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/08-green-box-product-function-01.jpg" alt="그린박스 상세페이지 19" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/08-green-box-product-function-02.gif" alt="그린박스 상세페이지 20" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/08-green-box-product-function-03.jpg" alt="그린박스 상세페이지 21" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/09-green-box-cta-01.jpg" alt="그린박스 상세페이지 22" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/10-green-box-product-comparison.jpg" alt="그린박스 상세페이지 23" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/11-green-box-detail.jpg" alt="그린박스 상세페이지 24" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/12-green-box-solution-timelapse-compare-01.jpg" alt="그린박스 상세페이지 25" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/12-green-box-solution-timelapse-compare-02.gif" alt="그린박스 상세페이지 26" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/12-green-box-solution-timelapse-compare-03.jpg" alt="그린박스 상세페이지 27" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/13-green-box-product-trust.jpg" alt="그린박스 상세페이지 28" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/14-green-box-certification.jpg" alt="그린박스 상세페이지 29" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/15-green-box-certification_list.jpg" alt="그린박스 상세페이지 30" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/16-green-box-review.jpg" alt="그린박스 상세페이지 31" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/17-green-box-cta-02.jpg" alt="그린박스 상세페이지 32" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/18-green-box-for-you.jpg" alt="그린박스 상세페이지 33" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/19-green-box-product-how-to-use.jpg" alt="그린박스 상세페이지 34" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/20-green-box-caution.jpg" alt="그린박스 상세페이지 35" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/21-green-box-product-how-to-use-size.jpg" alt="그린박스 상세페이지 36" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/22-green-box-cta-03.jpg" alt="그린박스 상세페이지 37" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/23-green-box-finish.jpg" alt="그린박스 상세페이지 38" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/24-green-box-lineup.jpg" alt="그린박스 상세페이지 39" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/25-green-box-product-faq.jpg" alt="그린박스 상세페이지 40" width="1290" loading="lazy" decoding="async">
+    <img src="img/product/page01/26-green-box-product-infomation.jpg" alt="그린박스 상세페이지 41" width="1290" loading="lazy" decoding="async">
+</template>
+
+<!-- 상세페이지 02: img/product/page02/ (위에서 아래 순서대로 표시) -->
+<template id="pd-page02" data-title="02 · 데비마이어 뉴 데비박스">
+    <img src="img/product/page02/00-new-debbieboxes-product-main.jpg" alt="데비마이어 뉴 데비박스 상세페이지 01" loading="lazy" decoding="async">
+    <img src="img/product/page02/01_new_debbieboxes_renewal.jpg" alt="데비마이어 뉴 데비박스 상세페이지 02" loading="lazy" decoding="async">
+    <img src="img/product/page02/02-new-debbieboxes-hero.jpg" alt="데비마이어 뉴 데비박스 상세페이지 03" loading="lazy" decoding="async">
+    <img src="img/product/page02/03-new-debbieboxes-evolution.jpg" alt="데비마이어 뉴 데비박스 상세페이지 04" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-new-debbieboxes-product-composition.jpg" alt="데비마이어 뉴 데비박스 상세페이지 05" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-01-debbie-box-product-250mlx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 06" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-02-debbie-box-product-600mlx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 07" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-03-debbie-box-product-600ml_trayx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 08" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-04-debbie-box-product-850mlx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 09" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-05-debbie-box-product-1_5lx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 10" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-06-debbie-box-product-1_5l_trayx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 11" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-07-debbie-box-product-1_82lx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 12" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-09-debbie-box-product-2l_trayx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 13" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-10-debbie-box-product-2lx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 14" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-11-debbie-box-product-4_2l_trayx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 15" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-13-debbie-box-product-4_2lx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 16" loading="lazy" decoding="async">
+    <img src="img/product/page02/04-14-debbie-box-product-strapx1.jpg" alt="데비마이어 뉴 데비박스 상세페이지 17" loading="lazy" decoding="async">
+    <img src="img/product/page02/05-new-debbieboxes-review.jpg" alt="데비마이어 뉴 데비박스 상세페이지 18" loading="lazy" decoding="async">
+    <img src="img/product/page02/06-new-debbieboxes-function-01.jpg" alt="데비마이어 뉴 데비박스 상세페이지 19" loading="lazy" decoding="async">
+    <img src="img/product/page02/06-new-debbieboxes-function-02.gif" alt="데비마이어 뉴 데비박스 상세페이지 20" loading="lazy" decoding="async">
+    <img src="img/product/page02/06-new-debbieboxes-function-03.jpg" alt="데비마이어 뉴 데비박스 상세페이지 21" loading="lazy" decoding="async">
+    <img src="img/product/page02/07-new-debbieboxes-solution.jpg" alt="데비마이어 뉴 데비박스 상세페이지 22" loading="lazy" decoding="async">
+    <img src="img/product/page02/08-new-debbieboxes-checkpoint-01.jpg" alt="데비마이어 뉴 데비박스 상세페이지 23" loading="lazy" decoding="async">
+    <img src="img/product/page02/09-new-debbieboxes-checkpoint-02.jpg" alt="데비마이어 뉴 데비박스 상세페이지 24" loading="lazy" decoding="async">
+    <img src="img/product/page02/10-new-debbieboxes-checkpoint-03.jpg" alt="데비마이어 뉴 데비박스 상세페이지 25" loading="lazy" decoding="async">
+    <img src="img/product/page02/11-new-debbieboxes-checkpoint-04.gif" alt="데비마이어 뉴 데비박스 상세페이지 26" loading="lazy" decoding="async">
+    <img src="img/product/page02/12-new-debbieboxes-checkpoint-05.jpg" alt="데비마이어 뉴 데비박스 상세페이지 27" loading="lazy" decoding="async">
+    <img src="img/product/page02/13-new-debbieboxes-for-you.jpg" alt="데비마이어 뉴 데비박스 상세페이지 28" loading="lazy" decoding="async">
+    <img src="img/product/page02/14-new-debbieboxes-product-how-to-use.jpg" alt="데비마이어 뉴 데비박스 상세페이지 29" loading="lazy" decoding="async">
+    <img src="img/product/page02/15-new-debbieboxes-product-caution.jpg" alt="데비마이어 뉴 데비박스 상세페이지 30" loading="lazy" decoding="async">
+    <img src="img/product/page02/16-new-debbieboxes-product-size-tip.jpg" alt="데비마이어 뉴 데비박스 상세페이지 31" loading="lazy" decoding="async">
+    <img src="img/product/page02/17-new-debbieboxes-product-lineup.jpg" alt="데비마이어 뉴 데비박스 상세페이지 32" loading="lazy" decoding="async">
+    <img src="img/product/page02/18-new-debbieboxes-product-faq.jpg" alt="데비마이어 뉴 데비박스 상세페이지 33" loading="lazy" decoding="async">
+    <img src="img/product/page02/19-new-debbieboxes-product-infomation.jpg" alt="데비마이어 뉴 데비박스 상세페이지 34" loading="lazy" decoding="async">
+</template>
+
+<!-- 상세페이지 03: img/product/page03/ (위에서 아래 순서대로 표시) -->
+<template id="pd-page03" data-title="03 · 스칸디나비아 냄비">
+    <img src="img/product/page03/01_scandinavia-product-detail_01.jpg" alt="스칸디나비아 냄비 상세페이지 01" loading="lazy" decoding="async">
+    <img src="img/product/page03/02_scandinavia-single-handle-pot-16cm.jpg" alt="스칸디나비아 냄비 상세페이지 02" loading="lazy" decoding="async">
+    <img src="img/product/page03/02_scandinavia-double-handle-pot-20cm.jpg" alt="스칸디나비아 냄비 상세페이지 03" loading="lazy" decoding="async">
+    <img src="img/product/page03/02_scandinavia-double-handle-pot-24cm.jpg" alt="스칸디나비아 냄비 상세페이지 04" loading="lazy" decoding="async">
+    <img src="img/product/page03/02_scandinavia-double-handle-hot-pot-24cm.jpg" alt="스칸디나비아 냄비 상세페이지 05" loading="lazy" decoding="async">
+    <img src="img/product/page03/03_scandinavia-product-detail_02.jpg" alt="스칸디나비아 냄비 상세페이지 06" loading="lazy" decoding="async">
+    <img src="img/product/page03/04_scandinavia_info.jpg" alt="스칸디나비아 냄비 상세페이지 07" loading="lazy" decoding="async">
+</template>
+
+<!-- 상세페이지 04: img/product/page04/ (위에서 아래 순서대로 표시) -->
+<template id="pd-page04" data-title="04 · 데비마이어 손잡이 앞접시">
+    <img src="img/product/page04/00-tableware-handle-plate-main.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 01" loading="lazy" decoding="async">
+    <img src="img/product/page04/00-tableware-handle-plate-title.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 02" loading="lazy" decoding="async">
+    <img src="img/product/page04/01-tableware-handle-plate-product_hero.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 03" loading="lazy" decoding="async">
+    <img src="img/product/page04/02-tableware-handle-plate-key-point.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 04" loading="lazy" decoding="async">
+    <img src="img/product/page04/04-tableware-handle-plate-product-composition.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 05" loading="lazy" decoding="async">
+    <img src="img/product/page04/04-tableware-handle-plate-large-1set.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 06" loading="lazy" decoding="async">
+    <img src="img/product/page04/04-tableware-handle-plate-small-1set.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 07" loading="lazy" decoding="async">
+    <img src="img/product/page04/05-tableware-handle-plate-fear.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 08" loading="lazy" decoding="async">
+    <img src="img/product/page04/06-tableware-handle-plate-detail.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 09" loading="lazy" decoding="async">
+    <img src="img/product/page04/07-tableware-handle-plate-checkpoint.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 10" loading="lazy" decoding="async">
+    <img src="img/product/page04/08-tableware-cta-01.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 11" loading="lazy" decoding="async">
+    <img src="img/product/page04/09-tableware-certification.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 12" loading="lazy" decoding="async">
+    <img src="img/product/page04/10-tableware-handle-plate-for-you.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 13" loading="lazy" decoding="async">
+    <img src="img/product/page04/11-tableware-handle-plate-caution.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 14" loading="lazy" decoding="async">
+    <img src="img/product/page04/12-tableware-handle-plate-cta-02.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 15" loading="lazy" decoding="async">
+    <img src="img/product/page04/13-tableware-product-how-to-use-size.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 16" loading="lazy" decoding="async">
+    <img src="img/product/page04/14-tableware-handle-plate-cta-03.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 17" loading="lazy" decoding="async">
+    <img src="img/product/page04/15-tableware-finish.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 18" loading="lazy" decoding="async">
+    <img src="img/product/page04/16-tableware-handle-plate-lineup.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 19" loading="lazy" decoding="async">
+    <img src="img/product/page04/17-tableware-product-infomation.jpg" alt="데비마이어 손잡이 앞접시 상세페이지 20" loading="lazy" decoding="async">
+</template>
+
+<script>
+(function(){
+  var dlg=document.getElementById('viewer'),body=document.getElementById('viewerBody'),
+      scroller=document.getElementById('viewerScroll'),title=document.getElementById('viewerTitle'),last=null;
+  function hideIfBroken(img){
+    img.addEventListener('error',function(){img.style.display='none';});
+  }
+  document.querySelectorAll('.pd-preview img').forEach(function(img){
+    hideIfBroken(img);
+    if(img.complete&&img.naturalWidth===0) img.style.display='none';
+  });
+  function open(id,trigger){
+    var tpl=document.getElementById(id);
+    if(!tpl) return;
+    last=trigger;
+    body.replaceChildren(tpl.content.cloneNode(true));
+    body.querySelectorAll('img').forEach(hideIfBroken);
+    title.textContent=tpl.dataset.title||'DETAIL PAGE';
+    scroller.scrollTop=0;
+    dlg.showModal();
+    document.body.classList.add('viewer-open');
+  }
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){open(b.dataset.open,b);});
+  });
+  document.getElementById('viewerClose').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('close',function(){
+    document.body.classList.remove('viewer-open');
+    body.replaceChildren();
+    if(last) last.focus();
+  });
+})();
+</script>
+<script>
+/* Works: counts the items listed on this page; images whose file is missing are left out */
+(function(){
+  var d=document.querySelector('[data-works]');
+  if(!d) return;
+  var items=[].slice.call(document.querySelectorAll(d.dataset.works));
+  function render(){
+    var n=items.filter(function(el){return !el.hasAttribute('data-missing');}).length;
+    d.textContent=n+' '+d.dataset.unit;
+  }
+  items.forEach(function(el){
+    var img=el.matches('.cell')?el.querySelector('img'):null;
+    if(!img) return;
+    img.addEventListener('error',function(){el.setAttribute('data-missing','');render();});
+    if(img.complete&&img.naturalWidth===0) el.setAttribute('data-missing','');
+  });
+  render();
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 생성 이미지 | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Ibarra+Real+Nova:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b1b; --gray:#555555; --line:#c8c8c8; --bg:#f4f4f2; --ph:#e4e4e0;
+  --pad:clamp(20px,6.67vw,80px);
+  --gap:clamp(10px,1.67vw,20px);
+  --en:'Ibarra Real Nova',serif;
+  --kr:'Noto Serif KR','Ibarra Real Nova',serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--kr);word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:var(--pad) var(--pad) 0}
+
+/* header */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.topbar a{text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:clamp(48px,7.5vw,90px)}
+.eyebrow{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+h1{margin:24px 0 0;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.2;letter-spacing:-1px}
+.sub{margin-top:20px;font-family:var(--en);font-size:clamp(20px,2.33vw,28px);color:var(--gray)}
+.info{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.info div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.info div:last-child{border-bottom:1px solid var(--line)}
+.info dt{color:var(--gray)}
+.info dd{margin:0}
+.intro{margin:clamp(32px,4.7vw,56px) 0 -.5em;max-width:640px;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+
+/* gallery */
+.gallery{margin-top:clamp(48px,6.67vw,80px);display:flex;flex-direction:column;gap:var(--gap)}
+.cell{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--ph);overflow:hidden;cursor:zoom-in;font:inherit}
+.cell::after{content:attr(data-n);position:absolute;left:14px;bottom:12px;font-family:var(--en);font-size:14px;letter-spacing:2px;color:var(--gray)}
+.cell img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cell:hover img,.cell:focus-visible img{transform:scale(1.03)}
+.cell:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.hero{aspect-ratio:1040/560}
+.row{display:grid;gap:var(--gap)}
+.row.c3{grid-template-columns:repeat(3,1fr)}
+.row.c3 .cell{aspect-ratio:3/4}
+.row.c2{grid-template-columns:repeat(2,1fr)}
+.row.c2 .cell{aspect-ratio:1}
+.row.tall .cell{aspect-ratio:510/680}
+.feature{display:grid;grid-template-columns:640fr 380fr;gap:var(--gap)}
+.feature .big{aspect-ratio:1}
+.feature .side{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
+
+/* footer (index.html .site-footer style) */
+.foot{margin-top:clamp(56px,8vw,96px);background:#0e0f0d;color:#a3a59c;border-top:1px solid #2a2b27;
+  padding:22px var(--pad);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;
+  font-family:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#c8f05a}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(27,27,27,.88)}
+dialog img{display:block;max-width:96vw;max-height:92vh;object-fit:contain}
+dialog button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:50%;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer}
+
+/* tablet */
+@media (max-width:900px){
+  .head{flex-direction:column;align-items:flex-start;gap:32px}
+  .info{width:100%;max-width:420px}
+}
+/* mobile */
+@media (max-width:640px){
+  .topbar{font-size:13px;letter-spacing:2px}
+  .row.c3{grid-template-columns:1fr 1fr}
+  .row.c3 .cell:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .feature{grid-template-columns:1fr}
+  .feature .side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .feature .side .cell{aspect-ratio:1}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.cell img{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <span>PORTFOLIO</span>
+      <a href="index.html">&lt; BACK PAGE</a>
+    </div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">AI GENERATED IMAGE</div>
+        <h1>AI 생성 이미지</h1>
+        <div class="sub">Flow AI · Nano Banana</div>
+        <p class="intro">Flow AI(Nano Banana 기반)로 생성한 이미지 14점입니다.</p>
+      </div>
+      <dl class="info">
+        <div><dt>TOOL</dt><dd>Flow AI</dd></div>
+        <div><dt>MODEL</dt><dd>Nano Banana</dd></div>
+        <div><dt>WORKS</dt><dd>14 Images</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main class="gallery">
+    <button class="cell hero" type="button" data-n="01" aria-label="01 확대 보기"><img src="graphic/ai/01.jpeg" alt="AI 생성 이미지 01" decoding="async"></button>
+
+    <div class="row c3">
+      <button class="cell" type="button" data-n="02" aria-label="02 확대 보기"><img src="graphic/ai/02.jpeg" alt="AI 생성 이미지 02" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="03" aria-label="03 확대 보기"><img src="graphic/ai/03.jpeg" alt="AI 생성 이미지 03" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="04" aria-label="04 확대 보기"><img src="graphic/ai/04.jpeg" alt="AI 생성 이미지 04" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="feature">
+      <button class="cell big" type="button" data-n="05" aria-label="05 확대 보기"><img src="graphic/ai/05.jpeg" alt="AI 생성 이미지 05" loading="lazy" decoding="async"></button>
+      <div class="side">
+        <button class="cell" type="button" data-n="07" aria-label="07 확대 보기"><img src="graphic/ai/07.jpg" alt="AI 생성 이미지 07" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="08" aria-label="08 확대 보기"><img src="graphic/ai/08.jpg" alt="AI 생성 이미지 08" loading="lazy" decoding="async"></button>
+      </div>
+    </div>
+
+    <div class="row c2">
+      <button class="cell" type="button" data-n="09" aria-label="09 확대 보기"><img src="graphic/ai/09.jpg" alt="AI 생성 이미지 09" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="10" aria-label="10 확대 보기"><img src="graphic/ai/10.jpeg" alt="AI 생성 이미지 10" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="row c3">
+      <button class="cell" type="button" data-n="12" aria-label="12 확대 보기"><img src="graphic/ai/12.jpeg" alt="AI 생성 이미지 12" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="13" aria-label="13 확대 보기"><img src="graphic/ai/13.jpg" alt="AI 생성 이미지 13" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="14" aria-label="14 확대 보기"><img src="graphic/ai/14.jpg" alt="AI 생성 이미지 14" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="row c2 tall">
+      <button class="cell" type="button" data-n="16" aria-label="16 확대 보기"><img src="graphic/ai/16.jpg" alt="AI 생성 이미지 16" loading="lazy" decoding="async"></button>
+      <button class="cell" type="button" data-n="17" aria-label="17 확대 보기"><img src="graphic/ai/17.jpg" alt="AI 생성 이미지 17" loading="lazy" decoding="async"></button>
+    </div>
+  </main>
+
+</div>
+
+<footer class="foot">
+  <span>&copy; 2026 Oh June Young. All rights reserved.</span>
+  <span>E-Commerce Designer &middot; Korea</span>
+  <a href="#">Back to top &uarr;</a>
+</footer>
+
+<dialog id="lb" aria-label="이미지 확대 보기">
+  <img id="lbImg" alt="">
+  <button type="button" id="lbClose" aria-label="닫기">&times;</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('lb'),img=document.getElementById('lbImg');
+  document.querySelectorAll('.cell').forEach(function(b){
+    b.addEventListener('click',function(){
+      var s=b.querySelector('img');
+      img.src=s.currentSrc||s.src;img.alt=s.alt;
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click',function(){dlg.close();});
+  document.getElementById('lbClose').addEventListener('click',function(e){e.stopPropagation();dlg.close();});
+})();
+</script>
+</body>
+</html>

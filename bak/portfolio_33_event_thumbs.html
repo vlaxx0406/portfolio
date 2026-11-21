@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>할인 행사 · 할인광 · Debbie Meyer | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Ibarra+Real+Nova:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b1b; --gray:#555555; --line:#c8c8c8; --bg:#f4f4f2; --ph:#e4e4e0;
+  --pad:clamp(20px,6.67vw,80px);
+  --gap:clamp(10px,1.67vw,20px);
+  --en:'Ibarra Real Nova',serif;
+  --kr:'Noto Serif KR','Ibarra Real Nova',serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--kr);word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:var(--pad) var(--pad) 0}
+
+/* header */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.topbar a{text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:clamp(48px,7.5vw,90px)}
+.eyebrow{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+h1{margin:24px 0 0;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.2;letter-spacing:-1px}
+.sub{margin-top:20px;font-family:var(--en);font-size:clamp(20px,2.33vw,28px);color:var(--gray)}
+.info{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.info div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.info div:last-child{border-bottom:1px solid var(--line)}
+.info dt{color:var(--gray)}
+.info dd{margin:0}
+.intro{margin:clamp(32px,4.7vw,56px) 0 -.5em;max-width:640px;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+
+/* gallery */
+.gallery{margin-top:clamp(48px,6.67vw,80px);display:flex;flex-direction:column;gap:var(--gap)}
+.cell{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--ph);overflow:hidden;cursor:zoom-in;font:inherit}
+.cell::after{content:attr(data-n);position:absolute;left:14px;bottom:12px;font-family:var(--en);font-size:14px;letter-spacing:2px;color:var(--gray)}
+.cell img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cell:hover img,.cell:focus-visible img{transform:scale(1.03)}
+.cell:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.hero{aspect-ratio:1040/560}
+.row{display:grid;gap:var(--gap)}
+.row.c3{grid-template-columns:repeat(3,1fr)}
+.row.c3 .cell{aspect-ratio:3/4}
+.row.c2{grid-template-columns:repeat(2,1fr)}
+.row.c2 .cell{aspect-ratio:1}
+.row.tall .cell{aspect-ratio:510/680}
+.row.c4{grid-template-columns:repeat(4,1fr)}
+.row.c4 .cell{aspect-ratio:1}
+.row.c3.vert .cell{aspect-ratio:9/16}
+.feature{display:grid;grid-template-columns:640fr 380fr;gap:var(--gap)}
+.feature .big{aspect-ratio:1}
+.feature .side{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
+
+/* footer (index.html .site-footer style) */
+.foot{margin-top:clamp(56px,8vw,96px);background:#0e0f0d;color:#a3a59c;border-top:1px solid #2a2b27;
+  padding:22px var(--pad);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;
+  font-family:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#c8f05a}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(27,27,27,.88)}
+dialog img{display:block;max-width:96vw;max-height:92vh;object-fit:contain}
+dialog button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:50%;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer}
+
+/* tablet */
+@media (max-width:900px){
+  .head{flex-direction:column;align-items:flex-start;gap:32px}
+  .info{width:100%;max-width:420px}
+}
+/* mobile */
+@media (max-width:640px){
+  .topbar{font-size:13px;letter-spacing:2px}
+  .row.c3{grid-template-columns:1fr 1fr}
+  .row.c3 .cell:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .row.c3.vert{grid-template-columns:repeat(3,1fr)}
+  .row.c3.vert .cell:first-child{grid-column:auto;aspect-ratio:9/16}
+  .row.c4{grid-template-columns:1fr 1fr}
+  .feature{grid-template-columns:1fr}
+  .feature .side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .feature .side .cell{aspect-ratio:1}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.cell img{transition:none}}
+
+/* placeholder until the image is added (shows file name + size) */
+.cell::before{content:attr(data-spec);position:absolute;inset:0;display:grid;place-items:center;padding:12px;text-align:center;
+  font-family:var(--en);font-size:12px;letter-spacing:1px;color:#8a8a86;line-height:1.5}
+.cell.is-empty{cursor:default}
+.hero{aspect-ratio:16/9}
+.intro-list{margin:clamp(32px,4.7vw,56px) 0 -.5em;padding:0;list-style:none;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+.intro-list li::before{content:"· "}
+
+/* case sections */
+.cases{margin-top:clamp(64px,9vw,120px);display:flex;flex-direction:column;gap:clamp(72px,10vw,140px)}
+.case{scroll-margin-top:32px}
+.case-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding-top:24px;border-top:1px solid var(--ink);margin-bottom:clamp(28px,3.5vw,44px)}
+.case-no{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+.case h2{margin:10px 0 0;font-weight:600;font-size:clamp(28px,3.4vw,42px);line-height:1.3}
+.case-desc{margin:18px 0 -.5em;max-width:620px;font-size:15px;line-height:2;color:var(--gray)}
+.meta{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.meta div{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:10px 0}
+.meta div:last-child{border-bottom:1px solid var(--line)}
+.meta dt{color:var(--gray);flex:none}
+.meta dd{margin:0;text-align:right}
+.case-sub{margin:clamp(36px,4.5vw,56px) 0 16px;font-family:var(--en);font-weight:500;font-size:15px;letter-spacing:3px;color:var(--gray)}
+.case-sub:first-of-type{margin-top:0}
+.case .row + .row{margin-top:var(--gap)}
+.row.c4{grid-template-columns:repeat(4,1fr)}
+.row.sq .cell{aspect-ratio:1}
+.row.site .cell{aspect-ratio:4/5}
+.row.wide .cell{aspect-ratio:16/9}
+.row.long .cell{aspect-ratio:1/2}
+.row.site img,.row.long img{object-position:top}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.links a{display:inline-block;padding:12px 22px;border:1px solid var(--ink);font-family:var(--en);font-size:14px;letter-spacing:2px;text-decoration:none;transition:background .3s,color .3s}
+.links a:hover{background:var(--ink);color:var(--bg)}
+
+@media (max-width:900px){
+  .case-head{flex-direction:column;align-items:flex-start;gap:28px}
+  .meta{width:100%;max-width:420px}
+  .row.c4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .row.c3.sq .cell:first-child,.row.c3.long .cell:first-child{grid-column:auto;aspect-ratio:1}
+  .row.c3.long .cell:first-child{aspect-ratio:1/2}
+  .row.c3.long{grid-template-columns:1fr 1fr}
+  .row.c2.wide{grid-template-columns:1fr}
+}
+.case-page{margin-top:clamp(48px,6.67vw,80px)}
+.case-page .gallery{margin:0 0 var(--gap)}
+.case-page .case-sub:first-child{margin-top:0}
+.row.thumb .cell{aspect-ratio:3/4}
+.row.thumb img{object-position:top}
+/* lightbox: tall pages open at readable width and scroll */
+dialog.tall{max-height:96vh;overflow-y:auto}
+dialog.tall img{width:min(860px,92vw);max-width:none;max-height:none;height:auto}
+dialog.tall button{position:sticky;top:8px;float:right;margin:8px 8px -52px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <span>PORTFOLIO</span>
+      <a href="index.html">&lt; BACK PAGE</a>
+    </div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">DEBBIE MEYER KOREA · 03</div>
+        <h1>할인 행사 · 할인광</h1>
+        <div class="sub">Debbie Meyer · Cafe24</div>
+        <p class="intro">MD의 할인 프로모션 기획을 받아 콘셉트 해석부터 상세페이지 디자인·코딩, 메타 광고 소재 제작까지 커머스 크리에이티브 전 과정을 원스톱으로 실행한 프로젝트입니다.</p>
+      </div>
+      <dl class="info">
+        <div><dt>Client</dt><dd>Debbie Meyer Korea</dd></div>
+        <div><dt>Contribution</dt><dd>100%</dd></div>
+        <div><dt>Tool</dt><dd>Photoshop · Illustrator · PowerPoint</dd></div>
+        <div><dt>Period</dt><dd>1개월</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main class="case-page">
+      <h3 class="case-sub">이벤트 페이지</h3>
+      <div class="row c4 thumb">
+        <button class="cell" type="button" data-n="01" data-spec="03_sale/event (1).jpg" aria-label="이벤트 페이지 01 확대 보기"><img src="img/dm/03_sale/event%20(1).jpg" alt="이벤트 페이지 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="03_sale/event (2).jpg" aria-label="이벤트 페이지 02 확대 보기"><img src="img/dm/03_sale/event%20(2).jpg" alt="이벤트 페이지 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="03_sale/event (3).jpg" aria-label="이벤트 페이지 03 확대 보기"><img src="img/dm/03_sale/event%20(3).jpg" alt="이벤트 페이지 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="03_sale/event (4).jpg" aria-label="이벤트 페이지 04 확대 보기"><img src="img/dm/03_sale/event%20(4).jpg" alt="이벤트 페이지 04" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="05" data-spec="03_sale/event (5).jpg" aria-label="이벤트 페이지 05 확대 보기"><img src="img/dm/03_sale/event%20(5).jpg" alt="이벤트 페이지 05" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="06" data-spec="03_sale/event (6).jpg" aria-label="이벤트 페이지 06 확대 보기"><img src="img/dm/03_sale/event%20(6).jpg" alt="이벤트 페이지 06" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="07" data-spec="03_sale/event (7).jpg" aria-label="이벤트 페이지 07 확대 보기"><img src="img/dm/03_sale/event%20(7).jpg" alt="이벤트 페이지 07" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="08" data-spec="03_sale/event (8).jpg" aria-label="이벤트 페이지 08 확대 보기"><img src="img/dm/03_sale/event%20(8).jpg" alt="이벤트 페이지 08" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="09" data-spec="03_sale/event (9).jpg" aria-label="이벤트 페이지 09 확대 보기"><img src="img/dm/03_sale/event%20(9).jpg" alt="이벤트 페이지 09" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="10" data-spec="03_sale/event (10).jpg" aria-label="이벤트 페이지 10 확대 보기"><img src="img/dm/03_sale/event%20(10).jpg" alt="이벤트 페이지 10" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="11" data-spec="03_sale/event (11).jpg" aria-label="이벤트 페이지 11 확대 보기"><img src="img/dm/03_sale/event%20(11).jpg" alt="이벤트 페이지 11" loading="lazy" decoding="async"></button>
+      </div>
+  </main>
+
+</div>
+
+<footer class="foot">
+  <span>&copy; 2026 Oh June Young. All rights reserved.</span>
+  <span>E-Commerce Designer &middot; Korea</span>
+  <a href="#">Back to top &uarr;</a>
+</footer>
+
+<dialog id="lb" aria-label="이미지 확대 보기">
+  <img id="lbImg" alt="">
+  <button type="button" id="lbClose" aria-label="닫기">&times;</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('lb'),img=document.getElementById('lbImg');
+  document.querySelectorAll('.cell').forEach(function(b){
+    var s=b.querySelector('img');
+    function empty(){s.style.display='none';b.classList.add('is-empty');}
+    s.addEventListener('error',empty);
+    if(s.complete&&s.naturalWidth===0) empty();
+    b.addEventListener('click',function(){
+      if(b.classList.contains('is-empty')) return;
+      img.src=s.currentSrc||s.src;img.alt=s.alt;
+      dlg.classList.toggle('tall',s.naturalHeight/s.naturalWidth>1.6);
+      dlg.showModal();
+      dlg.scrollTop=0;
+    });
+  });
+  dlg.addEventListener('click',function(){dlg.close();});
+  document.getElementById('lbClose').addEventListener('click',function(e){e.stopPropagation();dlg.close();});
+})();
+</script>
+</body>
+</html>

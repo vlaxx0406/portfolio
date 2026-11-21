@@ -1,51 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Event</title>
-    <link rel="icon" href="images/logo_RpY_icon.ico">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/portfolio_12.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFT PROMOTION | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Ibarra+Real+Nova:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b1b; --gray:#555555; --line:#c8c8c8; --bg:#f4f4f2; --ph:#e4e4e0;
+  --pad:clamp(20px,6.67vw,80px);
+  --gap:clamp(10px,1.67vw,20px);
+  --en:'Ibarra Real Nova',serif;
+  --kr:'Noto Serif KR','Ibarra Real Nova',serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--kr);word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:var(--pad) var(--pad) 0}
+
+/* header */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.topbar a{text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:clamp(48px,7.5vw,90px)}
+.eyebrow{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+h1{margin:24px 0 0;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.2;letter-spacing:-1px}
+.sub{margin-top:20px;font-family:var(--en);font-size:clamp(20px,2.33vw,28px);color:var(--gray)}
+.info{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.info div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.info div:last-child{border-bottom:1px solid var(--line)}
+.info dt{color:var(--gray)}
+.info dd{margin:0}
+.intro{margin:clamp(32px,4.7vw,56px) 0 -.5em;max-width:640px;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+
+/* gallery */
+.gallery{margin-top:clamp(48px,6.67vw,80px);display:flex;flex-direction:column;gap:var(--gap)}
+.cell{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--ph);overflow:hidden;cursor:zoom-in;font:inherit}
+.cell::after{content:attr(data-n);position:absolute;left:14px;bottom:12px;font-family:var(--en);font-size:14px;letter-spacing:2px;color:var(--gray)}
+.cell img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cell:hover img,.cell:focus-visible img{transform:scale(1.03)}
+.cell:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.hero{aspect-ratio:1040/560}
+.row{display:grid;gap:var(--gap)}
+.row.c3{grid-template-columns:repeat(3,1fr)}
+.row.c3 .cell{aspect-ratio:3/4}
+.row.c2{grid-template-columns:repeat(2,1fr)}
+.row.c2 .cell{aspect-ratio:1}
+.row.tall .cell{aspect-ratio:510/680}
+.feature{display:grid;grid-template-columns:640fr 380fr;gap:var(--gap)}
+.feature .big{aspect-ratio:1}
+.feature .side{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
+
+/* footer (index.html .site-footer style) */
+.foot{margin-top:clamp(56px,8vw,96px);background:#0e0f0d;color:#a3a59c;border-top:1px solid #2a2b27;
+  padding:22px var(--pad);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;
+  font-family:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#c8f05a}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(27,27,27,.88)}
+dialog img{display:block;max-width:96vw;max-height:92vh;object-fit:contain}
+dialog button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:50%;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer}
+
+/* NFT sheets: show whole artwork (no crop) on white */
+.cell.fit{background:#fff}
+.cell.fit img{object-fit:contain}
+.cell.fit::after{z-index:2}
+.row.c2.sheet .cell{aspect-ratio:1360/1450}
+
+/* tablet */
+@media (max-width:900px){
+  .head{flex-direction:column;align-items:flex-start;gap:32px}
+  .info{width:100%;max-width:420px}
+}
+/* mobile */
+@media (max-width:640px){
+  .topbar{font-size:13px;letter-spacing:2px}
+  .row.c3{grid-template-columns:1fr 1fr}
+  .row.c3 .cell:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .feature{grid-template-columns:1fr}
+  .feature .side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .feature .side .cell{aspect-ratio:1}
+  .row.c2.sheet{grid-template-columns:1fr}
+  .row.c3.strip{grid-template-columns:1fr}
+  .row.c3.strip .cell:first-child{grid-column:auto;aspect-ratio:5/2}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.cell img{transition:none}}
+</style>
 </head>
-
 <body>
-    <section class="sec_01">
-        <div class="page_tit">
-            <ul>
-                <li>
-                    <h2 class="page_name">Promotion PAGE</h2>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="sec_02">
-        <div>
-            <ul>
-                <li><img src="graphic/promo/promo_03.png" alt=""></li>
-                <li><img src="graphic/promo/promo_01.png" alt=""></li>
-                <li><img src="graphic/promo/promo_02.png" alt=""></li>                
-                <li><img src="graphic/promo/promo_04.png" alt=""></li>
-                <li><img src="graphic/promo/promo_05.png" alt=""></li>                
-                <li><img src="graphic/promo/promo_08.png" alt=""></li>
-                <li><img src="graphic/promo/promo_06.png" alt=""></li>
-                <li><img src="graphic/promo/promo_09.png" alt=""></li>
-                <li><img src="graphic/promo/promo_10.png" alt=""></li>
-                <li><img src="graphic/promo/promo_11.png" alt=""></li>
-                <li><img src="graphic/promo/promo_12.png" alt=""></li>
-               
-             <!--   <li><img src="/graphic/banner/event_bn_2.jpg" alt=""></li>-->
+<div class="wrap">
 
-            </ul>
-        </div>
-    </section>
-    <div class="fix_btn">
-        <ul>
-            <a href="#">
-                <li class="back_btn" value="BACK" onClick="history.go(-1)">＜BACK PAGE</li>
-            </a>
-        </ul>
+  <header>
+    <div class="topbar">
+      <span>PORTFOLIO</span>
+      <a href="index.html">&lt; BACK PAGE</a>
+    </div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">NFT PROMOTION</div>
+        <h1>NFT 프로모션</h1>
+        <div class="sub">PerPlay · NFT P2E</div>
+        <p class="intro">NFT P2E 레이싱 게임 PerPlay의 Genesis NFT 세일 오픈, 커뮤니티 이벤트 등 프로모션 페이지와 배너입니다.</p>
+      </div>
+      <dl class="info">
+        <div><dt>Client</dt><dd>Lunosoft · PerPlay</dd></div>
+        <div><dt>Tool</dt><dd>MidJourney · Illustrator</dd></div>
+        <div><dt>Works</dt><dd data-works=".gallery .cell" data-unit="Images">11 Images</dd></div>
+        <div><dt>Contribution</dt><dd>100%</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main class="gallery">
+    <button class="cell fit" type="button" data-n="01" aria-label="01 확대 보기" style="aspect-ratio:1920/1970"><img src="graphic/promo/promo_03.png" alt="NFT 프로모션 01" width="1920" height="1970" decoding="async"></button>
+
+    <div class="row c2 pair">
+      <button class="cell fit" type="button" data-n="02" aria-label="02 확대 보기" style="aspect-ratio:1920/2258"><img src="graphic/promo/promo_01.png" alt="NFT 프로모션 02" width="1920" height="2258" loading="lazy" decoding="async"></button>
+      <button class="cell fit" type="button" data-n="03" aria-label="03 확대 보기" style="aspect-ratio:1920/2258"><img src="graphic/promo/promo_02.png" alt="NFT 프로모션 03" width="1920" height="2258" loading="lazy" decoding="async"></button>
     </div>
 
-</body></html>
+    <div class="row c2 pair">
+      <button class="cell fit" type="button" data-n="04" aria-label="04 확대 보기" style="aspect-ratio:1191/1684"><img src="graphic/promo/promo_04.png" alt="NFT 프로모션 04" width="2382" height="3368" loading="lazy" decoding="async"></button>
+      <button class="cell fit" type="button" data-n="05" aria-label="05 확대 보기" style="aspect-ratio:1191/1684"><img src="graphic/promo/promo_08.png" alt="NFT 프로모션 05" width="1191" height="1684" loading="lazy" decoding="async"></button>
+    </div>
 
+    <button class="cell fit" type="button" data-n="06" aria-label="06 확대 보기" style="aspect-ratio:1920/2600"><img src="graphic/promo/promo_05.png" alt="NFT 프로모션 06" width="1920" height="2600" loading="lazy" decoding="async"></button>
+
+    <div class="row c2 pair">
+      <button class="cell fit" type="button" data-n="07" aria-label="07 확대 보기" style="aspect-ratio:16/9"><img src="graphic/promo/promo_06.png" alt="NFT 프로모션 07" width="1920" height="1080" loading="lazy" decoding="async"></button>
+      <button class="cell fit" type="button" data-n="08" aria-label="08 확대 보기" style="aspect-ratio:16/9"><img src="graphic/promo/promo_09.png" alt="NFT 프로모션 08" width="1920" height="1080" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="row c3 strip">
+      <button class="cell fit" type="button" data-n="09" aria-label="09 확대 보기" style="aspect-ratio:5/2"><img src="graphic/promo/promo_10.png" alt="NFT 프로모션 09" width="1500" height="600" loading="lazy" decoding="async"></button>
+      <button class="cell fit" type="button" data-n="10" aria-label="10 확대 보기" style="aspect-ratio:5/2"><img src="graphic/promo/promo_11.png" alt="NFT 프로모션 10" width="1500" height="600" loading="lazy" decoding="async"></button>
+      <button class="cell fit" type="button" data-n="11" aria-label="11 확대 보기" style="aspect-ratio:5/2"><img src="graphic/promo/promo_12.png" alt="NFT 프로모션 11" width="1500" height="600" loading="lazy" decoding="async"></button>
+    </div>
+  </main>
+
+</div>
+
+<footer class="foot">
+  <span>&copy; 2026 Oh June Young. All rights reserved.</span>
+  <span>E-Commerce Designer &middot; Korea</span>
+  <a href="#">Back to top &uarr;</a>
+</footer>
+
+<dialog id="lb" aria-label="이미지 확대 보기">
+  <img id="lbImg" alt="">
+  <button type="button" id="lbClose" aria-label="닫기">&times;</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('lb'),img=document.getElementById('lbImg');
+  document.querySelectorAll('.cell').forEach(function(b){
+    b.addEventListener('click',function(){
+      var s=b.querySelector('img');
+      img.src=s.currentSrc||s.src;img.alt=s.alt;
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click',function(){dlg.close();});
+  document.getElementById('lbClose').addEventListener('click',function(e){e.stopPropagation();dlg.close();});
+})();
+</script>
+<script>
+/* Works: counts the items listed on this page; images whose file is missing are left out */
+(function(){
+  var d=document.querySelector('[data-works]');
+  if(!d) return;
+  var items=[].slice.call(document.querySelectorAll(d.dataset.works));
+  function render(){
+    var n=items.filter(function(el){return !el.hasAttribute('data-missing');}).length;
+    d.textContent=n+' '+d.dataset.unit;
+  }
+  items.forEach(function(el){
+    var img=el.matches('.cell')?el.querySelector('img'):null;
+    if(!img) return;
+    img.addEventListener('error',function(){el.setAttribute('data-missing','');render();});
+    if(img.complete&&img.naturalWidth===0) el.setAttribute('data-missing','');
+  });
+  render();
+})();
+</script>
+</body>
+</html>

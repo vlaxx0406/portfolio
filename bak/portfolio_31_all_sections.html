@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debbie Meyer Korea | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Ibarra+Real+Nova:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b1b; --gray:#555555; --line:#c8c8c8; --bg:#f4f4f2; --ph:#e4e4e0;
+  --pad:clamp(20px,6.67vw,80px);
+  --gap:clamp(10px,1.67vw,20px);
+  --en:'Ibarra Real Nova',serif;
+  --kr:'Noto Serif KR','Ibarra Real Nova',serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--kr);word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:var(--pad) var(--pad) 0}
+
+/* header */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--ink);font-family:var(--en);font-size:15px;letter-spacing:3px}
+.topbar a{text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:clamp(48px,7.5vw,90px)}
+.eyebrow{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+h1{margin:24px 0 0;font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.2;letter-spacing:-1px}
+.sub{margin-top:20px;font-family:var(--en);font-size:clamp(20px,2.33vw,28px);color:var(--gray)}
+.info{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.info div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.info div:last-child{border-bottom:1px solid var(--line)}
+.info dt{color:var(--gray)}
+.info dd{margin:0}
+.intro{margin:clamp(32px,4.7vw,56px) 0 -.5em;max-width:640px;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+
+/* gallery */
+.gallery{margin-top:clamp(48px,6.67vw,80px);display:flex;flex-direction:column;gap:var(--gap)}
+.cell{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--ph);overflow:hidden;cursor:zoom-in;font:inherit}
+.cell::after{content:attr(data-n);position:absolute;left:14px;bottom:12px;font-family:var(--en);font-size:14px;letter-spacing:2px;color:var(--gray)}
+.cell img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cell:hover img,.cell:focus-visible img{transform:scale(1.03)}
+.cell:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.hero{aspect-ratio:1040/560}
+.row{display:grid;gap:var(--gap)}
+.row.c3{grid-template-columns:repeat(3,1fr)}
+.row.c3 .cell{aspect-ratio:3/4}
+.row.c2{grid-template-columns:repeat(2,1fr)}
+.row.c2 .cell{aspect-ratio:1}
+.row.tall .cell{aspect-ratio:510/680}
+.row.c4{grid-template-columns:repeat(4,1fr)}
+.row.c4 .cell{aspect-ratio:1}
+.row.c3.vert .cell{aspect-ratio:9/16}
+.feature{display:grid;grid-template-columns:640fr 380fr;gap:var(--gap)}
+.feature .big{aspect-ratio:1}
+.feature .side{display:grid;grid-template-rows:1fr 1fr;gap:var(--gap)}
+
+/* footer (index.html .site-footer style) */
+.foot{margin-top:clamp(56px,8vw,96px);background:#0e0f0d;color:#a3a59c;border-top:1px solid #2a2b27;
+  padding:22px var(--pad);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;
+  font-family:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#c8f05a}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(27,27,27,.88)}
+dialog img{display:block;max-width:96vw;max-height:92vh;object-fit:contain}
+dialog button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:50%;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer}
+
+/* tablet */
+@media (max-width:900px){
+  .head{flex-direction:column;align-items:flex-start;gap:32px}
+  .info{width:100%;max-width:420px}
+}
+/* mobile */
+@media (max-width:640px){
+  .topbar{font-size:13px;letter-spacing:2px}
+  .row.c3{grid-template-columns:1fr 1fr}
+  .row.c3 .cell:first-child{grid-column:1/-1;aspect-ratio:4/3}
+  .row.c3.vert{grid-template-columns:repeat(3,1fr)}
+  .row.c3.vert .cell:first-child{grid-column:auto;aspect-ratio:9/16}
+  .row.c4{grid-template-columns:1fr 1fr}
+  .feature{grid-template-columns:1fr}
+  .feature .side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .feature .side .cell{aspect-ratio:1}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.cell img{transition:none}}
+
+/* placeholder until the image is added (shows file name + size) */
+.cell::before{content:attr(data-spec);position:absolute;inset:0;display:grid;place-items:center;padding:12px;text-align:center;
+  font-family:var(--en);font-size:12px;letter-spacing:1px;color:#8a8a86;line-height:1.5}
+.cell.is-empty{cursor:default}
+.hero{aspect-ratio:16/9}
+.intro-list{margin:clamp(32px,4.7vw,56px) 0 -.5em;padding:0;list-style:none;font-size:clamp(15px,1.42vw,17px);line-height:2;color:var(--gray)}
+.intro-list li::before{content:"· "}
+
+/* case sections */
+.cases{margin-top:clamp(64px,9vw,120px);display:flex;flex-direction:column;gap:clamp(72px,10vw,140px)}
+.case{scroll-margin-top:32px}
+.case-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding-top:24px;border-top:1px solid var(--ink);margin-bottom:clamp(28px,3.5vw,44px)}
+.case-no{font-family:var(--en);font-size:clamp(14px,1.7vw,20px);letter-spacing:4px;color:var(--gray)}
+.case h2{margin:10px 0 0;font-weight:600;font-size:clamp(28px,3.4vw,42px);line-height:1.3}
+.case-desc{margin:18px 0 -.5em;max-width:620px;font-size:15px;line-height:2;color:var(--gray)}
+.meta{width:300px;flex:none;margin:0;font-size:15px;line-height:1.9}
+.meta div{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:10px 0}
+.meta div:last-child{border-bottom:1px solid var(--line)}
+.meta dt{color:var(--gray);flex:none}
+.meta dd{margin:0;text-align:right}
+.case-sub{margin:clamp(36px,4.5vw,56px) 0 16px;font-family:var(--en);font-weight:500;font-size:15px;letter-spacing:3px;color:var(--gray)}
+.case-sub:first-of-type{margin-top:0}
+.case .row + .row{margin-top:var(--gap)}
+.row.c4{grid-template-columns:repeat(4,1fr)}
+.row.sq .cell{aspect-ratio:1}
+.row.site .cell{aspect-ratio:4/5}
+.row.wide .cell{aspect-ratio:16/9}
+.row.long .cell{aspect-ratio:1/2}
+.row.site img,.row.long img{object-position:top}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.links a{display:inline-block;padding:12px 22px;border:1px solid var(--ink);font-family:var(--en);font-size:14px;letter-spacing:2px;text-decoration:none;transition:background .3s,color .3s}
+.links a:hover{background:var(--ink);color:var(--bg)}
+
+@media (max-width:900px){
+  .case-head{flex-direction:column;align-items:flex-start;gap:28px}
+  .meta{width:100%;max-width:420px}
+  .row.c4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .row.c3.sq .cell:first-child,.row.c3.long .cell:first-child{grid-column:auto;aspect-ratio:1}
+  .row.c3.long .cell:first-child{aspect-ratio:1/2}
+  .row.c3.long{grid-template-columns:1fr 1fr}
+  .row.c2.wide{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <span>PORTFOLIO</span>
+      <a href="index.html">&lt; BACK PAGE</a>
+    </div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">E-COMMERCE PROJECT</div>
+        <h1>데비마이어 코리아</h1>
+        <div class="sub">Debbie Meyer · Cafe24</div>
+        <ul class="intro-list">
+          <li>Cafe24 기반 쇼핑몰 운영 및 자사몰 리뉴얼 리드</li>
+          <li>모바일 반응형 디자인 구현 및 크로스 브라우저 호환성 확보</li>
+          <li>상품 상세페이지 및 메타태그 최적화로 SEO, 속도 개선</li>
+          <li>AI 도구를 활용한 제품 이미지 제작 및 프로모션 콘텐츠 기획</li>
+          <li>메타 · 카카오 · 네이버 광고 소재 제작</li>
+        </ul>
+      </div>
+      <dl class="info">
+        <div><dt>CLIENT</dt><dd>미국 보관용기 브랜드</dd></div>
+        <div><dt>ROLE</dt><dd>디자인 총괄</dd></div>
+        <div><dt>PERIOD</dt><dd>2025.12 — 현재</dd></div>
+        <div><dt>CONTRIBUTION</dt><dd>기여도 100%</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main>
+    <div class="gallery">
+    <button class="cell hero" type="button" data-n="MAIN" data-spec="00_main.jpg · 1920×1080" aria-label="대표 이미지 MAIN 확대 보기"><img src="img/dm/00_main.jpg" alt="대표 이미지 MAIN" decoding="async"></button>
+    </div>
+
+    <div class="cases">
+    <section class="case" id="renewal" aria-labelledby="case01">
+      <div class="case-head">
+        <div>
+          <div class="case-no">01</div>
+          <h2 id="case01">자사몰 리뉴얼</h2>
+          <p class="case-desc">레퍼런스 및 벤치마킹으로 시장 트렌드와 자사몰에 맞는 UX/UI를 분석하고, 브랜드 아이덴티티에 가장 적합한 스킨을 선정해 커스터마이징했습니다. 메인 배너, 프로모션 배너, 카테고리별 비주얼 등 주요 페이지 구성 요소를 브랜드 컨셉에 맞춰 재디자인하고, 시안 제작부터 HTML/CSS 코드 수정까지 전 과정을 주도해 1개월 간의 리뉴얼을 진행했습니다.</p>
+        </div>
+        <dl class="meta"><div><dt>기여도</dt><dd>100%</dd></div><div><dt>사용툴</dt><dd>Photoshop · Figma</dd></div><div><dt>작업기간</dt><dd>1개월</dd></div></dl>
+      </div>
+      <div class="row c2 site">
+        <button class="cell" type="button" data-n="BEFORE" data-spec="01_before.jpg · 1200×1500 (PC 캡처, 위쪽 기준)" aria-label="리뉴얼 전 BEFORE 확대 보기"><img src="img/dm/01_before.jpg" alt="리뉴얼 전 BEFORE" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="AFTER" data-spec="01_after.jpg · 1200×1500 (PC 캡처, 위쪽 기준)" aria-label="리뉴얼 후 AFTER 확대 보기"><img src="img/dm/01_after.jpg" alt="리뉴얼 후 AFTER" loading="lazy" decoding="async"></button>
+      </div>
+      <div class="links">
+        <a href="https://debbiemeyer.cafe24.com/skin-skin8" target="_blank" rel="noopener">리뉴얼 전 사이트 &nearr;</a>
+        <a href="https://debbiemeyer.cafe24.com/skin-skin15" target="_blank" rel="noopener">리뉴얼 후 사이트 &nearr;</a>
+      </div>
+    </section>
+    <section class="case" id="ads" aria-labelledby="case02">
+      <div class="case-head">
+        <div>
+          <div class="case-no">02</div>
+          <h2 id="case02">광고 소재</h2>
+          <p class="case-desc">마케팅팀 기획서를 바탕으로 메타, 네이버, SNS 등 멀티 채널 광고 소재를 제작했습니다. 각 플랫폼의 규격과 타깃 고객 특성을 고려한 맞춤형 배너 디자인으로 디지털 마케팅 캠페인의 시각적 완성도를 높였습니다.</p>
+        </div>
+        <dl class="meta"><div><dt>기여도</dt><dd>100%</dd></div><div><dt>사용툴</dt><dd>Photoshop · Illustrator</dd></div><div><dt>작업기간</dt><dd>각 30분~1시간</dd></div></dl>
+      </div>
+      <div class="row c4 sq">
+        <button class="cell" type="button" data-n="01" data-spec="02_ad_01.jpg · 1080×1080" aria-label="광고 소재 01 확대 보기"><img src="img/dm/02_ad_01.jpg" alt="광고 소재 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="02_ad_02.jpg · 1080×1080" aria-label="광고 소재 02 확대 보기"><img src="img/dm/02_ad_02.jpg" alt="광고 소재 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="02_ad_03.jpg · 1080×1080" aria-label="광고 소재 03 확대 보기"><img src="img/dm/02_ad_03.jpg" alt="광고 소재 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="02_ad_04.jpg · 1080×1080" aria-label="광고 소재 04 확대 보기"><img src="img/dm/02_ad_04.jpg" alt="광고 소재 04" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="05" data-spec="02_ad_05.jpg · 1080×1080" aria-label="광고 소재 05 확대 보기"><img src="img/dm/02_ad_05.jpg" alt="광고 소재 05" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="06" data-spec="02_ad_06.jpg · 1080×1080" aria-label="광고 소재 06 확대 보기"><img src="img/dm/02_ad_06.jpg" alt="광고 소재 06" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="07" data-spec="02_ad_07.jpg · 1080×1080" aria-label="광고 소재 07 확대 보기"><img src="img/dm/02_ad_07.jpg" alt="광고 소재 07" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="08" data-spec="02_ad_08.jpg · 1080×1080" aria-label="광고 소재 08 확대 보기"><img src="img/dm/02_ad_08.jpg" alt="광고 소재 08" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="09" data-spec="02_ad_09.jpg · 1080×1080" aria-label="광고 소재 09 확대 보기"><img src="img/dm/02_ad_09.jpg" alt="광고 소재 09" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="10" data-spec="02_ad_10.jpg · 1080×1080" aria-label="광고 소재 10 확대 보기"><img src="img/dm/02_ad_10.jpg" alt="광고 소재 10" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="11" data-spec="02_ad_11.jpg · 1080×1080" aria-label="광고 소재 11 확대 보기"><img src="img/dm/02_ad_11.jpg" alt="광고 소재 11" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="12" data-spec="02_ad_12.jpg · 1080×1080" aria-label="광고 소재 12 확대 보기"><img src="img/dm/02_ad_12.jpg" alt="광고 소재 12" loading="lazy" decoding="async"></button>
+      </div>
+    </section>
+    <section class="case" id="sale" aria-labelledby="case03">
+      <div class="case-head">
+        <div>
+          <div class="case-no">03</div>
+          <h2 id="case03">할인 행사 · 할인광</h2>
+          <p class="case-desc">MD의 할인 프로모션 기획을 받아 콘셉트 해석부터 상세페이지 디자인·코딩, 메타 광고 소재 제작까지 커머스 크리에이티브 전 과정을 원스톱으로 실행한 프로젝트입니다.</p>
+        </div>
+        <dl class="meta"><div><dt>기여도</dt><dd>100%</dd></div><div><dt>사용툴</dt><dd>Photoshop · Illustrator · PowerPoint</dd></div><div><dt>작업기간</dt><dd>1개월</dd></div></dl>
+      </div>
+      <h3 class="case-sub">3-1 상세페이지</h3>
+      <div class="row c4 long">
+        <button class="cell" type="button" data-n="01" data-spec="03_detail_01.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="할인광 상세페이지 01 확대 보기"><img src="img/dm/03_detail_01.jpg" alt="할인광 상세페이지 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="03_detail_02.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="할인광 상세페이지 02 확대 보기"><img src="img/dm/03_detail_02.jpg" alt="할인광 상세페이지 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="03_detail_03.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="할인광 상세페이지 03 확대 보기"><img src="img/dm/03_detail_03.jpg" alt="할인광 상세페이지 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="03_detail_04.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="할인광 상세페이지 04 확대 보기"><img src="img/dm/03_detail_04.jpg" alt="할인광 상세페이지 04" loading="lazy" decoding="async"></button>
+      </div>
+      <h3 class="case-sub">3-2 AI 활용 연출컷</h3>
+      <div class="row c3 sq">
+        <button class="cell" type="button" data-n="01" data-spec="03_ai_01.jpg · 1000×1000" aria-label="AI 연출컷 01 확대 보기"><img src="img/dm/03_ai_01.jpg" alt="AI 연출컷 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="03_ai_02.jpg · 1000×1000" aria-label="AI 연출컷 02 확대 보기"><img src="img/dm/03_ai_02.jpg" alt="AI 연출컷 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="03_ai_03.jpg · 1000×1000" aria-label="AI 연출컷 03 확대 보기"><img src="img/dm/03_ai_03.jpg" alt="AI 연출컷 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="03_ai_04.jpg · 1000×1000" aria-label="AI 연출컷 04 확대 보기"><img src="img/dm/03_ai_04.jpg" alt="AI 연출컷 04" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="05" data-spec="03_ai_05.jpg · 1000×1000" aria-label="AI 연출컷 05 확대 보기"><img src="img/dm/03_ai_05.jpg" alt="AI 연출컷 05" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="06" data-spec="03_ai_06.jpg · 1000×1000" aria-label="AI 연출컷 06 확대 보기"><img src="img/dm/03_ai_06.jpg" alt="AI 연출컷 06" loading="lazy" decoding="async"></button>
+      </div>
+      <h3 class="case-sub">3-3 메타 광고 소재</h3>
+      <div class="row c4 sq">
+        <button class="cell" type="button" data-n="01" data-spec="03_meta_01.jpg · 1080×1080" aria-label="메타 광고 01 확대 보기"><img src="img/dm/03_meta_01.jpg" alt="메타 광고 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="03_meta_02.jpg · 1080×1080" aria-label="메타 광고 02 확대 보기"><img src="img/dm/03_meta_02.jpg" alt="메타 광고 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="03_meta_03.jpg · 1080×1080" aria-label="메타 광고 03 확대 보기"><img src="img/dm/03_meta_03.jpg" alt="메타 광고 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="03_meta_04.jpg · 1080×1080" aria-label="메타 광고 04 확대 보기"><img src="img/dm/03_meta_04.jpg" alt="메타 광고 04" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="05" data-spec="03_meta_05.jpg · 1080×1080" aria-label="메타 광고 05 확대 보기"><img src="img/dm/03_meta_05.jpg" alt="메타 광고 05" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="06" data-spec="03_meta_06.jpg · 1080×1080" aria-label="메타 광고 06 확대 보기"><img src="img/dm/03_meta_06.jpg" alt="메타 광고 06" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="07" data-spec="03_meta_07.jpg · 1080×1080" aria-label="메타 광고 07 확대 보기"><img src="img/dm/03_meta_07.jpg" alt="메타 광고 07" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="08" data-spec="03_meta_08.jpg · 1080×1080" aria-label="메타 광고 08 확대 보기"><img src="img/dm/03_meta_08.jpg" alt="메타 광고 08" loading="lazy" decoding="async"></button>
+      </div>
+      <h3 class="case-sub">3-4 PPT 자료</h3>
+      <div class="row c2 wide">
+        <button class="cell" type="button" data-n="01" data-spec="03_ppt_01.jpg · 1920×1080" aria-label="PPT 자료 01 확대 보기"><img src="img/dm/03_ppt_01.jpg" alt="PPT 자료 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="03_ppt_02.jpg · 1920×1080" aria-label="PPT 자료 02 확대 보기"><img src="img/dm/03_ppt_02.jpg" alt="PPT 자료 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="03_ppt_03.jpg · 1920×1080" aria-label="PPT 자료 03 확대 보기"><img src="img/dm/03_ppt_03.jpg" alt="PPT 자료 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="03_ppt_04.jpg · 1920×1080" aria-label="PPT 자료 04 확대 보기"><img src="img/dm/03_ppt_04.jpg" alt="PPT 자료 04" loading="lazy" decoding="async"></button>
+      </div>
+    </section>
+    <section class="case" id="event" aria-labelledby="case04">
+      <div class="case-head">
+        <div>
+          <div class="case-no">04</div>
+          <h2 id="case04">기타 행사</h2>
+          <p class="case-desc">카카오 쇼핑라이브, 톡딜, 한정특가 등 채널별 기획전 페이지와 브랜드 스토리 페이지를 제작했습니다.</p>
+        </div>
+        <dl class="meta"><div><dt>기여도</dt><dd>100%</dd></div><div><dt>사용툴</dt><dd>Photoshop · Illustrator</dd></div></dl>
+      </div>
+      <div class="row c3 long">
+        <button class="cell" type="button" data-n="01" data-spec="04_event_01.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 01 확대 보기"><img src="img/dm/04_event_01.jpg" alt="기타 행사 01" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="02" data-spec="04_event_02.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 02 확대 보기"><img src="img/dm/04_event_02.jpg" alt="기타 행사 02" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="03" data-spec="04_event_03.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 03 확대 보기"><img src="img/dm/04_event_03.jpg" alt="기타 행사 03" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="04" data-spec="04_event_04.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 04 확대 보기"><img src="img/dm/04_event_04.jpg" alt="기타 행사 04" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="05" data-spec="04_event_05.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 05 확대 보기"><img src="img/dm/04_event_05.jpg" alt="기타 행사 05" loading="lazy" decoding="async"></button>
+        <button class="cell" type="button" data-n="06" data-spec="04_event_06.jpg · 860×1720 (긴 이미지는 위쪽 기준)" aria-label="기타 행사 06 확대 보기"><img src="img/dm/04_event_06.jpg" alt="기타 행사 06" loading="lazy" decoding="async"></button>
+      </div>
+    </section>
+    </div>
+  </main>
+
+</div>
+
+<footer class="foot">
+  <span>&copy; 2026 Oh June Young. All rights reserved.</span>
+  <span>E-Commerce Designer &middot; Korea</span>
+  <a href="#">Back to top &uarr;</a>
+</footer>
+
+<dialog id="lb" aria-label="이미지 확대 보기">
+  <img id="lbImg" alt="">
+  <button type="button" id="lbClose" aria-label="닫기">&times;</button>
+</dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('lb'),img=document.getElementById('lbImg');
+  document.querySelectorAll('.cell').forEach(function(b){
+    var s=b.querySelector('img');
+    function empty(){s.style.display='none';b.classList.add('is-empty');}
+    s.addEventListener('error',empty);
+    if(s.complete&&s.naturalWidth===0) empty();
+    b.addEventListener('click',function(){
+      if(b.classList.contains('is-empty')) return;
+      img.src=s.currentSrc||s.src;img.alt=s.alt;
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click',function(){dlg.close();});
+  document.getElementById('lbClose').addEventListener('click',function(e){e.stopPropagation();dlg.close();});
+})();
+</script>
+</body>
+</html>

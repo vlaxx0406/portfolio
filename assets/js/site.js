@@ -68,19 +68,6 @@
     $$('main > section').forEach(s => spy.observe(s));
   }
 
-  /* Work filter */
-  const chips = $$('.filter'), cards = $$('.card[data-cat]'), status = $('#filter-status');
-  chips.forEach(chip => chip.addEventListener('click', () => {
-    const cat = chip.dataset.filter;
-    chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-    let shown = 0;
-    cards.forEach(card => {
-      const ok = cat === 'all' || card.dataset.cat === cat;
-      card.hidden = !ok;
-      if (ok) shown++;
-    });
-    if (status) status.textContent = `${chip.textContent.trim()} · ${shown}개 프로젝트`;
-  }));
 
   /* Copy e-mail (works without a configured mail client) */
   const copyBtn = $('[data-copy-email]'), copyMsg = $('.copy-status');
